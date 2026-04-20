@@ -1,1 +1,0 @@
-import"./hoisted.nyuMmlZp.js";document.addEventListener("DOMContentLoaded",function(){var t=document.getElementById("btn-scroll-to-top");t&&t.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})})});
