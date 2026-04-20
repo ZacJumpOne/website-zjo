@@ -57,20 +57,30 @@ Es lo contrario: flotante funciona arriba, fijo funciona cuando llegas al footer
 ### Propuesta del Usuario
 > "dejarse el boton flotante con su implementacion, ahora lo que se debe hacer es que cuando aparezca el footer, aparezca al final dentro del card el boton de subir al inicio, es lo contrario del boton flotante"
 
-###Error修复失败
-编辑器把HTML弄乱了，修复不工作。
-
 ### NUEVA SOLICITUD
-简单 - 从头重新创建整个文件。
+Agregar botón flotante para regresar al inicio.
 
-### Tareas de Implementación (CORREGIDAS)
-- [ ] 从头重写整个 aviso-de-privacidad.astro 文件
-- [ ] 把所有 section 放在 `.privacy-content` div 里面
-- [ ] 把按钮 "Volver al inicio" 放在 `.privacy-content` div 里面
-- [ ] Verificar build
+## Análisis
+El aviso de privacidad es muy grande (largo). Necesitamos un botón flotante (fixed) siempre visible para volver al inicio de la página.
 
-### Importante
-直接重建整个文件，不要尝试修复现有的。
+## Estado Actual
+- Botón "Ir al inicio" al final del contenido (dentro del card)
+- Necesitamos UN BOTÓN FLOTANTE también
+
+## Propuesta
+Agregar botón flotante con:
+- position: fixed
+- Esquina inferior derecha
+-Diseño simple (fondo azul, flecha arriba)
+- onClick con window.scrollTo
+
+## Tareas de Implementación
+- [x] Agregar botón flotante en el HTML (fuera del main, antes de Footer)
+- [x] Agregar estilos CSS para posición fixed
+- [x] Verificar build
+
+## Siguiente Paso
+Confirmación del usuario.
 
 ## Siguiente Paso
 Confirmación del usuario para proceder.
