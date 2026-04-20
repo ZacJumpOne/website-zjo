@@ -139,9 +139,39 @@ Usar el `.privacy-container` (max-width: 900px) para posicionar el botón. Queda
 
 ### Tareas de Implementación
 - [x] Mover botón flotante dentro del `.privacy-container` div
-- [x] Agregar `position: relative` al `.privacy-container`
-- [x] Cambiar `position: fixed` a `position: absolute` en el botón
+- [x] Usar `position: fixed` + JavaScript para calcular posición `right` dinámicamente
+- [x] Agregar script para mostrar botón al inicio (fix: display: flex al cargar)
 - [x] Verificar build
 
 ## Siguiente Paso
 Confirmación del usuario para proceder.
+
+## Fase 10: Corregir visibilidad del botón flotante
+
+### Análisis
+El botón flotante estaba oculto al inicio porque el Intersection Observer lo ponía en `display: none` al cargar la página.
+
+### Solución
+Agregar línea de código para mostrar el botón al inicio: `floatingBtn.style.display = 'flex'`
+
+### Tareas de Implementación
+- [x] Agregar código para mostrar botón al cargar la página
+- [x] Verificar build
+
+## Fase 11: Corregir posición y toggle del botón flotante
+
+### Análisis
+- Botón visible pero mal posicionado
+- Necesita toggle: ocultar cuando el botón inline aparece y viceversa
+
+### Solución
+- Posición: right: 24px fixed (lado derecho, alineado con container)
+- Intersection Observer para toggle
+
+### Tareas de Implementación
+- [x] Corregir posición a right: dinámico
+- [x] Agregar Intersection Observer para show/hide
+- [x] Verificar build
+
+## Siguiente Paso
+Confirmación del usuario.

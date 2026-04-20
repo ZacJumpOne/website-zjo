@@ -409,29 +409,29 @@ const fechaActual = generales.aviso.fechaActualizacion;
             </button>
           </div>
         </div>
-
-        <!-- Botón flotante subir al inicio -->
-        <button
-          id="floating-scroll-to-top"
-          class="floating-scroll-btn"
-          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-          aria-label="Subir al inicio"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </button>
       </div>
     </main>
+
+    <!-- Botón flotante subir al inicio -->
+    <button
+      id="floating-scroll-to-top"
+      class="floating-scroll-btn"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Subir al inicio"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
 
     <Footer />
   </Layout>
@@ -473,6 +473,16 @@ const fechaActual = generales.aviso.fechaActualizacion;
 </ConfigProvider>
 
 <style>
+  /* Animación de entrada slideUp */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .privacy-container {
+    animation: slideUp 0.6s ease forwards;
+  }
+
   .privacy-main {
     padding-top: 100px;
     padding-bottom: 60px;
@@ -622,7 +632,9 @@ const fechaActual = generales.aviso.fechaActualizacion;
   /* Botón flotante */
   .floating-scroll-btn {
     position: fixed;
-    bottom: 24px;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 48px;
     height: 48px;
     background: #2563eb;
@@ -640,7 +652,7 @@ const fechaActual = generales.aviso.fechaActualizacion;
 
   .floating-scroll-btn:hover {
     background: #1d4ed8;
-    transform: translateY(-2px);
+    transform: translateX(-50%) translateY(-2px);
     box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
   }
 
