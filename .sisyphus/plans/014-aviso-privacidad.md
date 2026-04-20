@@ -109,5 +109,39 @@ Intersection Observer es más performante y no requiere cálculos en cada scroll
 - [x] Agregar lógica para mostrar/ocultar botón flotante
 - [x] Verificar build
 
+## Fase 9: Ajustar posición del botón flotante
+
+### Análisis
+El botón flotante está en `right: 24px` de la pantalla, lo cual lo pone en el borde derecho del viewport, muy separado del contenido del aviso de privacidad.
+
+Necesita sentirse como parte del aviso (dentro del card), no como un elemento ajeno.
+
+### Estado Actual
+- Contenido del aviso: `max-width: 900px` centrado
+- Botón flotante actual: `right: 24px` (borde del viewport)
+- El botón queda muy a la derecha,/desconectado del card
+
+### Opción A: position: absolute dentro del container
+- Envolver el botón dentro del `.privacy-content`
+- Usar `position: absolute` con `right: 24px` relativo al card
+- El botão queda al borde del card, no del viewport
+
+### Opción B: Calcular right basados en el container
+- Usar JavaScript para calcular la posición del container
+- Adjustar right dinámicamente
+
+### Opción C: Mover dentro del main y usar position absolute
+- Envolver boton dentro del `.privacy-container` (max-width: 900px)
+- Usar `position: absolute; right: 24px` relativo al container
+
+### Opción Recomendada: **Opción C**
+Usar el `.privacy-container` (max-width: 900px) para posicionar el botón. Queda alineado con el contenido, más integrado que Opción A.
+
+### Tareas de Implementación
+- [x] Mover botón flotante dentro del `.privacy-container` div
+- [x] Agregar `position: relative` al `.privacy-container`
+- [x] Cambiar `position: fixed` a `position: absolute` en el botón
+- [x] Verificar build
+
 ## Siguiente Paso
 Confirmación del usuario para proceder.

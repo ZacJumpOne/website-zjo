@@ -409,29 +409,29 @@ const fechaActual = generales.aviso.fechaActualizacion;
             </button>
           </div>
         </div>
+
+        <!-- Botón flotante subir al inicio -->
+        <button
+          id="floating-scroll-to-top"
+          class="floating-scroll-btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          aria-label="Subir al inicio"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
       </div>
     </main>
-
-    <!-- Botón flotante subir al inicio -->
-    <button
-      id="floating-scroll-to-top"
-      class="floating-scroll-btn"
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-      aria-label="Subir al inicio"
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    </button>
 
     <Footer />
   </Layout>
@@ -439,7 +439,26 @@ const fechaActual = generales.aviso.fechaActualizacion;
   <script>
     const inlineBtn = document.getElementById('btn-scroll-to-top');
     const floatingBtn = document.getElementById('floating-scroll-to-top');
+    const container = document.querySelector('.privacy-container');
 
+    // Posicionar botón alineado con el container
+    function posicionaBoton() {
+      if (container && floatingBtn) {
+        const containerRect = container.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        const containerRight = containerRect.right;
+
+        // Calcular right: distancia del borde derecho del container al borde derecho de la ventana
+        const right = windowWidth - containerRight + 24;
+        floatingBtn.style.right = right + 'px';
+      }
+    }
+
+    // reposicionar cuando cambia el tamaño de la ventana
+    window.addEventListener('resize', posicionaBoton);
+    posicionaBoton(); // Posición inicial
+
+    // Intersection Observer para mostrar/ocultar
     if (inlineBtn && floatingBtn) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -465,6 +484,7 @@ const fechaActual = generales.aviso.fechaActualizacion;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
   }
 
   .privacy-title {
@@ -603,7 +623,6 @@ const fechaActual = generales.aviso.fechaActualizacion;
   .floating-scroll-btn {
     position: fixed;
     bottom: 24px;
-    right: 24px;
     width: 48px;
     height: 48px;
     background: #2563eb;
