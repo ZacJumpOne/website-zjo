@@ -82,5 +82,32 @@ Agregar botón flotante con:
 ## Siguiente Paso
 Confirmación del usuario.
 
+## Fase 8: Ocultar/Mostrar botones con Intersection Observer
+
+### Análisis
+El usuario quiere que:
+- Cuando el botón "Ir al inicio" dentro del card sea visible → el botón flotante desaparece
+- Cuando el botón del card NO sea visible → el botón flotante aparece
+
+Es una lógica inversa: solo mostrar flotante cuando el botón del card está fuera de vista.
+
+### Opción A: Intersection Observer simple
+- Usar Intersection Observer para detectar visibilidad del botón inline
+- Cuando inline está visible → flotante hidden (display: none)
+- Cuando inline NO visible → flotante visible
+
+### Opción B: scroll event con throttle
+-监听 scroll event y calcular posición del botón inline
+- Alternar visibilidad basado en posición
+
+### Opción Recomendada: **Opción A**
+Intersection Observer es más performante y no requiere cálculos en cada scroll.
+
+### Tareas de Implementación
+- [x] Agregar id al botón inline "Ir al inicio" (si no tiene)
+- [x] Agregar script con Intersection Observer en aviso-de-privacidad.astro
+- [x] Agregar lógica para mostrar/ocultar botón flotante
+- [x] Verificar build
+
 ## Siguiente Paso
 Confirmación del usuario para proceder.

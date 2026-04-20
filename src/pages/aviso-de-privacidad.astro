@@ -435,6 +435,22 @@ const fechaActual = generales.aviso.fechaActualizacion;
 
     <Footer />
   </Layout>
+
+  <script>
+    const inlineBtn = document.getElementById('btn-scroll-to-top');
+    const floatingBtn = document.getElementById('floating-scroll-to-top');
+
+    if (inlineBtn && floatingBtn) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // Si el botón inline está visible → ocultar flotante
+          floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(inlineBtn);
+    }
+  </script>
 </ConfigProvider>
 
 <style>
