@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Portfolio from "../components/Portfolio.astro";
+import Clients from "../components/Clients.astro";
+import Feedback from "../components/Feedback.astro";
+import Social from "../components/Social.astro";
+import Footer from "../components/Footer.astro";
+import { ConfigProvider } from "antd";
+
+const antdConfig = {
+  token: {
+    colorPrimary: "#2563EB",
+    colorLink: "#10B981",
+    colorBgContainer: "#FFFFFF",
+    colorBgElevated: "#FFFFFF",
+    colorText: "#1E293B",
+    colorTextSecondary: "#64748B",
+    colorBorder: "#E2E8F0",
+    borderRadius: 8,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  },
+};
+---
+
+<ConfigProvider {...antdConfig}>
+  <Layout title="Zero Jump One | El software que lo hace posible">
+    <Header />
+    <main>
+      <Hero />
+      <Services />
+      <Portfolio />
+      <Clients />
+      <Feedback />
+      <Social />
+    </main>
+    <Footer />
+  </Layout>
+</ConfigProvider>
+
+<style is:global>
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+  }
+</style>

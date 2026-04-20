@@ -1,0 +1,320 @@
+---
+const clients = [
+  { name: "Fashion 21", short: "F21", color: "#8B5CF6", logo: "/images/fashion21.png" },
+  { name: "Aquaelectric", short: "AE", color: "#2563EB", logo: "/images/aquaelectric.png" },
+  { name: "Emers", short: "EM", color: "#10B981", logo: "/images/emers.png" },
+  { name: "AUZIG", short: "ZIG", color: "#8B5CF6", logo: "/images/auzig.png" },
+  { name: "Kids", short: "KDS", color: "#F59E0B", logo: "/images/kids.png" },
+  { name: "AltaTec", short: "AT", color: "#10B981", logo: "/images/altatec.png" },
+  { name: "Rosely", short: "RS", color: "#EC4899", logo: "/images/rosely.png" },  
+];
+---
+
+<section class="clients" id="clientes">
+  <div class="clients-bg-gradient"></div>
+
+  <div class="container">
+    <div class="section-header" data-animate>
+      <span class="section-label">Clientes</span>
+      <h2 class="section-title">Nuestros Clientes</h2>
+      <p class="section-subtitle">
+        Empresas que han confiado en nuestras soluciones
+      </p>
+    </div>
+  </div>
+
+  <div class="marquee-wrapper">
+    <div class="marquee-fade-left"></div>
+    <div class="marquee-fade-right"></div>
+
+    <div class="marquee" id="marquee">
+      <div class="marquee-content">
+        {
+          [...clients, ...clients, ...clients].map((client) => (
+            <div class="client-card" style={`--accent: ${client.color}`}>
+              <div class="client-logo">
+                {client.logo ? (
+                  <img src={client.logo} alt={client.name} class="logo-img" />
+                ) : (
+                  <svg viewBox="0 0 80 80" class="logo-svg">
+                    <rect
+                      x="4"
+                      y="4"
+                      width="72"
+                      height="72"
+                      rx="16"
+                      fill={`${client.color}15`}
+                    />
+                    <rect
+                      x="4"
+                      y="4"
+                      width="72"
+                      height="72"
+                      rx="16"
+                      fill="none"
+                      stroke={client.color}
+                      stroke-width="2"
+                    />
+                    <text
+                      x="40"
+                      y="48"
+                      text-anchor="middle"
+                      fill={client.color}
+                      font-size="24"
+                      font-weight="700"
+                      font-family="Inter, sans-serif"
+                    >
+                      {client.short}
+                    </text>
+                  </svg>
+                )}
+              </div>
+              <span class="client-name">{client.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section Header Animation */
+  .section-header {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .section-header.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .clients {
+    background: #ffffff;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .clients-bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    pointer-events: none;
+  }
+
+  /* Marquee */
+  .marquee-wrapper {
+    position: relative;
+    margin: 60px 0;
+    padding: 30px 0;
+  }
+
+  .marquee-fade-left,
+  .marquee-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .marquee-fade-left {
+    left: 0;
+    background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+  }
+
+  .marquee-fade-right {
+    right: 0;
+    background: linear-gradient(90deg, transparent 0%, #ffffff 100%);
+  }
+
+  .marquee {
+    overflow: visible;
+    cursor: grab;
+  }
+
+  .marquee:active {
+    cursor: grabbing;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 32px;
+    animation: scroll 40s linear infinite;
+  }
+
+  .marquee:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-20%);
+    }
+  }
+
+  /* Client Card */
+  .client-card {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .client-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .client-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  .client-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .client-logo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-svg {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.4s ease;
+  }
+
+  .logo-img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .client-card:hover .logo-svg,
+  .client-card:hover .logo-img {
+    transform: scale(1.1);
+  }
+
+  .client-name {
+    position: relative;
+    z-index: 1;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .client-card:hover .client-name {
+    color: #0f172a;
+  }
+
+  @media (max-width: 768px) {
+    .clients {
+      padding: 60px 0;
+    }
+
+    .marquee-wrapper {
+      margin: 40px 0;
+    }
+
+    .marquee-content {
+      gap: 20px;
+    }
+
+    .client-card {
+      min-width: 120px;
+      padding: 16px 20px;
+    }
+
+    .logo-svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo-img {
+      max-width: 100%;
+    }
+
+    .client-name {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const marquee = document.getElementById("marquee");
+  let isDown = false;
+  let startX: number;
+  let scrollLeft: number;
+
+  if (marquee) {
+    marquee.addEventListener("mousedown", (e) => {
+      isDown = true;
+      marquee.style.animationPlayState = "paused";
+      startX = (e as MouseEvent).pageX - marquee.offsetLeft;
+      scrollLeft = marquee.scrollLeft;
+    });
+
+    marquee.addEventListener("mouseleave", () => {
+      isDown = false;
+      marquee.style.animationPlayState = "";
+    });
+
+    marquee.addEventListener("mouseup", () => {
+      isDown = false;
+      marquee.style.animationPlayState = "";
+    });
+
+    marquee.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = (e as MouseEvent).pageX - marquee.offsetLeft;
+      const walk = (x - startX) * 2;
+      marquee.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
+</script>

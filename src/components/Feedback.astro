@@ -1,0 +1,75 @@
+---
+import { Button } from 'antd';
+import { MessageOutlined } from '@ant-design/icons';
+---
+
+<section class="feedback" id="contacto">
+  <div class="container feedback-content">
+    <span class="feedback-emoji">
+      <MessageOutlined />
+    </span>
+    <h2 class="feedback-title">La retro-alimentacion es importante</h2>
+    <p class="feedback-description">Ayudenos a mejorar nuestros servicios</p>
+    <Button type="primary" size="large">
+      <MessageOutlined /> Dar Feedback
+    </Button>
+  </div>
+</section>
+
+<style>
+  .feedback {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .feedback-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .feedback-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .feedback-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .feedback-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+
+  .feedback :global(.ant-btn) {
+    height: 52px;
+    padding: 0 36px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    background: white;
+    color: var(--primary);
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  .feedback :global(.ant-btn:hover) {
+    background: white;
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+</style>

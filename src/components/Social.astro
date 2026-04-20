@@ -1,0 +1,172 @@
+---
+import {
+  FacebookOutlined,
+  TwitterOutlined,
+  YoutubeOutlined,
+  LinkedinOutlined,
+  InstagramOutlined,
+  XOutlined,
+} from "@ant-design/icons";
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    icon: "FacebookOutlined",
+    href: "https://www.facebook.com/ZeroJumpOne",
+  },
+  {
+    name: "Twitter",
+    icon: "TwitterOutlined",
+    href: "https://twitter.com/ZeroJumpOne",
+  },
+  {
+    name: "YouTube",
+    icon: "YoutubeOutlined",
+    href: "https://www.youtube.com/channel/UCq_l30b7vU3CGOCmS3rr1vQ",
+  },
+  {
+    name: "LinkedIn",
+    icon: "LinkedinOutlined",
+    href: "https://www.linkedin.com/in/isaac-hdez-castro-32570387/",
+  },
+  {
+    name: "Instagram",
+    icon: "InstagramOutlined",
+    href: "https://www.instagram.com/zerojumpone/",
+  },
+];
+---
+
+<section class="social">
+  <div class="container">
+    <div class="social-content">
+      <h2 class="social-title" data-animate>Unase a Nosotros</h2>
+      <p class="social-description" data-animate>
+        Siganos en las redes sociales
+      </p>
+
+      <div class="social-links">
+        {
+          socialLinks.map((social, index) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              style={`--delay: ${index * 0.1}s`}
+              data-animate
+            >
+              <span class="social-icon">
+                {social.icon === "FacebookOutlined" && <FacebookOutlined />}
+                {social.icon === "TwitterOutlined" && <XOutlined />}
+                {social.icon === "YoutubeOutlined" && <YoutubeOutlined />}
+                {social.icon === "LinkedinOutlined" && <LinkedinOutlined />}
+                {social.icon === "InstagramOutlined" && <InstagramOutlined />}
+              </span>
+              <span class="social-name">{social.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social {
+    background: var(--bg-light);
+    padding: 80px 20px;
+  }
+
+  .social-content {
+    text-align: center;
+  }
+
+  .social-title {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+  }
+
+  .social-description {
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 24px;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-width: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .social-icon {
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    transition: color 0.2s ease;
+  }
+
+  .social-link:hover .social-icon {
+    color: var(--primary);
+  }
+
+  .social-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .social {
+      padding: 60px 16px;
+    }
+
+    .social-links {
+      gap: 12px;
+    }
+
+    .social-link {
+      padding: 16px 20px;
+      min-width: 80px;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
+</script>

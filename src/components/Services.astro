@@ -1,0 +1,436 @@
+---
+import {
+  MonitorOutlined,
+  CustomerServiceOutlined,
+  ControlOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
+
+const services = [
+  {
+    iconName: "MonitorOutlined",
+    title: "Monitoreo",
+    description:
+      "Control y supervision en tiempo real por  nuestro personal de los procesos de su empresa.",
+    features: [
+      "Tareas automatizadas",
+      "Respaldos",
+      "Auditoria a la base de datos",
+    ],
+  },
+  {
+    iconName: "CustomerServiceOutlined",
+    title: "Respuesta",
+    description:
+      "Atencion inmediata y solución efectiva a cada una de sus necesidades. Soporte especializado 24/7",
+    features: [
+      "Soporte dedicado",
+      "Tiempo de respuesta rapido",
+      "Atencion personalizada",
+    ],
+  },
+  {
+    iconName: "ControlOutlined",
+    title: "Control",
+    description:
+      "Sistemas diseñados para trabajar conjuntamente y escalar con su negocio.",
+    features: [
+      "Sin islas de información",
+      "Integración total entre sus procesos",
+      "Escalabilidad, nunca obsoleto",
+    ],
+  },
+];
+---
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Servicios</span>
+      <h2 class="section-title">Tu Mejor Eleccion</h2>
+      <p class="section-subtitle">
+        Tres pilares fundamentales para el exito de tu negocio
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {
+        services.map((service, index) => (
+          <div
+            class="service-card"
+            data-tilt
+            style={`--delay: ${index * 0.15}s`}
+          >
+            <div class="card-glow" />
+            <div class="card-content">
+              <div class="card-icon-wrapper">
+                <div class="card-icon-bg" />
+                <div class="card-icon">
+                  {service.iconName === "MonitorOutlined" && (
+                    <MonitorOutlined />
+                  )}
+                  {service.iconName === "CustomerServiceOutlined" && (
+                    <CustomerServiceOutlined />
+                  )}
+                  {service.iconName === "ControlOutlined" && (
+                    <ControlOutlined />
+                  )}
+                </div>
+                <div class="icon-shine" />
+              </div>
+
+              <div class="card-text">
+                <h3 class="card-title">{service.title}</h3>
+                <p class="card-description">{service.description}</p>
+              </div>
+
+              <ul class="card-features">
+                {service.features.map((feature) => (
+                  <li class="feature-item">
+                    <svg
+                      class="feature-check"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#portafolio" class="card-cta">
+                <span>Explorar</span>
+                <div class="cta-icon">
+                  <ArrowRightOutlined />
+                </div>
+                <div class="cta-shine" />
+              </a>
+            </div>
+
+            <div class="card-border" />
+            <div class="card-reflection" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+    border-radius: 24px;
+    padding: 40px 32px;
+    cursor: pointer;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+    animation-delay: var(--delay);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #2563eb 0%, #10b981 50%, #2563eb 100%);
+    border-radius: 26px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(20px);
+  }
+
+  .service-card:hover .card-glow {
+    opacity: 0.15;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 28px;
+  }
+
+  .card-icon-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.1) 0%,
+      rgba(16, 185, 129, 0.1) 100%
+    );
+    border-radius: 20px;
+    transform: rotate(0deg);
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover .card-icon-bg {
+    transform: rotate(10deg);
+  }
+
+  .card-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #2563eb;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover .card-icon {
+    transform: scale(1.1);
+    color: #1d4ed8;
+  }
+
+  .icon-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    border-radius: 20px;
+    transition: left 0.6s ease;
+  }
+
+  .service-card:hover .icon-shine {
+    left: 100%;
+  }
+
+  .card-text {
+    margin-bottom: 24px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .card-description {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .card-features {
+    list-style: none;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #475569;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .feature-item {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .feature-check {
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .card-cta:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+  }
+
+  .cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  .card-cta:hover .cta-icon {
+    transform: rotate(45deg);
+  }
+
+  .cta-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .card-cta:hover .cta-shine {
+    left: 100%;
+  }
+
+  .card-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover .card-border {
+    border-color: #2563eb;
+    box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+
+  .card-reflection {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 60px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .service-card:hover .card-reflection {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      padding: 80px 16px;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 32px 24px;
+    }
+
+    .card-icon-wrapper {
+      width: 64px;
+      height: 64px;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  document
+    .querySelectorAll("[data-tilt]")
+    .forEach((el) => observer.observe(el));
+</script>

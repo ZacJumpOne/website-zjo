@@ -1,0 +1,290 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { ConfigProvider } from "antd";
+import { ArrowLeftOutlined, PlayCircleOutlined, CheckOutlined } from "@ant-design/icons";
+import { portfolioData } from "../../data/portfolio";
+
+export function getStaticPaths() {
+  return portfolioData.map((item) => ({
+    params: { slug: item.slug },
+    props: { solucion: item },
+  }));
+}
+
+const { solucion } = Astro.props;
+
+const antdConfig = {
+  token: {
+    colorPrimary: "#2563EB",
+    colorLink: "#10B981",
+    colorBgContainer: "#FFFFFF",
+    colorBgElevated: "#FFFFFF",
+    colorText: "#1E293B",
+    colorTextSecondary: "#64748B",
+    colorBorder: "#E2E8F0",
+    borderRadius: 8,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  },
+};
+---
+
+<ConfigProvider {...antdConfig}>
+  <Layout title={`${solucion.title} | Zero Jump One`}>
+    <Header />
+
+    <main class="solucion-detalle">
+      <div class="container">
+        <a href="/#portafolio" class="back-link">
+          <ArrowLeftOutlined />
+          <span>Volver al portafolio</span>
+        </a>
+
+        <div class="solucion-card">
+          <div class="solucion-visual">
+            <img
+              src={solucion.imageUrl}
+              alt={solucion.title}
+            />
+            <span class="solucion-tag">{solucion.tag}</span>
+            {solucion.videoUrl && (
+              <a href={solucion.videoUrl} target="_blank" rel="noopener noreferrer" class="video-thumbnail">
+                <img src="/images/youtube_erp.png" alt="Ver video" />
+                <div class="play-overlay">
+                  <PlayCircleOutlined />
+                </div>
+              </a>
+            )}
+          </div>
+
+          <div class="solucion-body">
+            <h1 class="solucion-titulo">{solucion.title}</h1>
+            <p class="solucion-descripcion">{solucion.description}</p>
+
+            {solucion.features && solucion.features.length > 0 && (
+              <div class="features-list">
+                <h3 class="features-title">Características</h3>
+                <ul>
+                  {solucion.features.map((feature) => (
+                    <li>
+                      <CheckOutlined />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </Layout>
+</ConfigProvider>
+
+<style>
+  .solucion-detalle {
+    padding: 120px 20px;
+    min-height: 100vh;
+    background: #f8fafc;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: #1d4ed8;
+    gap: 12px;
+  }
+
+  .solucion-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    animation: slideUp 0.6s ease forwards;
+  }
+
+  .solucion-visual {
+    position: relative;
+    height: 300px;
+    background: #1e293b;
+  }
+
+  .solucion-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .solucion-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    background: #10b981;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .solucion-body {
+    padding: 40px;
+  }
+
+  .solucion-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    animation: slideUp 0.7s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  .solucion-descripcion {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.7;
+    animation: slideUp 0.7s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solucion-detalle {
+      padding: 80px 16px;
+    }
+
+    .solucion-visual {
+      height: 200px;
+    }
+
+    .solucion-body {
+      padding: 24px;
+    }
+
+    .solucion-titulo {
+      font-size: 1.5rem;
+    }
+  }
+
+  .video-thumbnail {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 144px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    outline: 3px solid white;
+    outline-offset: 2px;
+    animation: border-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes border-pulse {
+    0%, 100% { outline-color: white; }
+    50% { outline-color: transparent; }
+  }
+
+  .video-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+  }
+
+  .video-thumbnail:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .play-overlay :global(.anticon) {
+    font-size: 1.8rem;
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  .features-list {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .features-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+  }
+
+  .features-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-size: 0.95rem;
+  }
+
+  .features-list li :global(.anticon) {
+    color: #10b981;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 600px) {
+    .features-list ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

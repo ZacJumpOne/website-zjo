@@ -1,0 +1,402 @@
+---
+import {
+  BankOutlined,
+  SkinOutlined,
+  ShopOutlined,
+  ExperimentOutlined,
+  BuildOutlined,
+  CodeOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
+import { portfolioData } from "../data/portfolio";
+
+const portfolioItems = portfolioData;
+---
+
+<section class="portfolio" id="portafolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Portafolio</span>
+      <h2 class="section-title">Nuestras Soluciones</h2>
+      <p class="section-subtitle">Software a la medida para cada necesidad</p>
+    </div>
+
+    <div class="portfolio-grid">
+      {
+        portfolioItems.map((item, index) => (
+          <div
+            class="portfolio-card"
+            data-tilt
+            style={`--delay: ${(index % 3) * 0.12}s`}
+          >
+            <div
+              class="card-visual"
+              style={`background-image: url('${item.imageUrl}');`}
+            >
+              <div class="card-overlay" />
+              <div class="card-image-bg">
+                <div class="bg-pattern" />
+              </div>
+              <div class="card-icon-container">
+                <div class="card-icon-ring">
+                  <div class="card-icon">
+                    {item.iconName === "BankOutlined" && <BankOutlined />}
+                    {item.iconName === "ShopOutlined" && <ShopOutlined />}
+                    {item.iconName === "SkinOutlined" && <SkinOutlined />}
+                    {item.iconName === "ExperimentOutlined" && (
+                      <ExperimentOutlined />
+                    )}
+                    {item.iconName === "BuildOutlined" && <BuildOutlined />}
+                    {item.iconName === "CodeOutlined" && <CodeOutlined />}
+                  </div>
+                </div>
+              </div>
+              <span class="card-tag">{item.tag}</span>
+            </div>
+
+            <div
+              class={`card-body ${item.bodyImage ? "with-image" : ""}`}
+              style={
+                item.bodyImage
+                  ? `--card-bg-image: url('${item.bodyImage}'); ${item.bodyImageSize ? `--card-bg-size: ${item.bodyImageSize}` : ""}`
+                  : ""
+              }
+            >
+              <h3 class="card-title">{item.title}</h3>
+              <p class="card-description">{item.shortDescription}</p>
+            </div>
+
+            <a href={`/solucion/${item.slug}`} class="card-footer">
+              <span>Ver detalles</span>
+              <div class="footer-arrow">
+                <ArrowRightOutlined />
+                <div class="arrow-trail" />
+              </div>
+            </a>
+
+            <div class="card-glow-effect" />
+            <div class="card-noise" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    background: #f8fafc;
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .portfolio-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+    animation: cardFadeIn 0.7s ease backwards;
+    animation-delay: var(--delay);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  }
+
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+
+  .card-visual {
+    position: relative;
+    height: 160px;
+    background-color: #1e293b;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.4) 0%,
+      rgba(15, 23, 42, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
+  .card-image-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    z-index: 0;
+  }
+
+  .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 255, 255, 0.3) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(255, 255, 255, 0.25) 1px,
+        transparent 1px
+      );
+    background-size:
+      40px 40px,
+      60px 60px,
+      30px 30px;
+  }
+
+  .card-icon-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .card-icon-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  .portfolio-card:hover .card-icon-ring {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    color: white;
+    transition: all 0.4s ease;
+  }
+
+  .portfolio-card:hover .card-icon {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  .card-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    background: #10b981;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 2;
+  }
+
+  .card-body {
+    padding: 28px 28px 20px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 65%;
+    min-height: 140px;
+    height: 140px;
+    box-sizing: border-box;
+  }
+
+  .card-body.with-image {
+    background-image: var(--card-bg-image, none);
+    background-size: var(--card-bg-size, 65%);
+  }
+
+  .card-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 0;
+  }
+
+  .card-body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .card-description {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 28px 14px;
+    height: 48px;
+    box-sizing: border-box;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-top: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .card-footer:hover {
+    color: #1d4ed8;
+    background: #f8fafc;
+  }
+
+  .footer-arrow {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .card-footer:hover .footer-arrow {
+    background: #2563eb;
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .arrow-trail {
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #2563eb;
+    right: 100%;
+    transition: width 0.3s ease;
+  }
+
+  .card-footer:hover .arrow-trail {
+    width: 8px;
+    margin-right: 4px;
+  }
+
+  .card-glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(
+      180deg,
+      rgba(37, 99, 235, 0.05) 0%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .portfolio-card:hover .card-glow-effect {
+    opacity: 1;
+  }
+
+  .card-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  @media (max-width: 768px) {
+    .portfolio {
+      padding: 80px 16px;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .card-visual {
+      height: 140px;
+    }
+
+    .card-icon-ring {
+      width: 64px;
+      height: 64px;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  document
+    .querySelectorAll("[data-tilt]")
+    .forEach((el) => observer.observe(el));
+</script>

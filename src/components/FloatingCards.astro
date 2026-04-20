@@ -1,0 +1,342 @@
+---
+import * as Icons from "@ant-design/icons";
+
+interface FloatingCard {
+  icon: string;
+  text: string;
+  position: "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center";
+  iconSize?: string;
+}
+
+interface Props {
+  mainImage: string;
+  mainImageAlt?: string;
+  mainImagePosition?: string;
+  cardTitle?: string;
+  floatingCards: FloatingCard[];
+  class?: string;
+}
+
+const {
+  mainImage,
+  mainImageAlt = "card image",
+  mainImagePosition,
+  cardTitle = "Dashboard",
+  floatingCards = [],
+  class: className = "",
+} = Astro.props;
+
+function getIcon(name: string) {
+  return (Icons as any)[name];
+}
+---
+
+<div class={`cards-visual ${className}`}>
+  <!-- Main Card CON imagen cover -->
+  <div
+    class={`visual-card main-card image-position-${mainImagePosition}`}
+    style={`background-image: url(${mainImage});`}
+  >
+    <div class="card-overlay">
+      <div class="card-header">
+        <div class="card-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="card-title">{cardTitle}</span>
+      </div>
+      <!-- Solo imagen cover -->
+    </div>
+  </div>
+
+  <!-- Floating Cards -->
+  <div class="floating-cards">
+    {
+      floatingCards.map((card) => {
+        const IconComponent = getIcon(card.icon);
+        return (
+          <div class={`visual-card floating-card position-${card.position}`}>
+            {IconComponent && (
+              <IconComponent 
+                class="card-icon" 
+                style={{ fontSize: card.iconSize || "1.25rem" }}
+              />
+            )}
+            <span>{card.text}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div class="visual-decoration"></div>
+</div>
+
+<style>
+  .cards-visual {
+    position: relative;
+    height: 400px;
+  }
+
+  /* Main Card */
+  .visual-card {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+
+  .main-card {
+    width: 80%;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* Imagen Cover - Posiciones */
+  /* Posiciones TOP: offset de 48px para quedar 2px detrás del header */
+  .main-card.image-position-top-left {
+    background-position: left 48px;
+  }
+  .main-card.image-position-top-center {
+    background-position: center 48px;
+  }
+  .main-card.image-position-top-right {
+    background-position: right 48px;
+  }
+  /* Posiciones CENTER y BOTTOM: sin offset */
+  .main-card.image-position-center-left {
+    background-position: left center;
+  }
+  .main-card.image-position-center {
+    background-position: center center;
+  }
+  .main-card.image-position-center-right {
+    background-position: right center;
+  }
+  .main-card.image-position-bottom-left {
+    background-position: left bottom;
+  }
+  .main-card.image-position-bottom-center {
+    background-position: center bottom;
+  }
+  .main-card.image-position-bottom-right {
+    background-position: right bottom;
+  }
+
+  .card-overlay {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.15) 50%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
+    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    border-radius: 16px 16px 0 0;
+    z-index: 10;
+  }
+
+  .card-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .card-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e2e8f0;
+  }
+
+  .card-dots span:first-child {
+    background: #ef4444;
+  }
+
+  .card-dots span:nth-child(2) {
+    background: #f59e0b;
+  }
+
+  .card-dots span:nth-child(3) {
+    background: #22c55e;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+
+  /* Floating Cards */
+  .floating-cards {
+    position: absolute;
+    inset: 0;
+  }
+
+  .floating-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    z-index: 3;
+    transition: all 0.3s ease;
+  }
+
+  .floating-card:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .floating-card :global(.card-icon) {
+    font-size: 1.25rem;
+    color: #2563eb;
+  }
+
+  .floating-card span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+  }
+
+  /* Floating Cards - Posiciones */
+  .floating-card.position-top-left {
+    top: 5%;
+    left: 0;
+    animation: floatCard 6s ease-in-out infinite;
+  }
+
+  .floating-card.position-top-right {
+    top: 5%;
+    right: 0;
+    animation: floatCard 7s ease-in-out infinite 0.5s;
+  }
+
+  .floating-card.position-bottom-left {
+    bottom: 10%;
+    left: 0;
+    animation: floatCard 8s ease-in-out infinite 1s;
+  }
+
+  .floating-card.position-bottom-right {
+    bottom: 10%;
+    right: 0;
+    animation: floatCard 6.5s ease-in-out infinite 1.5s;
+  }
+
+  .floating-card.position-top-center {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatCard 6s ease-in-out infinite;
+  }
+
+  .floating-card.position-bottom-center {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatCard 6.5s ease-in-out infinite 1s;
+  }
+
+  @keyframes floatCard {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .visual-decoration {
+    position: absolute;
+    bottom: -20px;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.1),
+      rgba(16, 185, 129, 0.1)
+    );
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .cards-visual {
+      height: 300px;
+    }
+
+    .main-card {
+      height: 200px;
+    }
+
+    .floating-card {
+      padding: 10px 14px;
+    }
+
+    .floating-card span {
+      display: none;
+    }
+
+    .floating-card.position-top-left {
+      top: 0;
+      left: -5%;
+    }
+
+    .floating-card.position-top-right {
+      top: 0;
+      right: -5%;
+    }
+
+    .floating-card.position-bottom-left {
+      bottom: 20%;
+      left: -5%;
+    }
+
+    .floating-card.position-bottom-right {
+      bottom: 20%;
+      right: -5%;
+    }
+
+    .floating-card.position-top-center {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+    }
+
+    .floating-card.position-bottom-center {
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+    }
+  }
+</style>

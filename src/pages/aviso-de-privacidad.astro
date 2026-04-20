@@ -1,0 +1,436 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ConfigProvider } from "antd";
+import { generales } from "../data/generales";
+
+const antdConfig = {
+  token: {
+    colorPrimary: "#2563EB",
+    colorLink: "#10B981",
+    colorBgContainer: "#FFFFFF",
+    colorBgElevated: "#FFFFFF",
+    colorText: "#1E293B",
+    colorTextSecondary: "#64748B",
+    colorBorder: "#E2E8F0",
+    borderRadius: 8,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  },
+};
+
+const fechaActual = generales.aviso.fechaActualizacion;
+---
+
+<ConfigProvider {...antdConfig}>
+  <Layout title="Aviso de Privacidad | Zero Jump One">
+    <Header />
+    <main class="privacy-main">
+      <div class="privacy-container">
+        <a href="/#footer" class="privacy-back">
+          <span>← Volver</span>
+        </a>
+        <h1 class="privacy-title">Aviso de Privacidad Integral</h1>
+
+        <div class="privacy-content">
+          <p class="privacy-date">
+            Fecha de última actualización: {fechaActual}
+          </p>
+
+          <section class="privacy-section">
+            <h2>Responsable del tratamiento de sus datos personales</h2>
+            <p>
+              <strong>Isaac Hernández Castro</strong>, persona física con
+              actividad empresarial, con RFC HECI710417HD7, domicilio en
+              Hacienda de los eucaliptos 72 int 5, Col. Hacienda Real, 45426,
+              Tonalá, Jalisco, es el responsable de recabar, usar, proteger y
+              decidir sobre el tratamiento de sus datos personales, en
+              cumplimiento a lo dispuesto por la Ley Federal de Protección de
+              Datos Personales en Posesión de los Particulares (LFPDPPP) y su
+              Reglamento.
+            </p>
+            <p>
+              Para efectos comerciales y de operación, Isaac Hernández Castro
+              desarrolla su actividad empresarial bajo el nombre comercial <strong>"Zero Jump One"</strong>,
+              dedicada al desarrollo de software y servicios tecnológicos.
+              Dentro de esta actividad, el sistema ERP que se ofrece se denomina <strong>"ERP Jump One"</strong>.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>¿Qué datos personales recabamos y de dónde los obtenemos?</h2>
+            <p>
+              Para llevar a cabo las finalidades señaladas en el presente Aviso
+              de Privacidad, Isaac Hernández Castro puede recabar sus datos
+              personales de forma directa a través de su sitio web, formularios
+              de contacto, correo electrónico o al contratar los servicios del
+              sistema ERP Jump One:
+            </p>
+            <ul>
+              <li>
+                <strong>Datos de identificación y contacto:</strong> Nombre completo,
+                nombre de la empresa para la que labora, correo electrónico, teléfono,
+                puesto dentro de la empresa y dirección fiscal.
+              </li>
+              <li>
+                <strong>Datos laborales y profesionales:</strong> Experiencia en el
+                uso de software, habilidades técnicas necesarias para brindar soporte
+                especializado.
+              </li>
+              <li>
+                <strong>Datos de navegación:</strong> Dirección IP, tipo de navegador,
+                sistema operativo, páginas visitadas dentro del sitio web y tiempos
+                de interacción (mediante cookies técnicas y analíticas).
+              </li>
+              <li>
+                <strong>Datos de operación dentro de ERP Jump One:</strong> Registros
+                de acceso, logs de actividad, configuraciones realizadas y datos de
+                respaldo. Isaac Hernández Castro no revisa el contenido de las bases
+                de datos comerciales de sus clientes a menos que sea estrictamente necesario
+                para resolver una incidencia técnica autorizada por usted.
+              </li>
+            </ul>
+            <p class="privacy-note">
+              <strong>Datos personales sensibles:</strong> No se recaban datos personales
+              sensibles (como ideología política, creencias religiosas, salud, origen
+              racial o étnico, orientación sexual o datos biométricos) a menos que
+              sea estrictamente necesario para una funcion específica de ERP Jump
+              One y medie su consentimiento expreso y por escrito.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>¿Para qué usamos sus datos personales? (Finalidades del tratamiento)</h2>
+            
+            <h3>Finalidades primarias</h3>
+            <p class="privacy-subtitle">
+              Necesarias para la existencia y cumplimiento de la relación jurídica:
+            </p>
+            <ul>
+              <li>Proveer los servicios de desarrollo de software y acceso a la plataforma ERP Jump One.</li>
+              <li>Identificar y autenticar a los usuarios autorizados para acceder al sistema.</li>
+              <li>Facturar y gestionar el cobro de los servicios contratados, emitiendo los Comprobantes Fiscales Digitales por Internet (CFDI) requeridos por el SAT.</li>
+              <li>Brindar soporte técnico, atención a quejas, aclararaciones y mantenimiento de ERP Jump One.</li>
+              <li>Cumplir con obligaciones fiscales y de facturación ante el Servicio de Administración Tributaria (SAT) y otras autoridades fiscales.</li>
+            </ul>
+
+            <h3>Finalidades secundarias</h3>
+            <p class="privacy-subtitle">Mercadotecnia, publicidad y prospección comercial:</p>
+            <ul>
+              <li>Enviarle comunicaciones sobre nuevas versiones de ERP Jump One, actualizaciones de seguridad o funcionalidades adicionales.</li>
+              <li>Realizar encuestas para evaluar la calidad del servicio.</li>
+              <li>Enviarle información de eventos, webinars o promociones relacionadas con los servicios ofrecidos bajo el nombre comercial Zero Jump One.</li>
+            </ul>
+            <p class="privacy-note">
+              Nota: Usted puede negarse a que sus datos sean usados para las finalidades secundarias. Si no desea recibir comunicaciones comerciales, puede enviar un correo a <strong>aviso.privacidad@zerojumpone.com</strong> con el asunto "Renuncia a finalidades secundarias" o marcar/desmarcar la casilla correspondiente en los formularios de contacto.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Fundamento legal para el tratamiento</h2>
+            <p>
+              El tratamiento de sus datos personales se sustenta en el <strong>artículo 10 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>,
+              específicamente por ser necesario para el cumplimiento de la relación jurídica existente entre el responsable y el titular (finalidades primarias). Para las finalidades secundarias, se obtendrá su consentimiento expreso cuando así sea requerido por la ley.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Decisiones automatizadas</h2>
+            <p>
+              Le informamos que ERP Jump One no utiliza procesos de toma de decisiones automatizadas que produzcan efectos jurídicos significativos para los titulares de los datos, ni realiza perfiles basados en inteligencia artificial sin intervención humana. En caso de que en el futuro se implementen este tipo de tecnologías, se lo notificaremos previamente mediante una actualización al presente Aviso de Privacidad.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Plazos de conservación de sus datos personales</h2>
+            <p>
+              Sus datos personales serán conservados durante el tiempo necesario para cumplir con las finalidades descritas en este Aviso de Privacidad, así como para atender posibles responsabilidades legales o fiscales derivadas de la relación comercial. Una vez cumplidas dichas finalidades, sus datos serán cancelados y, en su caso, bloqueados para su uso posterior, salvo que la ley establezca un plazo distinto (por ejemplo, obligaciones fiscales que pueden extenderse hasta 5 años según el Código Fiscal de la Federación).
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Uso de cookies y tecnologías similares</h2>
+            <p>
+              Se le informa que en el sitio web se utilizan cookies propias y de terceros para mantener la sesión del usuario, mejorar la experiencia de navegación y analisar el tráfico. Usted puede configurar su navegador para bloquearlas; sin embargo, la desactivación de cookies esenciales podría afectar el funcionamiento del sitio o el acceso al área de clientes de ERP Jump One.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Transferencias de datos personales</h2>
+
+            <h3>Escenario habitual (alojamiento en servidores del cliente)</h3>
+            <p>
+              En el escenario estándar de operación de ERP Jump One, la plataforma se instala y opera en servidores privados propiedad del cliente o bajo su control directo. En este caso:
+            </p>
+            <ul>
+              <li>No se realiza ninguna transferencia de datos personales a servidores controlados por Isaac Hernández Castro o por terceros proveedores de nube.</li>
+              <li>El cliente actúa como responsable del tratamiento de sus propios datos, e Isaac Hernández Castro únicamente proporciona el software y soporte técnico sin acceder a las bases de datos comerciales, salvo autorización expresa para resolver incidencias.</li>
+            </ul>
+
+            <h3>Escenario eventual (alojamiento en la nube, con consentimiento)</h3>
+            <p>
+              Existe la posibilidad eventual, previo acuerdo por escrito con el cliente, de que ERP Jump One sea alojado en infraestructura de nube administrada por Isaac Hernández Castro. En este escenario, que solo ocurrirá con su consentimiento expreso, los datos personales podrán ser transferidos a:
+            </p>
+            <ul>
+              <li><strong>Proveedores de infraestructura tecnológica (nube):</strong> Empresas como Amazon Web Services (AWS), Google Cloud, Microsoft Azure u otros proveedores de servidores dedicados, para garantizar el almacenamiento seguro y la operación del software.</li>
+            </ul>
+            <p>En todos los casos, estos proveedores firman contratos de confidencialidad y procesan los datos únicamente siguiendo las instrucciones del responsable.</p>
+            <p class="privacy-note">
+              Nota importante: Si usted prefiere que sus datos no sean alojados en la nube, puede solicitar la modalidad de instalación en servidores propios, la cual es el estándar de ERP Jump One.
+            </p>
+            <p class="privacy-warning">
+              No se venden, rentan ni comparten sus datos personales con terceros ajenos al servicio de ERP Jump One para fines publicitarios bajo ninguna circunstancia.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Derechos ARCO y revocación del consentimiento</h2>
+            <p>
+              Usted o su representante legal tiene derecho a conocer qué datos personales se tienen de usted, para qué se usan y las condiciones del uso (<strong>Acceso</strong>); a solicitar la corrección de su información si está desactualizada o es inexacta (<strong>Rectificación</strong>); a solicitar la eliminación de sus datos de los registros cuando ya no sean necesarios para el servicio (<strong>Cancelación</strong>); así como a oponerse al uso de sus datos para fines específicos (<strong>Oposición</strong>). La ley también reconoce el derecho a la portabilidad de sus datos, es decir, a recibirlos en un formato estructurado y transferirlos a otro responsable.
+            </p>
+            <p>
+              Para ejercer sus Derechos ARCO o revocar su consentimiento, deberá presentar una solicitud vía correo electrónico a: <strong>aviso.privacidad@zerojumpone.com</strong>, misma que deberá contener:
+            </p>
+            <ul>
+              <li>Nombre completo y correo electrónico asociado a su cuenta.</li>
+              <li>Descripción clara de los datos respecto a los cuales busca ejercer algún derecho.</li>
+              <li>La documentación que acredite su identidad (INE, Pasaporte o Cédula profesional) o la personalidad del representante.</li>
+            </ul>
+            <p class="privacy-note">
+              Se responderá a su solicitud en un plazo máximo de <strong>20 días hábiles</strong>, conforme a lo establecido en la LFPDPPP.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Limitación de uso o divulgación de sus datos</h2>
+            <p>
+              Usted podrá limitar el uso o divulgación de sus datos personales enviando un correo a <strong>aviso.privacidad@zerojumpone.com</strong>. Si su solicitud resulta procedente, se le registrará en el listado de exclusión para dejar de tratar sus datos con fines secundarios.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Medidas de seguridad</h2>
+            <p>
+              Isaac Hernández Castro implementa medidas de seguridad administrativas, físicas y técnicas, como cifrado de datos (SSL/TLS), firewalls y acceso restringido a bases de datos, con el objetivo de proteger su información contra daño, pérdida, alteración, destrucción o el uso, acceso o tratamiento no autorizado.
+            </p>
+            <p>
+              En el escenario de alojamiento en servidores del cliente, es responsabilidad del cliente implementar y mantener sus propias medidas de seguridad sobre la infraestructura. En el escenario de alojamiento en nube administrada por Isaac Hernández Castro, se aplicarán las medidas de seguridad descritas anteriormente.
+            </p>
+            <p class="privacy-warning">
+              A pesar de lo anterior, ninguna transmisión por Internet es 100% segura, por lo que se le recomienda mantener seguras sus credenciales de acceso a ERP Jump One.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Notificación de vulneraciones de seguridad</h2>
+            <p>
+              En caso de que ocurra una violación de seguridad que afecte sus datos personales y que sea responsabilidad de Isaac Hernández Castro, nos comprometemos a notificárselo oportunamente, conforme a lo establecido en el artículo 20 de la LFPDPPP.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Modificaciones al Aviso de Privacidad</h2>
+            <p>
+              Se reserva el derecho de efectuar en cualquier momento modificaciones o actualizaciones al presente Aviso de Privacidad, derivado de nuevos requisitos legales, necesidades de los servicios o prácticas de privacidad. Cualquier cambio será notificado a través del sitio web oficial o por correo electrónico.
+            </p>
+          </section>
+
+          <section class="privacy-section">
+            <h2>Aceptación del Aviso</h2>
+            <p>
+              Al hacer uso de los servicios de ERP Jump One y/o proporcionar sus datos personales a través del sitio web, usted reconoce haber leído y entendido el presente aviso, otorgando su consentimiento para el tratamiento de los mismos conforme a los términos aquí descritos.
+            </p>
+          </section>
+
+          <!-- Botón volver al inicio -->
+          <div class="scroll-to-top">
+            <button id="btn-scroll-to-top" class="scroll-to-top-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+              <span>Volver al inicio</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.getElementById("btn-scroll-to-top");
+        if (btn) {
+          btn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+      });
+    </script>
+
+    <Footer />
+  </Layout>
+</ConfigProvider>
+
+<style>
+  .privacy-main {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background: var(--bg-light, #f8fafc);
+    min-height: calc(100vh - 200px);
+  }
+
+  .privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .privacy-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .privacy-content {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .privacy-date {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+  }
+
+  .privacy-section {
+    margin-bottom: 32px;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3ab34a;
+    display: inline-block;
+  }
+
+  .privacy-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  .privacy-subtitle {
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 12px;
+  }
+
+  .privacy-section p {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .privacy-section ul {
+    margin-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  .privacy-section li {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+
+  .privacy-note {
+    background: #f0fdf4;
+    border-left: 4px solid #3ab34a;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+
+  .privacy-warning {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+
+  .privacy-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .privacy-back:hover {
+    color: #1d4ed8;
+    gap: 12px;
+  }
+
+  /* Botón volver al inicio */
+  .scroll-to-top {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .scroll-to-top-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .scroll-to-top-btn:hover {
+    background: #1d4ed8;
+    gap: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .privacy-title {
+      font-size: 1.8rem;
+    }
+
+    .privacy-content {
+      padding: 24px;
+    }
+
+    .privacy-section h2 {
+      font-size: 1.2rem;
+    }
+
+    .privacy-section h3 {
+      font-size: 1rem;
+    }
+  }
+</style>
