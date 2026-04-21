@@ -173,5 +173,17 @@ Agregar línea de código para mostrar el botón al inicio: `floatingBtn.style.d
 - [x] Agregar Intersection Observer para show/hide
 - [x] Verificar build
 
+## Fase 12: Mejoras visuales al diseño
+
+### Análisis
+El diseño actual es correcto pero podría mejorarse:
+- Card shadow muy sutil
+- Fecha solo gray, sin énfasis
+
+### Tareas de Implementación
+- [x] Mejorar shadow del card (más visible)
+- [x] Aplicar estilo .privacy-note a la fecha (bg: #f0fdf4, border-left: #3ab34a)
+- [x] Verificar build
+
 ## Siguiente Paso
 Confirmación del usuario.

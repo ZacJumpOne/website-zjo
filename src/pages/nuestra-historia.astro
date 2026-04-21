@@ -1,0 +1,749 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ConfigProvider } from "antd";
+import {
+  ArrowLeftOutlined,
+  ExperimentOutlined,
+  FileTextOutlined,
+  SafetyCertificateOutlined,
+  BulbOutlined,
+  CrownOutlined,
+  BookOutlined,
+  TrophyOutlined,
+  CheckOutlined,
+} from "@ant-design/icons";
+
+const antdConfig = {
+  token: {
+    colorPrimary: "#2563EB",
+    colorLink: "#10B981",
+    colorBgContainer: "#FFFFFF",
+    colorBgElevated: "#FFFFFF",
+    colorText: "#1E293B",
+    colorTextSecondary: "#64748B",
+    colorBorder: "#E2E8F0",
+    borderRadius: 8,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  },
+};
+---
+
+<ConfigProvider {...antdConfig}>
+  <Layout title="Nuestra Historia | Zero Jump One">
+    <Header />
+    <main class="history-main">
+      <div class="history-container">
+        <a href="/#footer" class="history-back">
+          <ArrowLeftOutlined />
+          <span>Volver</span>
+        </a>
+
+        <div class="history-card">
+          <div class="history-visual">
+            <img src="/images/historia.png" alt="Nuestra Historia" />
+            <h1 class="history-title-overlay">Nuestra Historia</h1>
+          </div>
+
+          <div class="history-body">
+            <header class="history-hero">
+              <p class="history-subtitle">
+                "No diseñamos software. Diseñamos responsabilidad."
+              </p>
+              <div class="history-divider"></div>
+              <p class="history-intro">
+                Somos Zero Jump One. Creamos
+                sistemas que empoderan a las personas, no que las sustituyen.
+                Cada decisión está en sus manos.
+              </p>
+            </header>
+          </div>
+
+          <!-- Nuestra Trayectoria -->
+          <section class="history-section">
+            <div class="section-header">
+              <BookOutlined
+                class="section-icon"
+                style={{ fontSize: "2.25rem" }}
+              />
+              <h2>Nuestra trayectoria</h2>
+            </div>
+            <div class="section-card evolution-card">
+              <p>
+                Zero Jump One no nació en el vacío.
+                Es la <strong>evolución natural</strong> de una empresa anterior que,
+                tras años de experiencia, decidió reinventarse para ofrecer soluciones
+                aún mejores.
+              </p>
+              <p>
+                Cuando una empresa con más de 25 años de trayectoria decide
+                evolucionar, no abandona su conocimiento: lo <strong
+                  >transforma</strong
+                >. Las lecciones aprendidas, los errores cometidos y los éxitos
+                alcanzados se convirtieron en la base de lo que hoy somos.
+              </p>
+              <p class="evolution-conclusion">
+                Zero Jump One es el siguiente nivel.
+                Mejoramos lo que ya funcionaba, corregimos lo que no, y creamos algo
+                nuevo con la experiencia de décadas.
+              </p>
+            </div>
+          </section>
+
+          <!-- Experiencia y Calidad -->
+          <section class="history-section">
+            <div class="section-header">
+              <CrownOutlined
+                class="section-icon"
+                style={{ fontSize: "2.25rem" }}
+              />
+              <h2>Experiencia y calidad</h2>
+            </div>
+            <div class="section-card quality-card">
+              <p>
+                Detrás de Zero Jump One hay un equipo
+                con décadas de experiencia en el desarrollo de software empresarial.
+                No somos novices descubriendo el mercado: somos profesionales que
+                han evolucionado con la industria.
+              </p>
+              <p>
+                Esta experiencia se traduce en <strong>calidad medible</strong>:
+                código que funciona, procesos documentados, y soluciones que
+                sobreviven al uso real.
+              </p>
+              <p class="quality-highlight">
+                <strong>Evolucionamos contigo.</strong> Sus empresas cambian, y nuestras
+                soluciones cambian con ellas. Nos mantenemos al día con los nuevos
+                requerimientos y las nuevas tecnologías para que su software siempre
+                esté actualizado y competitivo.
+              </p>
+            </div>
+          </section>
+
+          <!-- El Problema que nos dio origen -->
+          <section class="history-section">
+            <div class="section-header">
+              <BulbOutlined
+                class="section-icon"
+                style={{ fontSize: "2.25rem" }}
+              />
+              <h2>El problema que nos dio origen</h2>
+            </div>
+            <div class="section-card problem-card">
+              <p class="quote-text">" No se que paso, el sistema lo hizo."</p>
+              <p class="quote-context">
+                Esta frase, repetida una y otra vez por usuarios de sistemas
+                empresariales, revelaba una verdad incómoda: el software había
+                evolucionado para hacer las cosas <strong
+                  >a pesar del usuario</strong
+                >, no <strong>a través de él</strong>.
+              </p>
+              <p>
+                Cuando un sistema realiza todas las acciones de forma
+                automática, el usuario pierde control. Y cuando pierde control,
+                también pierde responsabilidad. El resultado: errores que no son
+                errores, sino la ausencia de decisiones conscientes.
+              </p>
+            </div>
+          </section>
+
+          <!-- Nuestra Respuesta -->
+          <section class="history-section">
+            <div class="section-header">
+              <ExperimentOutlined
+                class="section-icon"
+                style={{ fontSize: "2.25rem" }}
+              />
+              <h2>Nuestra respuesta</h2>
+            </div>
+            <div class="section-card response-card">
+              <p class="response-principle">
+                Diseñamos sistemas donde <strong
+                  >cada acción tiene un estado claro</strong
+                >. Donde el usuario es quien decide, no el sistema.
+              </p>
+              <ul class="features-list">
+                <li>
+                  <CheckOutlined />
+                  <span
+                    ><strong>Transparencia:</strong> Cada proceso es visible, no oculto</span
+                  >
+                </li>
+                <li>
+                  <CheckOutlined />
+                  <span
+                    ><strong>Control:</strong> El usuario decide qué hacer en cada
+                    paso</span
+                  >
+                </li>
+                <li>
+                  <CheckOutlined />
+                  <span
+                    ><strong>Responsabilidad:</strong> Las acciones tienen consecuencias
+                    claras</span
+                  >
+                </li>
+                <li>
+                  <CheckOutlined />
+                  <span
+                    ><strong>Trazabilidad:</strong> Todo queda registrado y auditable</span
+                  >
+                </li>
+              </ul>
+              <p class="response-conclusion">
+                No eliminamos errores. Empoderamos a las personas para que tomen
+                decisiones informadas, con el control total sobre sus procesos.
+              </p>
+            </div>
+          </section>
+
+          <!-- CMMI -->
+          <section class="history-section">
+            <div class="section-header">
+              <SafetyCertificateOutlined
+                class="section-icon"
+                style={{ fontSize: "2.25rem" }}
+              />
+              <h2>Compromiso con la calidad</h2>
+            </div>
+            <div class="section-card cmmi-card">
+              <div class="cmmi-badge">
+                <span class="cmmi-level">CMMI</span>
+                <span class="cmmi-text">Nivel 2</span>
+              </div>
+              <p>
+                Participamos y lideramos una evaluación formal bajo el modelo
+                CMMI (Capability Maturity Model Integration), alcanzando el <strong
+                  >Nivel 2</strong
+                > de madurez en procesos.
+              </p>
+              <p class="cmmi-meaning">
+                Esto significa que no solo desarrollamos software: documentamos,
+                medimos y mejoramos nuestros procesos de manera sistemática. La
+                calidad no es una casualidad, es un método.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Botón flotante subir al inicio -->
+    <button
+      id="floating-scroll-to-top"
+      class="floating-scroll-btn"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Subir al inicio"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+  <Footer />
+</ConfigProvider>
+
+<script>
+  const floatingBtn = document.getElementById('floating-scroll-to-top');
+
+  // Mostrar flotante al inicio
+  if (floatingBtn) {
+    floatingBtn.style.display = 'flex';
+  }
+</script>
+
+<style>
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .history-container {
+    animation: slideUp 0.6s ease forwards;
+  }
+
+  .history-main {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background: var(--bg-light, #f8fafc);
+    min-height: calc(100vh - 200px);
+  }
+
+  .history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .history-content {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    animation: slideUp 0.6s ease forwards;
+  }
+
+  .history-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+    animation: slideUp 0.6s ease forwards;
+  }
+
+  .history-visual {
+    position: relative;
+    height: 300px;
+    background: #1e293b;
+  }
+
+  .history-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .history-title-overlay {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #18181b;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .history-body {
+    padding: 40px;
+  }
+
+  /* Hero */
+  .history-hero {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 0 24px;
+  }
+
+  .history-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+  }
+
+  .history-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #52525b;
+    margin-bottom: 16px;
+  }
+
+  .history-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #18181b);
+    margin: 0 auto 24px;
+    border-radius: 2px;
+  }
+
+  .history-intro {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  /* Back button */
+  .history-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .history-back:hover {
+    color: #1d4ed8;
+    gap: 12px;
+  }
+
+  /* Sections */
+  .history-section {
+    margin-bottom: 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3ab34a;
+    display: inline-block;
+  }
+
+  .section-icon {
+    font-size: 2.25rem !important;
+    color: #52525b;
+  }
+
+  .section-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* Evolution card */
+  .evolution-card {
+    border-left-color: #8b5cf6;
+    background: #faf5ff;
+  }
+
+  .evolution-card p {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .evolution-card strong {
+    color: #0f172a;
+  }
+
+  .evolution-conclusion {
+    font-weight: 600;
+    color: #0f172a;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 8px;
+  }
+
+  /* Problem card */
+  .problem-card {
+    border-left-color: #52525b;
+    background: #fafafa;
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #18181b;
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: #f0fdf4;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #3ab34a;
+  }
+
+  .quote-context {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .problem-card p {
+    color: #475569;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .problem-card strong {
+    color: #0f172a;
+  }
+
+  /* Quality card */
+  .quality-card {
+    border-left-color: #8b5cf6;
+    background: #faf5ff;
+  }
+
+  .quality-card p {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .quality-card strong {
+    color: #0f172a;
+  }
+
+  .quality-highlight {
+    font-weight: 600;
+    color: #0f172a;
+    text-align: center;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Response card */
+  .response-card {
+    border-left-color: #2563eb;
+  }
+
+  .response-principle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #52525b;
+    font-size: 0.95rem;
+  }
+
+  .features-list li :global(.anticon) {
+    color: #27272a;
+    font-size: 1rem;
+  }
+
+  .principle-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #475569;
+  }
+
+  .principle-list .bullet {
+    width: 8px;
+    height: 8px;
+    background: #18181b;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .response-conclusion {
+    font-weight: 600;
+    color: #0f172a;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Features list */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .product-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .product-icon :global(.anticon) {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .product-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .product-tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 16px;
+  }
+
+  .product-card p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .product-features li {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .product-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #18181b;
+    font-weight: bold;
+  }
+
+  /* CMMI card */
+  .cmmi-card {
+    border-left-color: #18181b;
+    background: #f0fdf4;
+    text-align: center;
+  }
+
+  .cmmi-badge {
+    display: inline-flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .cmmi-level {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 2px;
+  }
+
+  .cmmi-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #18181b;
+  }
+
+  .cmmi-card p {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .cmmi-meaning {
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  /* Botón flotante */
+  .floating-scroll-btn {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .floating-scroll-btn:hover {
+    background: #1d4ed8;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .history-title {
+      font-size: 2rem;
+    }
+
+    .history-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .history-content {
+      padding: 24px;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

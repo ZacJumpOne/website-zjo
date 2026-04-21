@@ -88,7 +88,7 @@ const antdConfig = {
   .solucion-detalle {
     padding: 120px 20px;
     min-height: 100vh;
-    background: #f8fafc;
+    background: #fafafa;
   }
 
   .container {
@@ -115,7 +115,8 @@ const antdConfig = {
     background: white;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
     animation: slideUp 0.6s ease forwards;
   }
 
@@ -136,12 +137,13 @@ const antdConfig = {
     top: 16px;
     right: 16px;
     padding: 6px 12px;
-    background: #10b981;
+    background: #18181b;
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .solucion-body {
@@ -278,8 +280,12 @@ const antdConfig = {
   }
 
   .features-list li :global(.anticon) {
-    color: #10b981;
-    font-size: 1.1rem;
+    color: #27272a;
+    font-size: 1rem;
+  }
+
+  .features-list li {
+    color: #52525b;
   }
 
   @media (max-width: 600px) {
