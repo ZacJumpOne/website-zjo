@@ -4,28 +4,31 @@ import { MenuOutlined, CloseOutlined, PhoneOutlined } from "@ant-design/icons";
 const phoneNumber = "(33) 1749 0079";
 
 const navItems = [
-  { key: "servicios", label: "Servicios", href: "#servicios" },
-  { key: "portafolio", label: "Portafolio", href: "#portafolio" },
-  { key: "clientes", label: "Clientes", href: "#clientes" },
+  { key: "inicio", label: "Inicio", href: "/#inicio" },
+  { key: "servicios", label: "Servicios", href: "/#servicios" },
+  { key: "portafolio", label: "Portafolio", href: "/#portafolio" },
+  { key: "clientes", label: "Clientes", href: "/#clientes" },
 ];
 ---
 
 <header class="header" id="header">
   <div class="scroll-progress" id="scrollProgress"></div>
-  
+
   <div class="header-container">
-    <a href="#inicio" class="logo">
+    <a href="/" class="logo">
       <div class="logo-icon">
         <img src="/images/logo.png" alt="Zero Jump One" />
       </div>
       <div class="brand">
-        <span class="brand-name font-brand" style="color: #3AB34A;">Zero Jump One</span>
+        <span class="brand-name font-brand" style="color: #3AB34A;"
+          >Zero Jump One</span
+        >
       </div>
     </a>
 
     <nav class="nav-desktop">
       <ul class="nav-list">
-        <li><a href="#inicio">Inicio</a></li>
+        <!-- <li><a href="#inicio">Inicio</a></li> -->
         {
           navItems.map((item) => (
             <li>
@@ -36,7 +39,7 @@ const navItems = [
       </ul>
     </nav>
 
-    <a href={`tel:+52${phoneNumber.replace(/\D/g, '')}`} class="header-phone">
+    <a href={`tel:+52${phoneNumber.replace(/\D/g, "")}`} class="header-phone">
       <PhoneOutlined />
       <span class="phone-number">{phoneNumber}</span>
     </a>

@@ -84,8 +84,21 @@ Diseñé una página de historia con **estructura de timeline vertical** que pre
 - [x] Quitar botón "Ir al inicio" y toda referencia
 - [x] Agregar botón flotante (como aviso-de-privacidad)
 - [x] Estandarizar "Zero Jump One" con fuente del párrafo
-- [ ] Agregar botón "Ir al inicio" (como aviso-de-privacidad)
-- [ ] Quitar botón flotante
+- [x] Agregar footer interno con botón "Volver al inicio" dentro de la card
+
+### Tareas Adicionales (022, 023)
+
+#### 022: Estandarizar diseño botón
+- [x] Cambiar texto "Volver al inicio" → "Ir al inicio"
+- [x] Cambiar clase `footer-back-btn` → `scroll-to-top-btn`
+- [x] Copiar estilos de `.scroll-to-top-btn` de aviso-de-privacidad
+- [x] Verificar build
+
+#### 023: Botones mutuamente excluyentes
+- [x] Agregar `id="btn-scroll-to-top"` al botón inline
+- [x] Modificar script con Intersection Observer (simplificado: solo ocultar flotante cuando inline visible)
+- [x] Verificar build
+
 - [ ] Revisión final por usuario
 
 ## Siguiente Paso
