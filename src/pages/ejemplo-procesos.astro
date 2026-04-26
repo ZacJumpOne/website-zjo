@@ -1,0 +1,205 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ConfigProvider } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { grafosData } from "../data/grafos";
+
+const antdConfig = {
+  token: {
+    colorPrimary: "#2563EB",
+    colorLink: "#10B981",
+    colorBgContainer: "#FFFFFF",
+    colorBgElevated: "#FFFFFF",
+    colorText: "#1E293B",
+    colorTextSecondary: "#64748B",
+    colorBorder: "#E2E8F0",
+    borderRadius: 8,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  },
+};
+---
+
+<ConfigProvider {...antdConfig}>
+  <Layout title="Ejemplo de Procesos | Zero Jump One">
+    <Header />
+
+    <main class="procesos-main">
+      <div class="container">
+        <a href="/#footer" class="back-link">
+          <ArrowLeftOutlined />
+          <span>Volver</span>
+        </a>
+
+        <h1 class="page-title">Ejemplo de Procesos</h1>
+        <p class="page-subtitle">Conoce cómo funcionan nuestros procesos</p>
+
+        <div class="masonry-grid">
+          {grafosData.map((graf, index) => (
+            <div class="masonry-item" style={`--delay: ${index * 0.1}s`}>
+              <img src={graf.imageUrl} alt={graf.title} />
+              <div class="masonry-overlay">
+                <span class="masonry-number">{String(index + 1).padStart(2, '0')}</span>
+                <span class="masonry-title">{graf.title}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </Layout>
+</ConfigProvider>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .procesos-main {
+    padding: 120px 20px;
+    min-height: 100vh;
+    background: #f8fafc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: #1d4ed8;
+    gap: 12px;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    text-align: center;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+
+  /* Masonry Grid */
+  .masonry-grid {
+    column-count: 4;
+    column-gap: 12px;
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: masonryFadeIn 0.6s ease backwards;
+    animation-delay: var(--delay);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  }
+
+  @keyframes masonryFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .masonry-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .masonry-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .masonry-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px 16px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .masonry-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1;
+  }
+
+  .masonry-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    flex: 1;
+  }
+
+  @media (max-width: 992px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .procesos-main {
+      padding: 80px 16px;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+    }
+
+    .masonry-grid {
+      column-count: 1;
+    }
+  }
+</style>
