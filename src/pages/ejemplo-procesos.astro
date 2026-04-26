@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ConfigProvider } from "antd";
 import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
-import { grafosData } from "../data/grafos";
+import { procesosData } from "../data/procesos";
 
 const antdConfig = {
   token: {
@@ -36,12 +36,12 @@ const antdConfig = {
         <p class="page-subtitle">Conoce cómo se adaptan nuestros procesos</p>
 
         <div class="masonry-grid">
-          {grafosData.map((graf, index) => (
-            <div class="masonry-item" style={`--delay: ${index * 0.1}s`} data-image={graf.imageUrl} data-title={graf.title}>
-              <img src={graf.imageUrl} alt={graf.title} />
+          {procesosData.map((proceso, index) => (
+            <div class="masonry-item" style={`--delay: ${index * 0.1}s`} data-image={proceso.imageUrl} data-title={proceso.title}>
+              <img src={proceso.imageUrl} alt={proceso.title} />
               <div class="masonry-overlay">
                 <span class="masonry-number">{String(index + 1).padStart(2, '0')}</span>
-                <span class="masonry-title">{graf.title}</span>
+                <span class="masonry-title">{proceso.title}</span>
               </div>
             </div>
           ))}

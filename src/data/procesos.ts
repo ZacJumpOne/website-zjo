@@ -1,11 +1,11 @@
-export interface GrafItem {
+export interface ProcesoItem {
   id: number;
   imageUrl: string;
   title: string;
   description?: string;
 }
 
-export const grafosData: GrafItem[] = [
+export const procesosData: ProcesoItem[] = [
   { id: 1, imageUrl: "/images/grafosModuloFacturacion.jpg", title: "Proceso Evolutivo de Facturación" },
   { id: 2, imageUrl: "/images/inventario.jpg", title: "Carga de Inventario (Excel -> Mov. Inv. -> Inventario)" },
   { id: 3, imageUrl: "/images/auditoria_lp.jpg", title: "Auditoria Lista Precios" },
