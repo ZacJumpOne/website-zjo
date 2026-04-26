@@ -1,8 +1,10 @@
 :root {
-  --primary: #2563EB;
-  --primary-dark: #1D4ED8;
-  --primary-light: #3B82F6;
-  --secondary: #10B981;
+  --primary: #3AB34A;
+  --primary-dark: #2D8A3C;
+  --primary-light: #4CC45E;
+  --arbol-obscuro: #196632;
+  --arbol-claro: #3AB34A;
+  --secondary: #2563EB;
   --bg-white: #FFFFFF;
   --bg-light: #F8FAFC;
   --bg-gray: #F1F5F9;
@@ -83,7 +85,7 @@ section {
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--arbol-claro);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 12px;

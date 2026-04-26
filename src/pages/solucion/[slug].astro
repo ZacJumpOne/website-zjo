@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { ConfigProvider } from "antd";
-import { ArrowLeftOutlined, PlayCircleOutlined, CheckOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, PlayCircleOutlined, CheckOutlined, BranchesOutlined } from "@ant-design/icons";
 import { portfolioData } from "../../data/portfolio";
 
 export function getStaticPaths() {
@@ -53,6 +53,14 @@ const antdConfig = {
                 <img src="/images/youtube_erp.png" alt="Ver video" />
                 <div class="play-overlay">
                   <PlayCircleOutlined />
+                </div>
+              </a>
+            )}
+            {solucion.graph && (
+              <a href={solucion.graph.url} target="_blank" rel="noopener noreferrer" class="graph-thumbnail">
+                <div class="graph-overlay">
+                  <BranchesOutlined />
+                  <span class="graph-text">{solucion.graph.text}</span>
                 </div>
               </a>
             )}
@@ -213,6 +221,10 @@ const antdConfig = {
     animation: border-pulse 2s ease-in-out infinite;
   }
 
+  .video-thumbnail:only-of-type {
+    left: 16px;
+  }
+
   @keyframes border-pulse {
     0%, 100% { outline-color: white; }
     50% { outline-color: transparent; }
@@ -247,6 +259,43 @@ const antdConfig = {
     font-size: 1.8rem;
     color: white;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  .graph-thumbnail {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    padding: 10px 16px;
+    background: #10b981;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .graph-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .graph-overlay {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .graph-overlay :global(.anticon) {
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  .graph-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
   }
 
   .features-list {

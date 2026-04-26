@@ -9,6 +9,10 @@ export interface PortfolioItem {
   bodyImage?: string;
   bodyImageSize?: string;
   videoUrl?: string;
+  graph?: {
+    url: string;
+    text: string;
+  };
   features: string[];
 }
 
@@ -25,15 +29,19 @@ export const portfolioData: PortfolioItem[] = [
     bodyImage: "/images/hoja_arbol.png",
     bodyImageSize: "60%",
     videoUrl: "https://www.youtube.com/shorts/0sI4JObtvOE",
+    graph: {
+      url: "/images/grafoModuloFacturacion.png",
+      text: "Ej: Procesos facturación",
+    },
     features: [
       "Diseño de sus procesos",
-      "Eventos que se realizan entre cambios de estado ( A -> B -> C)",
+      "Procesos que se realizan entre cambios de estatus (Ej: Sin Afectar -> Afectado -> Cancelado)",
       "Pre diseño de plantillas para esas cotizaciones repetitivas",
       "Control de costos",
       "Control del margen de utlidad",
       "Inventario real al momento de cotizar",
       "Ubicaciones de sus productos",
-      "Pedimentos de importación",      
+      "Pedimentos de importación",
       "Facturación electrónica",
       "Control de anticipos",
       "SAT - Clasificacion de productos por exclusión, logrando una adminsitración rapida",
@@ -154,7 +162,7 @@ export const portfolioData: PortfolioItem[] = [
     imageUrl: "/images/desarrollador.png",
     bodyImage: "/images/hoja_engrane.png",
     features: [
-      "Análisis de requisitos",      
+      "Análisis de requisitos",
       "Entregas por sprint (SCRUM)",
       "Control de tareas",
       "Diseño personalizado",
