@@ -27,7 +27,7 @@ function isActive(href: string): boolean {
       </div>
       <div class="brand">
         <span class="brand-name font-brand" style="color: var(--primary);"
-          >Zero Jump One</span
+          ><span class="brand-desktop">Zero Jump One</span><span class="brand-mobile">ZJOne</span></span
         >
       </div>
     </a>
@@ -151,6 +151,24 @@ function isActive(href: string): boolean {
     font-weight: 700;
     font-size: 2rem;
     line-height: 1;
+  }
+
+  .brand-mobile {
+    display: none;
+  }
+
+  .brand-desktop {
+    display: inline;
+  }
+
+  @media (max-width: 991px) {
+    .brand-mobile {
+      display: inline;
+    }
+
+    .brand-desktop {
+      display: none;
+    }
   }
 
   .nav-desktop {
