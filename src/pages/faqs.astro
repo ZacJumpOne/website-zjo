@@ -115,18 +115,21 @@ const antdConfig = {
 
   .faq-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid #e2e8f0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .faq-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 30px rgba(58, 179, 74, 0.12);
+    border-color: #c6eac7;
+    transform: translateY(-2px);
   }
 
   .faq-card[open] {
     border-color: var(--arbol-claro);
+    box-shadow: 0 8px 30px rgba(58, 179, 74, 0.15);
   }
 
   .faq-question {
@@ -138,7 +141,7 @@ const antdConfig = {
     list-style: none;
     font-weight: 600;
     color: #1e293b;
-    transition: background 0.2s ease;
+    transition: all 0.3s ease;
   }
 
   .faq-question::-webkit-details-marker {
@@ -146,26 +149,58 @@ const antdConfig = {
   }
 
   .faq-question:hover {
-    background: #f8fafc;
+    background: linear-gradient(90deg, #f0fdf4 0%, #f8fafc 100%);
+  }
+
+  .faq-question::after {
+    content: "+";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #64748b;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+  }
+
+  details[open] .faq-question::after {
+    transform: rotate(45deg);
+    background: var(--arbol-claro);
+    color: white;
+  }
+
+  details[open] .faq-question {
+    background: linear-gradient(90deg, #f0fdf4 0%, #f8fafc 100%);
   }
 
   .faq-number {
-    background: var(--arbol-claro);
+    background: linear-gradient(135deg, var(--arbol-claro) 0%, var(--arbol-obscuro) 100%);
     color: white;
     width: 32px;
     height: 32px;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.875rem;
     font-weight: 700;
     flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(58, 179, 74, 0.3);
   }
 
   .faq-text {
     flex: 1;
     font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  details[open] .faq-text {
+    color: var(--arbol-obscuro);
   }
 
   .faq-answer {

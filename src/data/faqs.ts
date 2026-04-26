@@ -7,7 +7,7 @@ export interface FaqItem {
 export const faqsData: FaqItem[] = [
   {
     question: "¿Qué es Zero Jump One?",
-    answer: "Zero Jump One es una empresa de desarrollo de software especializada en soluciones personalizadas para negocios. لدينا más de 25 años de experiencia creando sistemas robustos y eficientes para el control integral de tu negocio.",
+    answer: "Zero Jump One es una empresa de desarrollo de software especializada en soluciones personalizadas para negocios. Con más de 25 años de experiencia creando sistemas robustos y eficientes para el control integral de tu negocio.",
     category: "General"
   },
   {
@@ -21,28 +21,28 @@ export const faqsData: FaqItem[] = [
     category: "Contacto"
   },
   {
-    question: "¿Offeren soporte técnico?",
-    answer: "Sí, todas nuestras soluciones incluyen soporte técnico continuo. Our team está disponible para resolver cualquier duda o problema que se presente durante el uso del sistema.",
+    question: "¿Ofrecen soporte técnico?",
+    answer: "Sí, todas nuestras soluciones incluyen soporte técnico continuo. Nuestro equipo está disponible para resolver cualquier duda o problema que se presente durante el uso del sistema.",
     category: "Soporte"
   },
   {
     question: "¿Qué tecnologías utilizan?",
-    answer: "Utilizamos tecnologías modernas y probadas adaptadas a tus necesidades. Our equipo tiene experiencia en múltiples lenguajes y frameworks, siempre eligiendo la mejor opción para cada proyecto específico.",
+    answer: "Utilizamos tecnologías modernas y probadas adaptadas a tus necesidades. Nuestro equipo tiene experiencia en múltiples lenguajes y frameworks, siempre eligiendo la mejor opción para cada proyecto específico.",
     category: "Técnico"
   },
   {
     question: "¿Tienen experiencia en mi industria?",
-    answer: "Hemos trabajado con múltiples industrias incluyendo retail, boutique, producción, construcción y desarrollo a la medida. Our enfoque adaptability nos permite adaptar nuestras soluciones a prácticamente cualquier sector.",
+    answer: "Hemos trabajado con múltiples industrias incluyendo retail, boutique, producción, construcción y desarrollo a la medida. Nuestro enfoque de adaptabilidad nos permite adaptar nuestras soluciones a prácticamente cualquier sector.",
     category: "General"
   },
   {
     question: "¿Cuánto tiempo toma la implementación?",
-    answer: "El tiempo de implementación varía según la complejidad del proyecto. Our metodología SCRUM permite entregas por sprint, facilitando un desarrollo ágil y adaptativo a tus necesidades.",
+    answer: "El tiempo de implementación varía según la complejidad del proyecto. Nuestra metodología SCRUM permite entregas por sprint (iteraciones por semana), facilitando un desarrollo ágil y adaptativo a tus necesidades.",
     category: "Proyecto"
   },
   {
     question: "¿Qué es CMMI y por qué es importante?",
-    answer: "CMMI (Capability Maturity Model Integration) es un modelo de madurez de capacidades que certifica la calidad de nuestros procesos. Мы имеем оценку уровня 2, lo que garantiza metodologías probadas y resultados confiables.",
+    answer: "CMMI (Capability Maturity Model Integration) es un modelo de madurez de capacidades que certifica la calidad de los procesos de desarrollo de software. Garantiza metodologías probadas y resultados confiables.",
     category: "Calidad"
   }
 ];
