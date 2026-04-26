@@ -9,10 +9,6 @@ export interface PortfolioItem {
   bodyImage?: string;
   bodyImageSize?: string;
   videoUrl?: string;
-  graph?: {
-    url: string;
-    text: string;
-  };
   features: string[];
 }
 
@@ -29,10 +25,6 @@ export const portfolioData: PortfolioItem[] = [
     bodyImage: "/images/hoja_arbol.png",
     bodyImageSize: "60%",
     videoUrl: "https://www.youtube.com/shorts/0sI4JObtvOE",
-    graph: {
-      url: "/images/grafoModuloFacturacion.png",
-      text: "Ej: Procesos facturación",
-    },
     features: [
       "Diseño de sus procesos",
       "Procesos que se realizan entre cambios de estatus (Ej: Sin Afectar -> Afectado -> Cancelado)",
