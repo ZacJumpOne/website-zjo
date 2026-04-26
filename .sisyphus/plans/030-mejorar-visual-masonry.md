@@ -10,11 +10,11 @@ Mejorar el diseño visual de las cards/mosaicos del efecto masonry en la página
 - **Número**: Display básico en color gris
 
 ## Tareas de Implementación (para revisión del usuario)
-- [ ] Mejorar marco/bordes de las cards (border, glow)
-- [ ] Mejorar overlay con diseño más moderno (glassmorphism)
-- [ ] Mejorar visualización del número (badge, fondo, etc.)
-- [ ] Agregar efectos de hover más elaboradas (border glow, scale)
-- [ ] Verificar build exitoso
+- [x] Mejorar marco/bordes de las cards (border, glow)
+- [x] Mejorar overlay con diseño más moderno (glassmorphism)
+- [x] Mejorar visualización del número (badge, fondo, etc.)
+- [x] Agregar efectos de hover más elaboradas (border glow, scale)
+- [x] Verificar build exitoso
 
 ## Siguiente Paso
 Confirmar para proceder con la implementación.
