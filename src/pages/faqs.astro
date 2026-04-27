@@ -48,7 +48,7 @@ const antdConfig = {
                 <span class="faq-text">{faq.question}</span>
               </summary>
               <div class="faq-answer">
-                <p>{faq.answer}</p>
+                <p set:html={faq.answer} />
                 {faq.category && <span class="faq-category">{faq.category}</span>}
               </div>
             </details>
@@ -71,6 +71,7 @@ const antdConfig = {
   .container {
     max-width: 800px;
     margin: 0 auto;
+    animation: fadeInUp 0.6s ease forwards;
   }
 
   .back-link {
@@ -119,7 +120,18 @@ const antdConfig = {
     border: 1px solid #e2e8f0;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
   }
+
+  .faq-card:nth-child(1) { animation-delay: 0.1s; }
+  .faq-card:nth-child(2) { animation-delay: 0.15s; }
+  .faq-card:nth-child(3) { animation-delay: 0.2s; }
+  .faq-card:nth-child(4) { animation-delay: 0.25s; }
+  .faq-card:nth-child(5) { animation-delay: 0.3s; }
+  .faq-card:nth-child(6) { animation-delay: 0.35s; }
+  .faq-card:nth-child(7) { animation-delay: 0.4s; }
+  .faq-card:nth-child(8) { animation-delay: 0.45s; }
 
   .faq-card:hover {
     box-shadow: 0 8px 30px rgba(58, 179, 74, 0.12);
@@ -223,6 +235,10 @@ const antdConfig = {
     border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  .faq-answer .contact-link {
+    font-weight: 700;
   }
 
   @media (max-width: 576px) {

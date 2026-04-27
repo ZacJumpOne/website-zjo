@@ -17,7 +17,7 @@ export const faqsData: FaqItem[] = [
   },
   {
     question: "¿Cómo inicio con Zero Jump One?",
-    answer: "Puedes contactarnos al (33) 1749-0079 o escribir a proyectos@zerojumpone.com. Nuestro equipo te realizará un análisis sin costo para determinar las mejores soluciones para tu negocio.",
+    answer: "Puedes contactarnos al <a href='tel:+523317490079' class='contact-link'>(33) 1749-0079</a> o escribir a <a href='mailto:proyectos@zerojumpone.com' class='contact-link'>proyectos@zerojumpone.com</a>. Nuestro equipo te realizará un análisis sin costo para determinar las mejores soluciones para tu negocio.",
     category: "Contacto"
   },
   {
@@ -32,12 +32,12 @@ export const faqsData: FaqItem[] = [
   },
   {
     question: "¿Tienen experiencia en mi industria?",
-    answer: "Hemos trabajado con múltiples industrias incluyendo retail, boutique, producción, construcción y desarrollo a la medida. Nuestro enfoque de adaptabilidad nos permite adaptar nuestras soluciones a prácticamente cualquier sector.",
+    answer: "Hemos trabajado con múltiples industrias incluyendo retail, boutique, producción, construcción y desarrollo a la medida. Nuestro enfoque de adaptabilidad nos permite ajustar nuestras soluciones a prácticamente cualquier sector.",
     category: "General"
   },
   {
     question: "¿Cuánto tiempo toma la implementación?",
-    answer: "El tiempo de implementación varía según la complejidad del proyecto. Nuestra metodología SCRUM permite entregas por sprint (iteraciones por semana), facilitando un desarrollo ágil y adaptativo a tus necesidades.",
+    answer: "El tiempo de implementación varía según la complejidad del proyecto. Nuestra metodología SCRUM permite entregas semanales, lo cual facilita un desarrollo ágil y adaptativo a tus necesidades.",
     category: "Proyecto"
   },
   {

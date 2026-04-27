@@ -18,7 +18,7 @@ export const portfolioData: PortfolioItem[] = [
     title: "ERP Jump One",
     shortDescription: "Controle todos sus procesos de una forma optima, segura, rápida y eficaz.",
     description:
-      "Controle todos sus procesos de una forma optima, segura, rápida y eficaz. Nuestro sistema es modular y está diseñado para controlar sus procesos sin islas de información,  que se realizan al cambiar entre estados, de esta forma nos aseguramos que su evolución sea constante y nunca quede obsoleto.",
+      "Controle todos sus procesos de una forma optima, segura, rápida y eficaz. Nuestro sistema es modular y está diseñado para controlar sus procesos sin islas de información,  que se realizan al cambiar entre estatus (estados), de esta forma nos aseguramos que su evolución sea constante y nunca quede obsoleto.",
     tag: "ERP",
     iconName: "BankOutlined",
     imageUrl: "/images/web_erp3.png",

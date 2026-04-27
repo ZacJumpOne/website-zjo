@@ -52,15 +52,15 @@ import { PhoneOutlined, MobileOutlined, MailOutlined } from "@ant-design/icons";
         <ul class="footer-list footer-contact">
           <li>
             <PhoneOutlined />
-            <span>(33) 1749-0079</span>
+            <a href="tel:+523317490079" class="footer-contact-link">(33) 1749-0079</a>
           </li>
           <li>
             <PhoneOutlined />
-            <span>(33) 4559-2299</span>
+            <a href="tel:+5233345592299" class="footer-contact-link">(33) 4559-2299</a>
           </li>
           <li>
             <MailOutlined />
-            <span>proyectos@zerojumpone.com</span>
+            <a href="mailto:proyectos@zerojumpone.com" class="footer-contact-link">proyectos@zerojumpone.com</a>
           </li>
         </ul>
       </div>
@@ -68,6 +68,7 @@ import { PhoneOutlined, MobileOutlined, MailOutlined } from "@ant-design/icons";
 
     <div class="footer-bottom">
       <p>© 2026 Crafted by Zero Jump One. Todos los derechos reservados.</p>
+      <p class="version">v2026.04.27.01</p>
     </div>
   </div>
 </footer>
@@ -198,12 +199,29 @@ import { PhoneOutlined, MobileOutlined, MailOutlined } from "@ant-design/icons";
     font-size: 0.9rem;
   }
 
+  .footer-contact-link {
+    color: #94a3b8;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-contact-link:hover {
+    color: var(--primary-light);
+  }
+
   .footer-bottom {
     padding-top: 24px;
     border-top: 1px solid #1e293b;
     text-align: center;
     color: #64748b;
     font-size: 0.8rem;
+  }
+
+  .footer-bottom .version {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: #475569;
   }
 
   @media (max-width: 992px) {
