@@ -9,6 +9,7 @@ const navItems = [
   { key: "servicios", label: "Servicios", href: "/#servicios" },
   { key: "portafolio", label: "Portafolio", href: "/#portafolio" },
   { key: "clientes", label: "Clientes", href: "/#clientes" },
+  { key: "contacto", label: "Contacto", href: "/#contacto", cat: "soporte" },
 ];
 
 function isActive(href: string): boolean {
@@ -23,7 +24,7 @@ function isActive(href: string): boolean {
   <div class="header-container">
     <a href="/" id="siteLogo" class="logo">
       <div class="logo-icon">
-        <img src="/images/logo.png" alt="Zero Jump One" />
+        <img src="/images/logo.webp" alt="Zero Jump One" />
       </div>
       <div class="brand">
         <span class="brand-name font-brand" style="color: var(--primary);"
@@ -38,7 +39,7 @@ function isActive(href: string): boolean {
         {
           navItems.map((item) => (
             <li>
-              <a href={item.href} class={isActive(item.href) ? "active" : ""}>{item.label}</a>
+              <a href={item.href} class={isActive(item.href) ? "active" : ""} data-cat={item.cat}>{item.label}</a>
             </li>
           ))
         }
@@ -72,7 +73,7 @@ function isActive(href: string): boolean {
       {
         navItems.map((item) => (
           <li>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href} data-cat={item.cat}>{item.label}</a>
           </li>
         ))
       }
@@ -462,14 +463,25 @@ function isActive(href: string): boolean {
     });
   });
 
-  // Smooth scroll for all hash links (desktop nav + mobile nav)
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  // Smooth scroll for same-page hash links only
+  document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
-      const hash = link.getAttribute("href")?.split("#")[1];
+      const url = new URL(link.href, window.location.origin);
+      if (url.pathname !== window.location.pathname) return; // Let cross-page links navigate normally
+      const hash = url.hash.slice(1);
       if (!hash) return;
       const target = document.getElementById(hash);
       if (!target) return;
       e.preventDefault();
+
+      // Dispatch custom event for category change
+      const cat = link.getAttribute("data-cat");
+      if (cat) {
+        // Also store in sessionStorage for resilience
+        sessionStorage.setItem('feedback-category', cat);
+        window.dispatchEvent(new CustomEvent('set-feedback-category', { detail: cat }));
+      }
+
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       closeNav();
     });

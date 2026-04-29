@@ -38,7 +38,7 @@ const antdConfig = {
         <div class="masonry-grid">
           {procesosData.map((proceso, index) => (
             <div class="masonry-item" style={`--delay: ${index * 0.1}s`} data-image={proceso.imageUrl} data-title={proceso.title}>
-              <img src={proceso.imageUrl} alt={proceso.title} />
+              <img src={proceso.imageUrl} alt={proceso.title} loading="lazy" />
               <div class="masonry-overlay">
                 <span class="masonry-number">{String(index + 1).padStart(2, '0')}</span>
                 <span class="masonry-title">{proceso.title}</span>

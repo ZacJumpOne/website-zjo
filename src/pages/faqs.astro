@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { ConfigProvider } from "antd";
 import { ArrowLeftOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import { faqsData } from "../data/faqs";
+import { sanitizeHTML } from "../utils/sanitize";
 
 const antdConfig = {
   token: {
@@ -48,7 +49,7 @@ const antdConfig = {
                 <span class="faq-text">{faq.question}</span>
               </summary>
               <div class="faq-answer">
-                <p set:html={faq.answer} />
+                <p set:html={sanitizeHTML(faq.answer)} />
                 {faq.category && <span class="faq-category">{faq.category}</span>}
               </div>
             </details>
