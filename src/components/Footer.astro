@@ -7,6 +7,19 @@ const year = generales.version.split(".")[0];
 
 <footer class="footer" id="footer">
   <div class="container">
+    <!-- CTA Section -->
+    <div class="footer-cta" id="footerCta">
+      <div class="cta-content">
+        <span class="cta-label">Primer paso</span>
+        <h3 class="cta-heading">Hablemos de<br>tu próximo proyecto</h3>
+      </div>
+      <a href="/#contacto" class="footer-cta-link" data-cat="proyectos">
+        <span class="cta-link-text">Hablemos</span>
+        <span class="cta-cta-arrow"></span>
+      </a>
+      <div class="cta-line"></div>
+    </div>
+
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-content">
@@ -45,7 +58,7 @@ const year = generales.version.split(".")[0];
         <h4 class="footer-heading">Ayuda</h4>
         <ul class="footer-list">
           <li><a href="/faqs">Preguntas Frecuentes</a></li>
-          <li><a href="/construyendo">Foro</a></li>
+          <!-- <li><a href="/construyendo">Foro</a></li> -->
           <li><a href="/ejemplo-procesos">Ejemplo de Procesos</a></li>
         </ul>
       </div>
@@ -76,13 +89,110 @@ const year = generales.version.split(".")[0];
   </div>
 </footer>
 
-<style>
-  .footer {
-    background: var(--bg-dark);
-    padding: 60px 20px 30px;
-  }
+  <style>
+    .footer {
+      background: var(--bg-dark);
+      padding: 60px 20px 30px;
+    }
 
-  .footer-grid {
+    .footer-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .cta-content {
+      flex: 1;
+    }
+
+    .cta-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .cta-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .footer-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: transparent;
+      border: 2px solid var(--primary-light);
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-cta-link:hover {
+      background: var(--primary-light);
+      color: var(--bg-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .cta-link-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-cta-arrow {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+
+    .cta-cta-arrow::after {
+      content: "→";
+      font-size: 1.2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cta-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #1e293b, transparent);
+    }
+
+    @media (max-width: 768px) {
+      .footer-cta {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .cta-heading {
+        font-size: 1.5rem;
+      }
+    }
+
+    .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr repeat(3, 1fr);
     gap: 48px;
