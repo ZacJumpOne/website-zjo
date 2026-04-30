@@ -15,7 +15,7 @@ const portfolioItems = portfolioData;
 
 <section class="portfolio" id="portafolio">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-animate>
       <span class="section-label">Portafolio</span>
       <h2 class="section-title">Nuestras Soluciones</h2>
       <p class="section-subtitle">Software a la medida para cada necesidad</p>
@@ -89,6 +89,46 @@ const portfolioItems = portfolioData;
     padding: 120px 20px;
     position: relative;
     overflow: hidden;
+  }
+
+  .section-header {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .section-header.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--arbol-claro, #059669);
+    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.08));
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 28px;
   }
 
   .portfolio-grid {
@@ -381,6 +421,33 @@ const portfolioItems = portfolioData;
     .card-icon {
       font-size: 1.5rem;
     }
+  }
+
+  .social-cta-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--arbol-claro, #059669);
+    opacity: 0.8;
+  }
+
+  .hint-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--arbol-10, rgba(5, 150, 105, 0.1));
+    border-radius: 50%;
+    font-size: 0.85rem;
+    animation: hintBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes hintBounce {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(6px); }
   }
 </style>
 
