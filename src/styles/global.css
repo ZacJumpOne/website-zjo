@@ -1,10 +1,19 @@
 :root {
-  --primary: #3AB34A;
-  --primary-dark: #2D8A3C;
-  --primary-light: #4CC45E;
   --arbol-obscuro: #196632;
   --arbol-claro: #3AB34A;
   --secondary: #2563EB;
+  --gradient-primary: linear-gradient(135deg, var(--arbol-claro), #10b981);
+  --gradient-primary-dark: linear-gradient(135deg, var(--arbol-claro) 0%, var(--arbol-obscuro) 100%);
+  --gradient-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-card: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.1));
+  --gradient-bar: linear-gradient(90deg, var(--arbol-claro), #10b981);
+  --arbol-10: rgba(5, 150, 105, 0.1);
+  --arbol-05: rgba(5, 150, 105, 0.05);
+  --arbol-08: rgba(5, 150, 105, 0.08);
+  --arbol-06: rgba(5, 150, 105, 0.06);
+  --arbol-04: rgba(5, 150, 105, 0.04);
+  --arbol-03: rgba(16, 185, 129, 0.05);
+  --arbol-circle: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);
   --bg-white: #FFFFFF;
   --bg-light: #F8FAFC;
   --bg-gray: #F1F5F9;
@@ -18,7 +27,7 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-brand: 'Noticia Text', serif;
 }
 

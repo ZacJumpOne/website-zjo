@@ -144,8 +144,8 @@ const socialLinks = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #059669;
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.08));
+    color: var(--arbol-claro, #059669);
+    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.08));
     padding: 6px 14px;
     border-radius: 50px;
     margin-bottom: 20px;
@@ -173,7 +173,7 @@ const socialLinks = [
     gap: 10px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
     opacity: 0.8;
   }
 
@@ -183,7 +183,7 @@ const socialLinks = [
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: rgba(5, 150, 105, 0.1);
+    background: var(--arbol-10, rgba(5, 150, 105, 0.1));
     border-radius: 50%;
     font-size: 0.85rem;
     animation: hintBounce 1.5s ease-in-out infinite;
@@ -236,7 +236,7 @@ const socialLinks = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
     color: #fff;
     border-radius: 14px;
   }
@@ -257,7 +257,7 @@ const socialLinks = [
     align-items: center;
     justify-content: center;
     background: #f0fdf4;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
     border-radius: 12px;
     transition: all 0.3s ease;
   }
@@ -273,7 +273,7 @@ const socialLinks = [
   }
 
   .social-link.small:hover .social-icon {
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
     color: #fff;
     transform: scale(1.15) rotate(5deg);
   }
@@ -292,7 +292,7 @@ const socialLinks = [
   }
 
   .social-link:hover .social-name {
-    color: #059669;
+    color: var(--arbol-claro, #059669);
   }
 
   .link-glow {
@@ -302,11 +302,6 @@ const socialLinks = [
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-  }
-
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
   }
 
   [data-animate] {

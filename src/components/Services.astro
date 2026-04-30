@@ -148,7 +148,7 @@ const services = [
 
 <style>
   .services {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    background: var(--gradient-bg, linear-gradient(180deg, #ffffff 0%, #f8fafc 100%));
     padding: 120px 20px;
     position: relative;
     overflow: hidden;
@@ -221,7 +221,7 @@ const services = [
   .spotlight-icon-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
     border-radius: 18px;
     transform: rotate(-6deg);
     transition: transform 0.4s ease;
@@ -276,7 +276,7 @@ const services = [
   .spotlight .feature-check {
     width: 20px;
     height: 20px;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
     flex-shrink: 0;
   }
 
@@ -285,7 +285,7 @@ const services = [
     align-items: center;
     gap: 12px;
     padding: 14px 28px;
-    background: linear-gradient(135deg, #059669, #047857);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-obscuro, #047857));
     border-radius: 14px;
     color: #fff;
     font-weight: 700;
@@ -331,7 +331,7 @@ const services = [
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(5, 150, 105, 0.1);
+    border: 1px solid var(--arbol-10, rgba(5, 150, 105, 0.1));
     overflow: hidden;
   }
 
@@ -351,7 +351,7 @@ const services = [
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #10b981;
+    background: var(--arbol-claro, #10b981);
     opacity: 0.3;
   }
 
@@ -380,7 +380,7 @@ const services = [
 
   .visual-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #059669, #10b981);
+    background: linear-gradient(90deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
     border-radius: 6px;
   }
 
@@ -397,7 +397,7 @@ const services = [
   .visual-status {
     font-size: 0.8rem;
     font-weight: 700;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -407,7 +407,7 @@ const services = [
     position: absolute;
     bottom: -30px;
     left: 48px;
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
     color: #fff;
     padding: 20px 28px;
     border-radius: 20px;
@@ -471,11 +471,11 @@ const services = [
   }
 
   .secondary-card.green .sc-accent-bar {
-    background: linear-gradient(90deg, #059669, #34d399);
+    background: linear-gradient(90deg, var(--arbol-claro, #059669), var(--arbol-03, #34d399));
   }
 
   .secondary-card.emerald .sc-accent-bar {
-    background: linear-gradient(90deg, #34d399, #6ee7b7);
+    background: linear-gradient(90deg, var(--arbol-03, #34d399), #6ee7b7);
   }
 
   .sc-content {
@@ -491,7 +491,7 @@ const services = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.1));
+    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.1));
     border-radius: 16px;
     transition: transform 0.3s ease;
   }
@@ -503,7 +503,7 @@ const services = [
 
   .sc-icon {
     font-size: 1.5rem;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
   }
 
   .sc-title {
@@ -545,7 +545,7 @@ const services = [
   .sc-check {
     width: 16px;
     height: 16px;
-    color: #10b981;
+    color: var(--arbol-claro, #10b981);
     flex-shrink: 0;
   }
 
@@ -556,7 +556,7 @@ const services = [
     padding: 12px 20px;
     background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
     border-radius: 10px;
-    color: #059669;
+    color: var(--arbol-claro, #059669);
     font-weight: 600;
     font-size: 0.85rem;
     transition: all 0.3s ease;
@@ -564,7 +564,7 @@ const services = [
   }
 
   .sc-cta:hover {
-    background: linear-gradient(135deg, #059669, #047857);
+    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-obscuro, #047857));
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(5, 150, 105, 0.25);
@@ -577,7 +577,7 @@ const services = [
     justify-content: center;
     width: 20px;
     height: 20px;
-    background: rgba(5, 150, 105, 0.1);
+    background: var(--arbol-10, rgba(5, 150, 105, 0.1));
     border-radius: 5px;
     transition: transform 0.3s ease;
   }

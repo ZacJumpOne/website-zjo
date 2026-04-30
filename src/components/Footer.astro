@@ -112,10 +112,13 @@ const year = generales.version.split(".")[0];
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--primary-light);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 8px;
+      background: linear-gradient(90deg, var(--primary-light), var(--arbol-03, #34d399));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .cta-heading {
@@ -143,11 +146,26 @@ const year = generales.version.split(".")[0];
       overflow: hidden;
     }
 
+    .footer-cta-link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
     .footer-cta-link:hover {
       background: var(--primary-light);
       color: var(--bg-dark);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .footer-cta-link:hover::before {
+      left: 100%;
     }
 
     .cta-link-text {
@@ -156,10 +174,13 @@ const year = generales.version.split(".")[0];
     }
 
     .cta-cta-arrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 20px;
       height: 20px;
       position: relative;
+      transition: transform 0.3s ease;
     }
 
     .cta-cta-arrow::after {
@@ -169,6 +190,11 @@ const year = generales.version.split(".")[0];
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta-link:hover .cta-cta-arrow::after {
+      transform: translate(-50%, -50%) translateX(4px);
     }
 
     .cta-line {
