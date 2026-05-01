@@ -18,7 +18,6 @@ const services = [
       "Auditoria a la base de datos",
     ],
     spotlight: true,
-    metric: { value: 99, suffix: "%", label: "Disponibilidad garantizada" },
   },
   {
     iconName: "CustomerServiceOutlined",
@@ -158,10 +157,6 @@ const services = [
             </div>
           </div>
         </div>
-      </div>
-      <div class="spotlight-metric" data-value="99">
-        <div class="metric-label"><span class="metric-number">0</span>%</div>
-        <div class="metric-sub">Disponibilidad</div>
       </div>
     </div>
 
@@ -637,40 +632,6 @@ const services = [
     color: #94a3b8;
   }
 
-  /* Spotlight Metric */
-  .spotlight-metric {
-    position: absolute;
-    bottom: -30px;
-    left: 48px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #fff;
-    padding: 20px 28px;
-    border-radius: 20px;
-    box-shadow:
-      0 12px 32px rgba(16, 185, 129, 0.4),
-      0 0 40px rgba(16, 185, 129, 0.2);
-    z-index: 3;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .metric-label {
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .metric-number {
-    display: inline;
-  }
-
-  .metric-sub {
-    font-size: 0.75rem;
-    font-weight: 600;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
   /* Secondary Grid */
   .secondary-grid {
     display: grid;
@@ -849,14 +810,6 @@ const services = [
       height: 280px;
     }
 
-    .spotlight-metric {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      margin-top: 24px;
-      display: inline-block;
-    }
-
     .secondary-grid {
       grid-template-columns: 1fr;
     }
@@ -965,44 +918,6 @@ const services = [
   document
     .querySelectorAll(".section-header")
     .forEach((el) => headerObserver.observe(el));
-
-  // Metric counter animation
-  const metricEl = document.querySelector(".spotlight-metric[data-value]");
-  if (metricEl) {
-    const metricObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = parseInt(
-              entry.target.getAttribute("data-value") || "0",
-              10,
-            );
-            const numberEl = entry.target.querySelector(".metric-number");
-            if (!numberEl) return;
-            const duration = 2000;
-            const steps = 60;
-            const increment = target / steps;
-            let current = 0;
-
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                numberEl.textContent = target.toString();
-                clearInterval(timer);
-              } else {
-                numberEl.textContent = Math.floor(current).toString();
-              }
-            }, duration / steps);
-
-            metricObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    metricObserver.observe(metricEl);
-  }
 
   // Waveform animation
   const waveLine = document.querySelector(".wave-line");
