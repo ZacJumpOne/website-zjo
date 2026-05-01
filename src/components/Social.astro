@@ -53,10 +53,11 @@ const socialLinks = [
       <div class="social-text">
         <span class="social-tag">Conecta con nosotros</span>
         <h2 class="social-title" data-animate>
-          ¿Listo para<br>conectarte?
+          Un paso más<br />cerca de ti
         </h2>
         <p class="social-description" data-animate>
-          Síguenos en redes sociales para estar al día con novedades, tips y actualizaciones de Zero Jump One.
+          Síguenos en redes sociales para estar al día con novedades, tips y
+          actualizaciones de Zero Jump One.
         </p>
         <div class="social-cta-hint" data-animate>
           <span>Elige tu red favorita</span>
@@ -66,26 +67,28 @@ const socialLinks = [
 
       <!-- Right: asymmetric social grid -->
       <div class="social-grid">
-        {socialLinks.map((social, index) => (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={`social-link ${social.size}`}
-            style={`--delay: ${index * 0.1}s`}
-            data-animate
-          >
-            <span class="social-icon">
-              {social.icon === "FacebookOutlined" && <FacebookOutlined />}
-              {social.icon === "XOutlined" && <XOutlined />}
-              {social.icon === "YoutubeOutlined" && <YoutubeOutlined />}
-              {social.icon === "LinkedinOutlined" && <LinkedinOutlined />}
-              {social.icon === "InstagramOutlined" && <InstagramOutlined />}
-            </span>
-            <span class="social-name">{social.name}</span>
-            <div class="link-glow"></div>
-          </a>
-        ))}
+        {
+          socialLinks.map((social, index) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`social-link ${social.size}`}
+              style={`--delay: ${index * 0.1}s`}
+              data-animate
+            >
+              <span class="social-icon">
+                {social.icon === "FacebookOutlined" && <FacebookOutlined />}
+                {social.icon === "XOutlined" && <XOutlined />}
+                {social.icon === "YoutubeOutlined" && <YoutubeOutlined />}
+                {social.icon === "LinkedinOutlined" && <LinkedinOutlined />}
+                {social.icon === "InstagramOutlined" && <InstagramOutlined />}
+              </span>
+              <span class="social-name">{social.name}</span>
+              <div class="link-glow" />
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -105,7 +108,12 @@ const socialLinks = [
     left: 35%;
     width: 200px;
     height: 100%;
-    background: linear-gradient(105deg, transparent 0%, rgba(5, 150, 105, 0.06) 50%, transparent 100%);
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(5, 150, 105, 0.06) 50%,
+      transparent 100%
+    );
     transform: skew(-8deg);
     pointer-events: none;
   }
@@ -114,9 +122,19 @@ const socialLinks = [
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-      radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px, 80px 80px;
+      radial-gradient(
+        circle at 10% 20%,
+        rgba(16, 185, 129, 0.04) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(5, 150, 105, 0.03) 1px,
+        transparent 1px
+      );
+    background-size:
+      60px 60px,
+      80px 80px;
     pointer-events: none;
   }
 
@@ -145,7 +163,11 @@ const socialLinks = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--arbol-claro, #059669);
-    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.08));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-10, rgba(5, 150, 105, 0.1)),
+      rgba(16, 185, 129, 0.08)
+    );
     padding: 6px 14px;
     border-radius: 50px;
     margin-bottom: 20px;
@@ -190,8 +212,13 @@ const socialLinks = [
   }
 
   @keyframes hintBounce {
-    0%, 100% { transform: translate(0); }
-    50% { transform: translate(6px); }
+    0%,
+    100% {
+      transform: translate(0);
+    }
+    50% {
+      transform: translate(6px);
+    }
   }
 
   /* Social Grid */
@@ -236,7 +263,11 @@ const socialLinks = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-claro, #059669),
+      var(--arbol-claro, #10b981)
+    );
     color: #fff;
     border-radius: 14px;
   }
@@ -273,7 +304,11 @@ const socialLinks = [
   }
 
   .social-link.small:hover .social-icon {
-    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-claro, #059669),
+      var(--arbol-claro, #10b981)
+    );
     color: #fff;
     transform: scale(1.15) rotate(5deg);
   }
@@ -298,7 +333,11 @@ const socialLinks = [
   .link-glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(5, 150, 105, 0.08), transparent 70%);
+    background: radial-gradient(
+      circle at center,
+      rgba(5, 150, 105, 0.08),
+      transparent 70%
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -307,7 +346,9 @@ const socialLinks = [
   [data-animate] {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
 
   [data-animate].animate {
@@ -370,5 +411,7 @@ const socialLinks = [
     { threshold: 0.2 },
   );
 
-  document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
 </script>

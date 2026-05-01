@@ -1,12 +1,12 @@
 :root {
-  --arbol-obscuro: #196632;
-  --arbol-claro: #3AB34A;
+  --arbol-obscuro: #059669;
+  --arbol-claro: #10b981;
   --secondary: #2563EB;
   --gradient-primary: linear-gradient(135deg, var(--arbol-claro), #10b981);
   --gradient-primary-dark: linear-gradient(135deg, var(--arbol-claro) 0%, var(--arbol-obscuro) 100%);
-  --gradient-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-bg: linear-gradient(180deg, #fff, #f0fdf4, #fff);
   --gradient-card: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.1));
-  --gradient-bar: linear-gradient(90deg, var(--arbol-claro), #10b981);
+  --gradient-bar: linear-gradient(90deg, var(--arbol-claro), #34d399);
   --arbol-10: rgba(5, 150, 105, 0.1);
   --arbol-05: rgba(5, 150, 105, 0.05);
   --arbol-08: rgba(5, 150, 105, 0.08);
