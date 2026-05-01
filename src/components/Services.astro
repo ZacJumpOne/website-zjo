@@ -95,6 +95,62 @@ const services = [
             <div class="cta-icon"><ArrowRightOutlined /></div>
           </a>
         </div>
+        <div class="spotlight-visual">
+          <div class="dashboard-preview">
+            <div class="db-header">
+              <div class="db-dot db-dot--red"></div>
+              <div class="db-dot db-dot--yellow"></div>
+              <div class="db-dot db-dot--green"></div>
+              <span class="db-title">monitoreo.sys</span>
+            </div>
+            <div class="db-metrics">
+              <div class="db-metric">
+                <span class="db-metric-label">AUTO</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 85%"></div>
+                </div>
+                <span class="db-metric-value">85%</span>
+              </div>
+              <div class="db-metric">
+                <span class="db-metric-label">RESP</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 100%"></div>
+                </div>
+                <span class="db-metric-value">100%</span>
+              </div>
+              <div class="db-metric">
+                <span class="db-metric-label">DB</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 75%"></div>
+                </div>
+                <span class="db-metric-value">75%</span>
+              </div>
+            </div>
+            <div class="db-waveform">
+              <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+                <polyline class="wave-line" points="" />
+              </svg>
+            </div>
+            <div class="db-nodes">
+              <div class="db-node active">
+                <div class="db-node-pulse"></div>
+                <span class="db-node-label">Node A</span>
+              </div>
+              <div class="db-node active">
+                <div class="db-node-pulse"></div>
+                <span class="db-node-label">Node B</span>
+              </div>
+              <div class="db-node active">
+                <div class="db-node-pulse"></div>
+                <span class="db-node-label">Node C</span>
+              </div>
+              <div class="db-node">
+                <div class="db-node-pulse"></div>
+                <span class="db-node-label">Node D</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
