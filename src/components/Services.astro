@@ -70,17 +70,26 @@ const services = [
           </div>
           <h3 class="spotlight-title">Monitoreo</h3>
           <p class="spotlight-description">
-            Control y supervision en tiempo real por nuestro personal de los procesos de su empresa.
+            Control y supervision en tiempo real por nuestro personal de los
+            procesos de su empresa.
           </p>
           <ul class="spotlight-features">
-            {services[0].features.map((feature) => (
-              <li class="feature-item">
-                <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {feature}
-              </li>
-            ))}
+            {
+              services[0].features.map((feature) => (
+                <li class="feature-item">
+                  <svg
+                    class="feature-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {feature}
+                </li>
+              ))
+            }
           </ul>
           <a href="#portafolio" class="spotlight-cta">
             <span>Explorar soluciones</span>
@@ -96,7 +105,7 @@ const services = [
               <div class="db-dot db-dot--green"></div>
               <span class="db-title">monitor.zerojump.one</span>
             </div>
-            
+
             <!-- Métricas en vivo -->
             <div class="db-metrics">
               <div class="db-metric">
@@ -121,14 +130,17 @@ const services = [
                 <span class="db-metric-value">55%</span>
               </div>
             </div>
-            
+
             <!-- Activity waveform -->
             <div class="db-waveform">
               <svg viewBox="0 0 300 60" preserveAspectRatio="none">
-                <polyline class="wave-line" points="0,30 20,28 40,35 60,25 80,32 100,20 120,28 140,22 160,35 180,18 200,25 220,30 240,22 260,28 280,25 300,30" />
+                <polyline
+                  class="wave-line"
+                  points="0,30 20,28 40,35 60,25 80,32 100,20 120,28 140,22 160,35 180,18 200,25 220,30 240,22 260,28 280,25 300,30"
+                ></polyline>
               </svg>
             </div>
-            
+
             <!-- Status nodes -->
             <div class="db-nodes">
               <div class="db-node active">
@@ -149,48 +161,69 @@ const services = [
       </div>
       <div class="spotlight-metric" data-value="99">
         <div class="metric-label"><span class="metric-number">0</span>%</div>
-        <div class="metric-sub">Disponibilidad garantizada</div>
+        <div class="metric-sub">Disponibilidad</div>
       </div>
     </div>
 
     <!-- Secondary Cards: Respuesta + Control -->
     <div class="secondary-grid">
-      {services.slice(1).map((service, index) => (
-        <div class={`secondary-card ${service.accent}`} data-tilt style={`--delay: ${(index + 1) * 0.15}s`}>
-          <div class="sc-accent-bar"></div>
-          <div class="sc-content">
-            <div class="sc-icon-wrapper">
-              <div class="sc-icon">
-                {service.iconName === "CustomerServiceOutlined" && <CustomerServiceOutlined />}
-                {service.iconName === "ControlOutlined" && <ControlOutlined />}
+      {
+        services.slice(1).map((service, index) => (
+          <div
+            class={`secondary-card ${service.accent}`}
+            data-tilt
+            style={`--delay: ${(index + 1) * 0.15}s`}
+          >
+            <div class="sc-accent-bar" />
+            <div class="sc-content">
+              <div class="sc-icon-wrapper">
+                <div class="sc-icon">
+                  {service.iconName === "CustomerServiceOutlined" && (
+                    <CustomerServiceOutlined />
+                  )}
+                  {service.iconName === "ControlOutlined" && (
+                    <ControlOutlined />
+                  )}
+                </div>
               </div>
+              <h3 class="sc-title">{service.title}</h3>
+              <p class="sc-description">{service.description}</p>
+              <ul class="sc-features">
+                {service.features.map((feature) => (
+                  <li class="sc-feature-item">
+                    <svg
+                      class="sc-check"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a href="#portafolio" class="sc-cta">
+                <span>Explorar</span>
+                <div class="cta-icon">
+                  <ArrowRightOutlined />
+                </div>
+              </a>
             </div>
-            <h3 class="sc-title">{service.title}</h3>
-            <p class="sc-description">{service.description}</p>
-            <ul class="sc-features">
-              {service.features.map((feature) => (
-                <li class="sc-feature-item">
-                  <svg class="sc-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <a href="#portafolio" class="sc-cta">
-              <span>Explorar</span>
-              <div class="cta-icon"><ArrowRightOutlined /></div>
-            </a>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
   .services {
-    background: var(--gradient-bg, linear-gradient(180deg, #ffffff 0%, #f8fafc 100%));
+    background: var(
+      --gradient-bg,
+      linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)
+    );
     padding: 120px 20px;
     position: relative;
     overflow: hidden;
@@ -209,7 +242,9 @@ const services = [
   .section-header {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
 
   .section-header.animate {
@@ -224,7 +259,11 @@ const services = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--arbol-claro, #059669);
-    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.08));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-10, rgba(5, 150, 105, 0.1)),
+      rgba(16, 185, 129, 0.08)
+    );
     padding: 6px 14px;
     border-radius: 50px;
     margin-bottom: 20px;
@@ -255,7 +294,7 @@ const services = [
     margin-bottom: 40px;
     overflow: visible;
     border: 1px solid rgba(16, 185, 129, 0.2);
-    box-shadow: 
+    box-shadow:
       0 20px 60px -15px rgba(0, 0, 0, 0.3),
       0 0 100px -30px rgba(16, 185, 129, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -269,7 +308,11 @@ const services = [
     right: -40px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.12),
+      transparent 70%
+    );
     border-radius: 50%;
     filter: blur(60px);
     z-index: 1;
@@ -278,8 +321,15 @@ const services = [
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
 
   .spotlight-content {
@@ -301,7 +351,11 @@ const services = [
   .spotlight-icon-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--arbol-claro, #059669), var(--arbol-claro, #10b981));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-claro, #059669),
+      var(--arbol-claro, #10b981)
+    );
     border-radius: 18px;
     transform: rotate(-6deg);
     transition: transform 0.4s ease;
@@ -372,7 +426,7 @@ const services = [
     font-weight: 700;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    box-shadow: 
+    box-shadow:
       0 4px 14px rgba(16, 185, 129, 0.4),
       0 0 20px rgba(16, 185, 129, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -380,7 +434,7 @@ const services = [
 
   .spotlight-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 
+    box-shadow:
       0 8px 28px rgba(16, 185, 129, 0.5),
       0 0 40px rgba(16, 185, 129, 0.3);
   }
@@ -416,7 +470,7 @@ const services = [
     flex-direction: column;
     gap: 16px;
     backdrop-filter: blur(10px);
-    box-shadow: 
+    box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 20px 40px rgba(0, 0, 0, 0.3);
   }
@@ -435,15 +489,24 @@ const services = [
     border-radius: 50%;
   }
 
-  .db-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
-  .db-dot--yellow { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.5); }
-  .db-dot--green { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+  .db-dot--red {
+    background: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+  }
+  .db-dot--yellow {
+    background: #eab308;
+    box-shadow: 0 0 6px rgba(234, 179, 8, 0.5);
+  }
+  .db-dot--green {
+    background: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+  }
 
   .db-title {
     margin-left: auto;
     font-size: 0.75rem;
     color: #64748b;
-    font-family: 'Monaco', 'Menlo', monospace;
+    font-family: "Monaco", "Menlo", monospace;
     letter-spacing: 0.05em;
   }
 
@@ -467,7 +530,7 @@ const services = [
     color: #64748b;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-family: 'Monaco', 'Menlo', monospace;
+    font-family: "Monaco", "Menlo", monospace;
   }
 
   .db-metric-bar {
@@ -487,7 +550,9 @@ const services = [
   }
 
   @keyframes fillGrow {
-    from { width: 0; }
+    from {
+      width: 0;
+    }
   }
 
   .db-metric-value {
@@ -495,7 +560,7 @@ const services = [
     font-weight: 600;
     color: #94a3b8;
     text-align: right;
-    font-family: 'Monaco', 'Menlo', monospace;
+    font-family: "Monaco", "Menlo", monospace;
   }
 
   .db-waveform {
@@ -520,8 +585,13 @@ const services = [
   }
 
   @keyframes wavePulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
   }
 
   .db-nodes {
@@ -537,7 +607,7 @@ const services = [
     gap: 8px;
     font-size: 0.7rem;
     color: #64748b;
-    font-family: 'Monaco', 'Menlo', monospace;
+    font-family: "Monaco", "Menlo", monospace;
   }
 
   .db-node-pulse {
@@ -554,8 +624,13 @@ const services = [
   }
 
   @keyframes nodePulse {
-    0%, 100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
-    50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.8); }
+    0%,
+    100% {
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.8);
+    }
   }
 
   .db-node.active .db-node-label {
@@ -571,7 +646,7 @@ const services = [
     color: #fff;
     padding: 20px 28px;
     border-radius: 20px;
-    box-shadow: 
+    box-shadow:
       0 12px 32px rgba(16, 185, 129, 0.4),
       0 0 40px rgba(16, 185, 129, 0.2);
     z-index: 3;
@@ -609,7 +684,9 @@ const services = [
     border-radius: 24px;
     padding: 36px 32px;
     border: 1px solid #e2e8f0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
     animation: fadeInUp 0.6s ease backwards;
     animation-delay: var(--delay);
     overflow: hidden;
@@ -634,7 +711,11 @@ const services = [
   }
 
   .secondary-card.green .sc-accent-bar {
-    background: linear-gradient(90deg, var(--arbol-claro, #059669), var(--arbol-03, #34d399));
+    background: linear-gradient(
+      90deg,
+      var(--arbol-claro, #059669),
+      var(--arbol-03, #34d399)
+    );
   }
 
   .secondary-card.emerald .sc-accent-bar {
@@ -654,14 +735,22 @@ const services = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--arbol-10, rgba(5, 150, 105, 0.1)), rgba(16, 185, 129, 0.1));
+    background: linear-gradient(
+      135deg,
+      var(--arbol-10, rgba(5, 150, 105, 0.1)),
+      rgba(16, 185, 129, 0.1)
+    );
     border-radius: 16px;
     transition: transform 0.3s ease;
   }
 
   .secondary-card:hover .sc-icon-wrapper {
     transform: rotate(-6deg) scale(1.05);
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.18), rgba(16, 185, 129, 0.18));
+    background: linear-gradient(
+      135deg,
+      rgba(5, 150, 105, 0.18),
+      rgba(16, 185, 129, 0.18)
+    );
   }
 
   .sc-icon {
@@ -834,8 +923,13 @@ const services = [
   }
 
   @keyframes hintBounce {
-    0%, 100% { transform: translate(0); }
-    50% { transform: translate(6px); }
+    0%,
+    100% {
+      transform: translate(0);
+    }
+    50% {
+      transform: translate(6px);
+    }
   }
 </style>
 
@@ -852,7 +946,9 @@ const services = [
     { threshold: 0.2 },
   );
 
-  document.querySelectorAll("[data-tilt]").forEach((el) => cardObserver.observe(el));
+  document
+    .querySelectorAll("[data-tilt]")
+    .forEach((el) => cardObserver.observe(el));
 
   // Section header animation
   const headerObserver = new IntersectionObserver(
@@ -866,7 +962,9 @@ const services = [
     { threshold: 0.3 },
   );
 
-  document.querySelectorAll(".section-header").forEach((el) => headerObserver.observe(el));
+  document
+    .querySelectorAll(".section-header")
+    .forEach((el) => headerObserver.observe(el));
 
   // Metric counter animation
   const metricEl = document.querySelector(".spotlight-metric[data-value]");
@@ -875,7 +973,10 @@ const services = [
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const target = parseInt(entry.target.getAttribute("data-value") || "0", 10);
+            const target = parseInt(
+              entry.target.getAttribute("data-value") || "0",
+              10,
+            );
             const numberEl = entry.target.querySelector(".metric-number");
             if (!numberEl) return;
             const duration = 2000;
@@ -914,7 +1015,7 @@ const services = [
       }
       waveLine.setAttribute("points", points.trim());
     };
-    
+
     const waveObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -927,9 +1028,9 @@ const services = [
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
-    
+
     waveObserver.observe(waveLine);
   }
 </script>
