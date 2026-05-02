@@ -18,10 +18,12 @@ El spotlight de Monitoreo tiene **title y description hardcodeados** en el HTML,
 
 ## Tareas de Implementación (para revisión del usuario)
 
-- [ ] Cambiar spotlight title a `{services[0].title}`
-- [ ] Cambiar spotlight description a `{services[0].description}`
-- [ ] Correr `bun run build` para validar
+- [x] Cambiar spotlight title a `{services[0].title}`
+- [x] Cambiar spotlight description a `{services[0].description}`
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar el plan.
+- **Commit inicial**: `57da3a4` — chore: estado antes de implementar plan 076-services-textos-arreglo
+- **Archivo modificado**: `src/components/Services.astro` — spotlight ahora usa `services[0].title` y `services[0].description`
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 21.11s

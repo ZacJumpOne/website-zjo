@@ -11,7 +11,7 @@ const services = [
     iconName: "MonitorOutlined",
     title: "Monitoreo",
     description:
-      "Control y supervision por nuestro personal de los procesos configurados para su empresa.",
+      "Control y supervision por nuestro personal de las actvidades configuradas para su empresa.",
     features: [
       "Tareas automatizadas",
       "Respaldos Diarios",
@@ -68,10 +68,9 @@ const services = [
               <MonitorOutlined />
             </div>
           </div>
-          <h3 class="spotlight-title">Monitoreo</h3>
+          <h3 class="spotlight-title">{services[0].title}</h3>
           <p class="spotlight-description">
-            Control y supervision en tiempo real por nuestro personal de los
-            procesos de su empresa.
+            {services[0].description}
           </p>
           <ul class="spotlight-features">
             {
@@ -108,9 +107,9 @@ const services = [
               <div class="db-metric">
                 <span class="db-metric-label">AUTO</span>
                 <div class="db-metric-bar">
-                  <div class="db-metric-fill" style="--fill: 85%"></div>
+                  <div class="db-metric-fill" style="--fill: 100%"></div>
                 </div>
-                <span class="db-metric-value">85%</span>
+                <span class="db-metric-value">100%</span>
               </div>
               <div class="db-metric">
                 <span class="db-metric-label">RESP</span>
@@ -122,9 +121,9 @@ const services = [
               <div class="db-metric">
                 <span class="db-metric-label">DB</span>
                 <div class="db-metric-bar">
-                  <div class="db-metric-fill" style="--fill: 75%"></div>
+                  <div class="db-metric-fill" style="--fill: 100%"></div>
                 </div>
-                <span class="db-metric-value">75%</span>
+                <span class="db-metric-value">100%</span>
               </div>
             </div>
             <div class="db-waveform">
