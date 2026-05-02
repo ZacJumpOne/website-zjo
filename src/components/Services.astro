@@ -93,62 +93,27 @@ const services = [
           <a href="#portafolio" class="spotlight-cta">
             <span>Explorar soluciones</span>
             <div class="cta-icon"><ArrowRightOutlined /></div>
+            <div class="btn-shine"></div>
           </a>
         </div>
         <div class="spotlight-visual">
-          <div class="dashboard-preview">
-            <div class="db-header">
-              <div class="db-dot db-dot--red"></div>
-              <div class="db-dot db-dot--yellow"></div>
-              <div class="db-dot db-dot--green"></div>
-              <span class="db-title">monitoreo.sys</span>
-            </div>
-            <div class="db-metrics">
-              <div class="db-metric">
-                <span class="db-metric-label">AUTO</span>
-                <div class="db-metric-bar">
-                  <div class="db-metric-fill" style="--fill: 100%"></div>
+          <div class="panel-dashboard">
+            {services[0].features.map((feature, i) => (
+              <div class="panel-item" style={`--stagger: ${i * 0.15}s`}>
+                <div class="panel-icon">
+                  <svg class="panel-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
-                <span class="db-metric-value">100%</span>
-              </div>
-              <div class="db-metric">
-                <span class="db-metric-label">RESP</span>
-                <div class="db-metric-bar">
-                  <div class="db-metric-fill" style="--fill: 100%"></div>
+                <div class="panel-info">
+                  <span class="panel-label">{feature}</span>
+                  <div class="panel-bar">
+                    <div class="panel-fill" style="--fill: 100%"></div>
+                  </div>
                 </div>
-                <span class="db-metric-value">100%</span>
+                <span class="panel-value">100%</span>
               </div>
-              <div class="db-metric">
-                <span class="db-metric-label">DB</span>
-                <div class="db-metric-bar">
-                  <div class="db-metric-fill" style="--fill: 100%"></div>
-                </div>
-                <span class="db-metric-value">100%</span>
-              </div>
-            </div>
-            <div class="db-waveform">
-              <svg viewBox="0 0 300 60" preserveAspectRatio="none">
-                <polyline class="wave-line" points=""></polyline>
-              </svg>
-            </div>
-            <div class="db-nodes">
-              <div class="db-node active">
-                <div class="db-node-pulse"></div>
-                <span class="db-node-label">Node A</span>
-              </div>
-              <div class="db-node active">
-                <div class="db-node-pulse"></div>
-                <span class="db-node-label">Node B</span>
-              </div>
-              <div class="db-node active">
-                <div class="db-node-pulse"></div>
-                <span class="db-node-label">Node C</span>
-              </div>
-              <div class="db-node">
-                <div class="db-node-pulse"></div>
-                <span class="db-node-label">Node D</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -282,12 +247,17 @@ const services = [
     padding: 48px;
     margin-bottom: 40px;
     overflow: visible;
-    border: 1px solid rgba(5, 150, 105, 0.15);
-    box-shadow:
-      0 20px 60px -15px rgba(5, 150, 105, 0.12),
-      0 8px 24px -8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
     animation: fadeInUp 0.8s ease backwards;
     animation-delay: 0.1s;
+  }
+
+  .spotlight:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
   }
 
   .spotlight-bleed {
@@ -404,6 +374,7 @@ const services = [
   }
 
   .spotlight-cta {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -414,6 +385,7 @@ const services = [
     font-weight: 700;
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    overflow: hidden;
     box-shadow:
       0 4px 14px rgba(16, 185, 129, 0.4),
       0 0 20px rgba(16, 185, 129, 0.2);
@@ -439,190 +411,120 @@ const services = [
   }
 
   .spotlight-cta:hover .cta-icon {
-    transform: translate(4px);
+    transform: translate(4px) rotate(45deg);
   }
 
-  /* Dashboard Preview */
+  .btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .spotlight-cta:hover .btn-shine {
+    left: 100%;
+  }
+
+  /* Panel Dashboard */
   .spotlight-visual {
     position: relative;
     height: 320px;
   }
 
-  .dashboard-preview {
-    background: rgba(15, 23, 42, 0.85);
-    border: 1px solid rgba(16, 185, 129, 0.15);
-    border-radius: 16px;
-    padding: 20px;
+  .panel-dashboard {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    backdrop-filter: blur(10px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
-      0 20px 40px rgba(0, 0, 0, 0.3);
+    gap: 12px;
   }
 
-  .db-header {
+  .panel-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    animation: fadeInUp 0.5s ease backwards;
+    animation-delay: var(--stagger);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .db-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+  .panel-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.2);
   }
 
-  .db-dot--red {
-    background: #ef4444;
-    box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
-  }
-  .db-dot--yellow {
-    background: #eab308;
-    box-shadow: 0 0 6px rgba(234, 179, 8, 0.5);
-  }
-  .db-dot--green {
-    background: #10b981;
-    box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+  .panel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-radius: 12px;
+    flex-shrink: 0;
   }
 
-  .db-title {
-    margin-left: auto;
-    font-size: 0.75rem;
-    color: #94a3b8;
-    font-family: "Monaco", "Menlo", monospace;
-    letter-spacing: 0.05em;
+  .panel-check-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--arbol-claro);
   }
 
-  .db-metrics {
+  .panel-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    flex: 1;
+    gap: 6px;
+    min-width: 0;
   }
 
-  .db-metric {
-    display: grid;
-    grid-template-columns: 45px 1fr 40px;
-    align-items: center;
-    gap: 10px;
+  .panel-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .db-metric-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #cbd5e1;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: "Monaco", "Menlo", monospace;
-  }
-
-  .db-metric-bar {
-    height: 6px;
-    background: rgba(148, 163, 184, 0.2);
+  .panel-bar {
+    height: 5px;
+    background: #f1f5f9;
     border-radius: 3px;
     overflow: hidden;
   }
 
-  .db-metric-fill {
+  .panel-fill {
     height: 100%;
-    width: var(--fill, 50%);
-    background: linear-gradient(90deg, #10b981, #34d399);
+    width: var(--fill, 100%);
+    background: linear-gradient(90deg, var(--arbol-claro), #34d399);
     border-radius: 3px;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
-    animation: fillGrow 1.5s ease backwards;
+    animation: fillGrow 1.2s ease backwards;
+    animation-delay: var(--stagger);
   }
 
   @keyframes fillGrow {
-    from {
-      width: 0;
-    }
+    from { width: 0; }
   }
 
-  .db-metric-value {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #e2e8f0;
-    text-align: right;
-    font-family: "Monaco", "Menlo", monospace;
-  }
-
-  .db-waveform {
-    height: 60px;
-    margin: 8px 0;
-  }
-
-  .db-waveform svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .wave-line {
-    fill: none;
-    stroke: #10b981;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.4));
-    animation: wavePulse 3s ease-in-out infinite;
-  }
-
-  @keyframes wavePulse {
-    0%,
-    100% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 0.8;
-    }
-  }
-
-  .db-nodes {
-    display: flex;
-    gap: 16px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(148, 163, 184, 0.1);
-  }
-
-  .db-node {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.7rem;
-    color: #94a3b8;
-    font-family: "Monaco", "Menlo", monospace;
-  }
-
-  .db-node-pulse {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #475569;
-  }
-
-  .db-node.active .db-node-pulse {
-    background: #10b981;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-    animation: nodePulse 2s ease-in-out infinite;
-  }
-
-  @keyframes nodePulse {
-    0%,
-    100% {
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-    }
-    50% {
-      box-shadow: 0 0 16px rgba(16, 185, 129, 0.8);
-    }
-  }
-
-  .db-node.active .db-node-label {
-    color: #cbd5e1;
+  .panel-value {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--arbol-claro);
+    flex-shrink: 0;
   }
 
   /* Secondary Grid */
@@ -790,7 +692,7 @@ const services = [
 
   .sc-cta:hover .cta-icon {
     background: rgba(255, 255, 255, 0.2);
-    transform: translate(3px);
+    transform: translate(3px) rotate(45deg);
   }
 
   @media (max-width: 992px) {
@@ -804,12 +706,6 @@ const services = [
     }
 
     .secondary-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .dashboard-preview {
-      padding: 16px;
-    }
   }
 
   @media (max-width: 768px) {
@@ -835,54 +731,6 @@ const services = [
 
     .spotlight-visual {
       height: 240px;
-    }
-
-    .db-title {
-      display: none;
-    }
-
-    .db-nodes {
-      flex-wrap: wrap;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .services {
-      padding: 60px 12px;
-    }
-
-    .spotlight {
-      padding: 20px;
-      border-radius: 20px;
-    }
-
-    .spotlight-content {
-      gap: 20px;
-    }
-
-    .spotlight-text {
-      padding: 0;
-    }
-
-    .spotlight-title {
-      font-size: 1.3rem;
-    }
-
-    .spotlight-description {
-      font-size: 0.9rem;
-    }
-
-    .spotlight-visual {
-      height: 200px;
-    }
-
-    .dashboard-preview {
-      padding: 12px;
-      gap: 10px;
-    }
-
-    .secondary-grid {
-      gap: 16px;
     }
 
     .secondary-card {
@@ -955,34 +803,4 @@ const services = [
   document
     .querySelectorAll(".section-header")
     .forEach((el) => headerObserver.observe(el));
-
-  // Waveform animation
-  const waveLine = document.querySelector(".wave-line");
-  if (waveLine) {
-    const generateWavePoints = () => {
-      let points = "";
-      for (let i = 0; i <= 300; i += 20) {
-        const y = 30 + Math.sin(i * 0.05 + Date.now() * 0.001) * 15;
-        points += `${i},${y} `;
-      }
-      waveLine.setAttribute("points", points.trim());
-    };
-
-    const waveObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const interval = setInterval(generateWavePoints, 100);
-            waveLine.dataset.intervalId = interval.toString();
-          } else {
-            const intervalId = waveLine.dataset.intervalId;
-            if (intervalId) clearInterval(parseInt(intervalId));
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    waveObserver.observe(waveLine);
-  }
 </script>

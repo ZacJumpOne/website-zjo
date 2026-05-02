@@ -4,6 +4,9 @@
   --primary-light: #4CC45E;
   --arbol-obscuro: #196632;
   --arbol-claro: #3AB34A;
+  --social-green: #059669;
+  --social-green-light: #10b981;
+  --social-bg-light: #f0fdf4;
   --secondary: #2563EB;
   --gradient-primary: linear-gradient(135deg, var(--arbol-claro), #10b981);
   --gradient-primary-dark: linear-gradient(135deg, var(--arbol-claro) 0%, var(--arbol-obscuro) 100%);

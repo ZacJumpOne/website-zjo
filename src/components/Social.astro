@@ -162,10 +162,10 @@ const socialLinks = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--arbol-claro, #059669);
+    color: var(--social-green, #059669);
     background: linear-gradient(
       135deg,
-      var(--arbol-10, rgba(5, 150, 105, 0.1)),
+      rgba(5, 150, 105, 0.1),
       rgba(16, 185, 129, 0.08)
     );
     padding: 6px 14px;
@@ -195,7 +195,7 @@ const socialLinks = [
     gap: 10px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--arbol-claro, #059669);
+    color: var(--social-green, #059669);
     opacity: 0.8;
   }
 
@@ -205,7 +205,7 @@ const socialLinks = [
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: var(--arbol-10, rgba(5, 150, 105, 0.1));
+    background: rgba(5, 150, 105, 0.1);
     border-radius: 50%;
     font-size: 0.85rem;
     animation: hintBounce 1.5s ease-in-out infinite;
@@ -265,11 +265,12 @@ const socialLinks = [
     justify-content: center;
     background: linear-gradient(
       135deg,
-      var(--arbol-claro, #059669),
-      var(--arbol-claro, #10b981)
+      var(--social-green, #059669),
+      var(--social-green-light, #10b981)
     );
     color: #fff;
     border-radius: 14px;
+    transition: all 0.3s ease;
   }
 
   .social-link.large .social-name {
@@ -287,8 +288,8 @@ const socialLinks = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0fdf4;
-    color: var(--arbol-claro, #059669);
+    background: var(--social-bg-light, #f0fdf4);
+    color: var(--social-green, #059669);
     border-radius: 12px;
     transition: all 0.3s ease;
   }
@@ -306,8 +307,8 @@ const socialLinks = [
   .social-link.small:hover .social-icon {
     background: linear-gradient(
       135deg,
-      var(--arbol-claro, #059669),
-      var(--arbol-claro, #10b981)
+      var(--social-green, #059669),
+      var(--social-green-light, #10b981)
     );
     color: #fff;
     transform: scale(1.15) rotate(5deg);
@@ -327,7 +328,7 @@ const socialLinks = [
   }
 
   .social-link:hover .social-name {
-    color: var(--arbol-claro, #059669);
+    color: var(--social-green, #059669);
   }
 
   .link-glow {
