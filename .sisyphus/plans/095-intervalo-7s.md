@@ -2,7 +2,10 @@
 
 ## Tareas
 
-- [ ] `8000` → `7000` en setInterval
-- [ ] `bun run build`
+- [x] `8000` → `7000` en setInterval
+- [x] `bun run build`
 
-Usa `/plan-go`.
+## Resultados
+
+- **Commit inicial**: `d8b9b2a`
+- **Build**: ✅ 14 pages, 18.35s
