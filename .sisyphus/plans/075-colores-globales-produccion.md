@@ -26,15 +26,26 @@ Esto explica por qué el Feedback en desarrollo se ve "opaco y sin vida": usa co
 
 ## Tareas de Implementación (para revisión del usuario)
 
-- [ ] Actualizar `--arbol-claro`: `#10b981` → `#3AB34A` en `global.css`
-- [ ] Actualizar `--arbol-obscuro`: `#059669` → `#196632` en `global.css`
-- [ ] Agregar `--primary: #3AB34A` en `global.css`
-- [ ] Agregar `--primary-dark: #2D8A3C` en `global.css`
-- [ ] Agregar `--primary-light: #4CC45E` en `global.css`
-- [ ] Actualizar `.feedback` background: usar `var(--primary)` y `var(--primary-dark)` como producción
-- [ ] Actualizar `.btn-submit`: usar `var(--primary)` como producción
-- [ ] Correr `bun run build` para validar
+- [x] Actualizar `--arbol-claro`: `#10b981` → `#3AB34A` en `global.css`
+- [x] Actualizar `--arbol-obscuro`: `#059669` → `#196632` en `global.css`
+- [x] Agregar `--primary: #3AB34A` en `global.css`
+- [x] Agregar `--primary-dark: #2D8A3C` en `global.css`
+- [x] Agregar `--primary-light: #4CC45E` en `global.css`
+- [x] Actualizar `.feedback` background: usar `var(--primary)` y `var(--primary-dark)` como producción
+- [x] Actualizar `.btn-submit`: usar `var(--primary)` como producción
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar el plan.
+- **Commit inicial**: `46eae49` — chore: estado antes de implementar plan 075-colores-globales-produccion
+- **Archivos modificados**: `global.css` (5 variables) + `Feedback.astro` (3 referencias)
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 17.44s
+
+### Colores sincronizados:
+| Variable | Antes (teal) | Ahora (verde puro) |
+|---|---|---|
+| `--arbol-claro` | `#10b981` 🦎 | `#3AB34A` 🌿 |
+| `--arbol-obscuro` | `#059669` | `#196632` |
+| `--primary` | no existía | `#3AB34A` |
+| `--primary-dark` | no existía | `#2D8A3C` |
+| `--primary-light` | no existía | `#4CC45E` |

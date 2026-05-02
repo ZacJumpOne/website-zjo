@@ -1,6 +1,9 @@
 :root {
-  --arbol-obscuro: #059669;
-  --arbol-claro: #10b981;
+  --primary: #3AB34A;
+  --primary-dark: #2D8A3C;
+  --primary-light: #4CC45E;
+  --arbol-obscuro: #196632;
+  --arbol-claro: #3AB34A;
   --secondary: #2563EB;
   --gradient-primary: linear-gradient(135deg, var(--arbol-claro), #10b981);
   --gradient-primary-dark: linear-gradient(135deg, var(--arbol-claro) 0%, var(--arbol-obscuro) 100%);
