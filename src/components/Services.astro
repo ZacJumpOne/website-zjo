@@ -113,7 +113,7 @@ const services = [
                 <div class="terminal-line log" style={`--stagger: ${i * 0.4}s`}>
                   <span class="log-check">✓</span>
                   <span class="log-text">{feature}</span>
-                  <span class="log-status">100%</span>
+                  <span class="log-status" data-counter="100">0%</span>
                 </div>
               ))}
               <div class="terminal-line status-line" style="--stagger: 1.6s">
@@ -864,4 +864,32 @@ const services = [
   document
     .querySelectorAll(".section-header")
     .forEach((el) => headerObserver.observe(el));
+
+  // Counter animation: anima números de 0 al target en 3s
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.counter, 10);
+        const duration = 3000;
+        const start = performance.now();
+
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          el.textContent = Math.round(eased * target) + "%";
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  document
+    .querySelectorAll("[data-counter]")
+    .forEach((el) => counterObserver.observe(el));
 </script>

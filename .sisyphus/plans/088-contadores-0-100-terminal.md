@@ -15,9 +15,22 @@ CSS no puede animar contenido de texto — se requiere JavaScript. El enfoque: u
 
 ## Tareas de Implementación
 
-- [ ] Agregar `data-counter` a cada `<span class="log-status">` con target `100`
-- [ ] Agregar script de contador animado con IntersectionObserver + requestAnimationFrame
-- [ ] Correr `bun run build` para validar
+- [x] Agregar `data-counter` a cada `<span class="log-status">` con target `100`
+- [x] Agregar script de contador animado con IntersectionObserver + requestAnimationFrame
+- [x] Correr `bun run build` para validar
+
+[...plan details unchanged...]
+
+## Resultados de Implementación
+
+- **Commit inicial**: `4d927a4` — chore: estado antes de implementar plan 088-contadores-0-100-terminal
+- **Archivo modificado**: `src/components/Services.astro`
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 20.11s
+
+### Cambios aplicados:
+- **HTML**: Cada `.log-status` ahora tiene `data-counter="100"` y muestra `0%` inicialmente
+- **JS**: Nuevo `IntersectionObserver` que detecta el terminal en viewport (threshold 0.5) y anima los contadores de 0→100 en 3s con easing `easeOutExpo` y `requestAnimationFrame`
+- El observer hace `unobserve` después de disparar, por lo que la animación solo ocurre una vez al entrar a la vista
 
 ### Detalle del script
 
