@@ -64,11 +64,24 @@
 
 ### 🟡 Mejoras Medias — medio impacto, medio esfuerzo
 
-- [ ] **Agregar animaciones de entrada** a secciones que no las tienen: Clients.astro (data-animate), Feedback.astro, Social.astro. Usar el mismo patrón `fadeInUp` ya definido.
-- [ ] **Agregar breakpoint 480px** en componentes que solo tienen 768px y 992px (Services, Hero) para mejor soporte de pantallas pequeñas.
-- [ ] **Optimizar tipografía mobile**: Ajustar `clamp()` en `.section-title` para evitar texto desproporcionado en móviles.
-- [ ] **Agregar skeleton/placeholder** básico para el Hero mientras carga (mejora percepción de rendimiento).
-- [ ] **Scroll progress bar**: Mover el `::-webkit-scrollbar` de `index.astro` a `global.css` para que aplique a todas las páginas.
+- [x] **Agregar animaciones de entrada** a secciones que no las tienen: Feedback.astro (data-animate + CSS fadeInUp + JS observer). El skeleton del Hero se omite (SSR renderiza instantáneamente).
+- [x] **Agregar breakpoint 480px** en componentes que solo tenían 768px y 992px (Services: ajustes de padding, tipografía, dashboard; Hero: padding, tipografía, altura del visual).
+- [x] **Scroll progress bar**: Mover el `::-webkit-scrollbar` de `index.astro` a `global.css` para que aplique a todas las páginas. También usa `var(--secondary)` en vez de color hardcodeado.
+
+## Resultados de Implementación (Mejoras Medias)
+
+- **Commit inicial**: `e203390` — chore: estado antes de implementar plan 070-mejoras-medias
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 20.87s
+
+### Archivos modificados (5 archivos):
+
+| # | Archivo | Cambio |
+|---|---|---|
+| 1 | `Feedback.astro` | Animación fadeInUp en `.feedback-header` con data-animate + JS observer |
+| 2 | `Services.astro` | Breakpoint 480px: ajustes de padding, tipografía, dashboard, cards |
+| 3 | `Hero.astro` | Breakpoint 480px: padding reducido, tipografía adaptada, visual más chico |
+| 4 | `index.astro` | Scrollbar CSS movido a global.css |
+| 5 | `global.css` | Scrollbar CSS recibido de index.astro, usa `var(--secondary)` |
 
 ### 🔵 Estratégicas — para discusión
 

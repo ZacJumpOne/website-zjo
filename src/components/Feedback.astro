@@ -5,7 +5,7 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
 
 <section class="feedback" id="contacto">
   <div class="container">
-    <div class="feedback-header">
+    <div class="feedback-header" data-animate>
       <span class="feedback-emoji">
         <MessageOutlined />
       </span>
@@ -278,6 +278,22 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
     submitBtn.disabled = false;
     btnText.textContent = "Enviar Feedback";
   });
+
+  // Section header animation
+  const animateObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => animateObserver.observe(el));
 </script>
 
 <style>
@@ -294,6 +310,16 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
   .feedback-header {
     text-align: center;
     margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .feedback-header.animate {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .feedback-emoji {

@@ -1173,6 +1173,49 @@ const slides: FloatingCardSlide[] = [
       display: none;
     }
   }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 6px 14px;
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 0.9rem;
+    }
+
+    .hero-visual {
+      height: 220px;
+    }
+
+    .main-card {
+      height: 160px;
+    }
+
+    .carousel-slide {
+      height: 220px;
+    }
+
+    .hero-features {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
 </style>
 
 <script>
