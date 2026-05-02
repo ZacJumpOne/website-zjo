@@ -20,9 +20,12 @@ El botón "Enviar Feedback" en `Feedback.astro` actualmente tiene el `ArrowRight
 
 ## Tareas de Implementación (para revisión del usuario)
 
-- [ ] Agregar `<MessageOutlined />` al inicio del botón, antes del `<span>`
-- [ ] Correr `bun run build` para validar
+- [x] Agregar `<MessageOutlined />` al inicio del botón, antes del `<span>`
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar el plan.
+- **Commit inicial**: `00b0a32` — chore: estado antes de implementar plan 072-feedback-icono-izquierdo
+- **Archivo modificado**: `src/components/Feedback.astro` — `<MessageOutlined />` agregado a la izquierda del botón
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 17.21s
+- **Resultado**: `[💬] Enviar Feedback [→]`
