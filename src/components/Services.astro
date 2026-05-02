@@ -96,23 +96,35 @@ const services = [
           </a>
         </div>
         <div class="spotlight-visual">
-          <div class="panel-dashboard">
-            {services[0].features.map((feature, i) => (
-              <div class="panel-item" style={`--stagger: ${i * 0.15}s`}>
-                <div class="panel-icon">
-                  <svg class="panel-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-                <div class="panel-info">
-                  <span class="panel-label">{feature}</span>
-                  <div class="panel-bar">
-                    <div class="panel-fill" style="--fill: 100%"></div>
-                  </div>
-                </div>
-                <span class="panel-value">100%</span>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">zjo-monitor --status</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line prompt">
+                <span class="prompt-sign">$</span>
+                <span class="prompt-cmd">zjo-monitor --watch</span>
+                <span class="cursor">▊</span>
               </div>
-            ))}
+              {services[0].features.map((feature, i) => (
+                <div class="terminal-line log" style={`--stagger: ${i * 0.4}s`}>
+                  <span class="log-check">✓</span>
+                  <span class="log-text">{feature}</span>
+                  <span class="log-status">100%</span>
+                </div>
+              ))}
+              <div class="terminal-line status-line" style="--stagger: 1.6s">
+                <span class="status-fill full"></span>
+                <span class="status-label">SISTEMA OPERATIVO</span>
+              </div>
+              <div class="terminal-line uptime-line" style="--stagger: 2.0s">
+                <span class="status-fill partial"></span>
+                <span class="status-label">Uptime 99.9%</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -414,97 +426,168 @@ const services = [
     transform: translate(3px) rotate(45deg);
   }
 
-  /* Panel Dashboard */
+  /* Terminal Monitor */
   .spotlight-visual {
     position: relative;
     height: 320px;
   }
 
-  .panel-dashboard {
+  .terminal {
     height: 100%;
+    background: #0f172a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid #1e293b;
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
 
-  .panel-item {
+  .terminal-bar {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 16px 20px;
-    animation: fadeInUp 0.5s ease backwards;
-    animation-delay: var(--stagger);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
   }
 
-  .panel-item:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
-    border-color: rgba(5, 150, 105, 0.2);
-  }
-
-  .panel-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-    border-radius: 12px;
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .panel-check-icon {
-    width: 18px;
-    height: 18px;
-    color: var(--arbol-claro);
+  .terminal-dot.red {
+    background: #ef4444;
   }
 
-  .panel-info {
+  .terminal-dot.yellow {
+    background: #eab308;
+  }
+
+  .terminal-dot.green {
+    background: #22c55e;
+  }
+
+  .terminal-title {
     flex: 1;
+    text-align: center;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.7rem;
+    color: #64748b;
+    letter-spacing: 0.02em;
+  }
+
+  .terminal-body {
+    flex: 1;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.78rem;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    min-width: 0;
-  }
-
-  .panel-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #334155;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .panel-bar {
-    height: 5px;
-    background: #f1f5f9;
-    border-radius: 3px;
+    gap: 8px;
     overflow: hidden;
   }
 
-  .panel-fill {
-    height: 100%;
-    width: var(--fill, 100%);
-    background: linear-gradient(90deg, var(--arbol-claro), #34d399);
-    border-radius: 3px;
-    animation: fillGrow 1.2s ease backwards;
-    animation-delay: var(--stagger);
+  .terminal-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeInUpTerminal 0.4s ease forwards;
+    animation-delay: var(--stagger, 0s);
   }
 
-  @keyframes fillGrow {
+  @keyframes fadeInUpTerminal {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  .terminal-line.prompt {
+    margin-bottom: 4px;
+  }
+
+  .prompt-sign {
+    color: var(--arbol-claro, #3AB34A);
+    font-weight: 700;
+  }
+
+  .prompt-cmd {
+    color: #e2e8f0;
+  }
+
+  .cursor {
+    color: var(--arbol-claro, #3AB34A);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .terminal-line.log {
+    padding-left: 4px;
+  }
+
+  .log-check {
+    color: var(--arbol-claro, #3AB34A);
+    font-weight: 700;
+  }
+
+  .log-text {
+    color: #cbd5e1;
+    flex: 1;
+  }
+
+  .log-status {
+    color: #94a3b8;
+    font-size: 0.72rem;
+  }
+
+  .terminal-line.status-line {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px dashed #334155;
+    gap: 10px;
+  }
+
+  .terminal-line.uptime-line {
+    gap: 10px;
+  }
+
+  .status-fill {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--arbol-claro, #3AB34A);
+    animation: growBar 1.2s ease backwards;
+    animation-delay: var(--stagger, 0s);
+  }
+
+  .status-fill.full {
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .status-fill.partial {
+    width: 34px;
+    flex-shrink: 0;
+  }
+
+  @keyframes growBar {
     from { width: 0; }
   }
 
-  .panel-value {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--arbol-claro);
-    flex-shrink: 0;
+  .status-label {
+    color: #64748b;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   /* Secondary Grid */
@@ -684,8 +767,6 @@ const services = [
     .spotlight-visual {
       height: 280px;
     }
-
-    .secondary-grid {
   }
 
   @media (max-width: 768px) {
@@ -701,20 +782,16 @@ const services = [
       font-size: 1.5rem;
     }
 
-    .metric-label {
-      font-size: 1.5rem;
-    }
-
-    .secondary-card {
-      padding: 28px 24px;
-    }
-
     .spotlight-visual {
       height: 240px;
     }
 
+    .terminal-body {
+      font-size: 0.7rem;
+    }
+
     .secondary-card {
-      padding: 24px 18px;
+      padding: 28px 24px;
     }
   }
 

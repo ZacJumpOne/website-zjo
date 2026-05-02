@@ -31,10 +31,10 @@ El dashboard actual (3 tarjetas con barras de progreso al 100%) es plano y no co
 
 ## Tareas de Implementación
 
-- [ ] Reemplazar HTML del `.spotlight-visual` (líneas 98-117) por markup del terminal
-- [ ] Reemplazar CSS del dashboard (líneas 417-508) por estilos del terminal + animaciones
-- [ ] Verificar responsive en breakpoints 992px y 768px (altura se ajusta, terminal se escala)
-- [ ] Correr `bun run build` para validar
+- [x] Reemplazar HTML del `.spotlight-visual` (líneas 98-117) por markup del terminal
+- [x] Reemplazar CSS del dashboard (líneas 417-508) por estilos del terminal + animaciones
+- [x] Verificar responsive en breakpoints 992px y 768px (altura se ajusta, terminal se escala)
+- [x] Correr `bun run build` para validar
 
 ### Detalle del HTML nuevo (reemplaza líneas 98-117)
 
@@ -88,4 +88,16 @@ Elementos clave:
 
 ## Siguiente Paso
 
-Usa `/plan-go` cuando estés listo para ejecutar.
+Completado.
+
+## Resultados de Implementación
+
+- **Commit inicial**: `d42a560` — chore: estado antes de implementar plan 086-monitoreo-terminal-en-vivo
+- **Archivo modificado**: `src/components/Services.astro`
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 21.50s
+
+### Cambios aplicados:
+- **HTML**: Dashboard de tarjetas reemplazado por terminal con barra superior (dots rojo/amarillo/verde), prompt animado con cursor parpadeante, 3 líneas de log staggered, y barras de estado SISTEMA OPERATIVO + Uptime 99.9%
+- **CSS**: ~90 líneas del antiguo panel reemplazadas por estilos del terminal (fondo #0f172a, fuente monospace, animaciones `fadeInUpTerminal`, `blink`, `growBar`)
+- **Limpieza**: CSS muerto eliminado (`.metric-label`, duplicados en media query 768px, bloque `.secondary-grid` vacío)
+- **Responsive**: Altura ajustada a 280px (992px) y 240px (768px), font-size del terminal reducido a 0.7rem en mobile
