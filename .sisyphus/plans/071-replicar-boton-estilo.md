@@ -25,10 +25,27 @@ Los dos botones destino tienen estilos diferentes que no coinciden con el patró
 
 ## Tareas de Implementación (para revisión del usuario)
 
-- [ ] **Hero `.btn-primary`**: Cambiar `background` a gradiente verde, agregar glow shadow, border-radius 12→14, font-weight 600→700, agregar `border: 1px solid rgba(255,255,255,0.1)`. Conservar el `.btn-shine` existente.
-- [ ] **Feedback `.btn-submit`**: Cambiar `background` a gradiente verde, agregar glow shadow, reemplazar `var(--primary)` hardcodeado, font-weight 600→700, agregar ícono con fondo `rgba(255,255,255,0.2)` + animación flecha. Ajustar hover para que coincida con el patrón.
-- [ ] Correr `bun run build` para validar
+- [x] **Hero `.btn-primary`**: Cambiar `background` a gradiente verde, agregar glow shadow, border-radius 12→14, font-weight 600→700, agregar `border: 1px solid rgba(255,255,255,0.1)`. Conservar el `.btn-shine` existente.
+- [x] **Feedback `.btn-submit`**: Cambiar `background` a gradiente verde, agregar glow shadow, reemplazar `var(--primary)` hardcodeado, font-weight 600→700, agregar ícono `ArrowRightOutlined` con fondo `rgba(255,255,255,0.2)` + animación flecha. Ajustar hover para que coincida con el patrón.
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar el plan.
+- **Commit inicial**: `5a23109` — chore: estado antes de implementar plan 071-replicar-boton-estilo
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 18.36s
+
+### Archivos modificados (2 archivos):
+
+| Archivo | Cambio |
+|---|---|
+| `Hero.astro` | `.btn-primary`: gradiente, glow shadow, radius 14px, font-weight 700, borde sutil |
+| `Feedback.astro` | `.btn-submit`: gradiente, glow shadow, +`ArrowRightOutlined` con animación, hover mejorado |
+
+### Estilo unificado aplicado en ambos botones:
+- `background: linear-gradient(135deg, #10b981, #059669)`
+- `box-shadow: 0 4px 14px rgba(16,185,129,0.4), 0 0 20px rgba(16,185,129,0.2)`
+- `border-radius: 14px`
+- `font-weight: 700`
+- `border: 1px solid rgba(255,255,255,0.1)`
+- Hover: `translateY(-3px)` + glow intensificado
+- Ícono con fondo `rgba(255,255,255,0.2)` + animación de desplazamiento
