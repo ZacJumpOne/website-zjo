@@ -93,7 +93,6 @@ const services = [
           <a href="#portafolio" class="spotlight-cta">
             <span>Explorar soluciones</span>
             <div class="cta-icon"><ArrowRightOutlined /></div>
-            <div class="btn-shine"></div>
           </a>
         </div>
         <div class="spotlight-visual">
@@ -378,64 +377,41 @@ const services = [
   }
 
   .spotlight-cta {
-    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    border-radius: 14px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.95rem;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+    border-radius: 10px;
+    color: var(--arbol-claro);
+    font-weight: 600;
+    font-size: 0.85rem;
     transition: all 0.3s ease;
-    overflow: hidden;
-    box-shadow:
-      0 4px 14px rgba(16, 185, 129, 0.4),
-      0 0 20px rgba(16, 185, 129, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(5, 150, 105, 0.15);
   }
 
   .spotlight-cta:hover {
-    transform: translateY(-3px);
-    box-shadow:
-      0 8px 28px rgba(16, 185, 129, 0.5),
-      0 0 40px rgba(16, 185, 129, 0.3);
+    background: var(--arbol-obscuro);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.25);
+    border-color: transparent;
   }
 
   .spotlight-cta .cta-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+    width: 20px;
+    height: 20px;
+    background: var(--arbol-10, rgba(5, 150, 105, 0.1));
+    border-radius: 5px;
     transition: transform 0.3s ease;
   }
 
   .spotlight-cta:hover .cta-icon {
-    transform: translate(4px) rotate(45deg);
-  }
-
-  .btn-shine {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    transition: left 0.5s ease;
-    pointer-events: none;
-  }
-
-  .spotlight-cta:hover .btn-shine {
-    left: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(3px) rotate(45deg);
   }
 
   /* Panel Dashboard */
