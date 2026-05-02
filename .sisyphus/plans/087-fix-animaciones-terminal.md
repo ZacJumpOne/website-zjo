@@ -25,9 +25,14 @@ La keyframe `growBar` también solo tiene `from`, pero como las barras tienen un
 
 ## Tareas de Implementación
 
-- [ ] Agregar `to { opacity: 1; transform: translateY(0); }` a la keyframe `fadeInUpTerminal`
-- [ ] Correr `bun run build` para validar
+- [x] Agregar `to { opacity: 1; transform: translateY(0); }` a la keyframe `fadeInUpTerminal`
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar.
+- **Commit inicial**: `64ab6b2` — chore: estado antes de implementar plan 087-fix-animaciones-terminal
+- **Archivo modificado**: `src/components/Services.astro` (línea 503-508)
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 22.72s
+
+### Cambios aplicados:
+- **CSS**: Agregado `to { opacity: 1; transform: translateY(0); }` a `@keyframes fadeInUpTerminal`. Sin este `to` explícito, el navegador usaba `opacity: 0` del estilo computado de `.terminal-line` como estado final, manteniendo todos los elementos invisibles.
