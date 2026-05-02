@@ -29,11 +29,23 @@ Timeline (ciclo de 9s):
 
 ## Tareas de Implementación
 
-- [ ] Cambiar `setInterval` de 7000ms a 9000ms
-- [ ] Refactorizar lógica de contadores: función `startCounters()` con `setTimeout` staggered (0ms, 400ms, 800ms)
-- [ ] Sincronizar `startCounters()` con el `setInterval` de 9s y con el IntersectionObserver inicial
-- [ ] Eliminar `counterObserver` existente (ya no se necesita)
-- [ ] Correr `bun run build` para validar
+- [x] Cambiar `setInterval` de 7000ms a 9000ms
+- [x] Refactorizar lógica de contadores: función `startCounters()` con `setTimeout` staggered (0ms, 400ms, 800ms)
+- [x] Sincronizar `startCounters()` con el `setInterval` de 9s y con el IntersectionObserver inicial
+- [x] Eliminar `counterObserver` existente (ya no se necesita)
+- [x] Correr `bun run build` para validar
+
+## Resultados de Implementación
+
+- **Commit inicial**: `7fa6579`
+- **Archivo modificado**: `src/components/Services.astro`
+- **Build final**: ✅ 14 pages, 0 errores, 22.18s
+
+### Cambios aplicados:
+- **JS**: Eliminado `counterObserver` viejo. Nueva función `startCounters()` con `setTimeout(i * 400)` para delays staggered (0ms, 400ms, 800ms). Cada contador sube 0→100 en 2.8s (easeOutExpo)
+- **JS**: Nuevo `terminalObserver` (IntersectionObserver) que dispara `startCounters()` al entrar en viewport
+- **JS**: `setInterval` cambiado de 7000ms → 9000ms, ahora también llama `startCounters()` junto con el reinicio de animaciones CSS del terminal
+- **Resultado**: ciclo completo de 9s — línea 1 llega a 100% a los 2.8s, línea 2 a los 3.2s, línea 3 a los 3.6s, pausa hasta los 9s, reinicio
 
 ### Script propuesto
 

@@ -865,16 +865,15 @@ const services = [
     .querySelectorAll(".section-header")
     .forEach((el) => headerObserver.observe(el));
 
-  // Counter animation: anima números de 0 al target en 3s
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseInt(el.dataset.counter, 10);
-        const duration = 3000;
-        const start = performance.now();
+  // Contadores staggered: arrancan cuando su línea de log aparece
+  function startCounters() {
+    document.querySelectorAll("[data-counter]").forEach((el, i) => {
+      const target = parseInt(el.dataset.counter, 10);
+      const duration = 2800;
 
+      setTimeout(() => {
+        el.textContent = "0%";
+        const start = performance.now();
         function tick(now) {
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
@@ -883,22 +882,33 @@ const services = [
           if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
-        counterObserver.unobserve(el);
+      }, i * 400);
+    });
+  }
+
+  // Arrancar contadores cuando el terminal entra en viewport
+  const terminalObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startCounters();
+          terminalObserver.unobserve(entry.target);
+        }
       });
     },
     { threshold: 0.5 },
   );
 
-  document
-    .querySelectorAll("[data-counter]")
-    .forEach((el) => counterObserver.observe(el));
+  const terminal = document.querySelector(".terminal");
+  if (terminal) terminalObserver.observe(terminal);
 
-  // Reinicia la animación del terminal completo cada 3s
+  // Reiniciar animaciones del terminal y contadores cada 9s
   setInterval(() => {
     document.querySelectorAll(".terminal-line").forEach((el) => {
       el.style.animation = "none";
-      el.offsetHeight; // fuerza reflow
+      el.offsetHeight;
       el.style.animation = "";
     });
-  }, 7000);
+    startCounters();
+  }, 9000);
 </script>
