@@ -892,4 +892,13 @@ const services = [
   document
     .querySelectorAll("[data-counter]")
     .forEach((el) => counterObserver.observe(el));
+
+  // Reinicia la animación del terminal completo cada 3s
+  setInterval(() => {
+    document.querySelectorAll(".terminal-line").forEach((el) => {
+      el.style.animation = "none";
+      el.offsetHeight; // fuerza reflow
+      el.style.animation = "";
+    });
+  }, 3000);
 </script>

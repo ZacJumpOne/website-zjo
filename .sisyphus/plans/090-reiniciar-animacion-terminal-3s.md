@@ -24,8 +24,17 @@ Técnica: `setInterval` de 3000ms que fuerza un reflow en todas las `.terminal-l
 
 ## Tareas de Implementación
 
-- [ ] Agregar `setInterval` de 3000ms que reinicie animaciones de `.terminal-line` vía reflow
-- [ ] Correr `bun run build` para validar
+- [x] Agregar `setInterval` de 3000ms que reinicie animaciones de `.terminal-line` vía reflow
+- [x] Correr `bun run build` para validar
+
+## Resultados de Implementación
+
+- **Commit inicial**: `6db69b2` — chore: estado antes de implementar plan 090-reiniciar-animacion-terminal-3s
+- **Archivo modificado**: `src/components/Services.astro`
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 17.85s
+
+### Cambios aplicados:
+- **JS**: `setInterval` de 3000ms que selecciona todas las `.terminal-line`, fuerza un reflow (`animation: none` + `offsetHeight` + restaurar), reiniciando las animaciones staggered del terminal completo cada 3s
 
 ### Script a agregar
 
