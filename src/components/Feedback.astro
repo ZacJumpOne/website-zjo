@@ -122,6 +122,10 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
 </section>
 
 <script>
+  // Sincronizado con constantes del frontmatter
+  const DEFAULT_PLACEHOLDER = "Cuéntanos tu experiencia o sugerencia...";
+  const PROYECTOS_PLACEHOLDER =
+    "Hablemos de tu próximo proyecto, juntos podemos lograrlo.";
   const form = document.getElementById("feedback-form");
   const submitBtn = document.getElementById("submit-btn");
   const btnText = document.getElementById("btn-text");
@@ -170,11 +174,6 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
       charCount.textContent = messageInput.value.length;
     });
   }
-
-  // Placeholder texts
-  const DEFAULT_PLACEHOLDER = "Cuéntanos tu experiencia o sugerencia";
-  const PROYECTOS_PLACEHOLDER =
-    "Cuéntanos que tienes en mente, juntos podemos lograrlo.";
 
   // Dynamic placeholder based on category
   function updatePlaceholder(cat) {
