@@ -14,11 +14,14 @@ Dos cambios en el botón "Enviar Feedback":
 
 ## Tareas de Implementación (para revisión del usuario)
 
-- [ ] Quitar `<div class="cta-icon"><ArrowRightOutlined /></div>` del HTML del botón
-- [ ] Quitar CSS de `.btn-submit .cta-icon` y `.btn-submit:hover .cta-icon`
-- [ ] Cambiar `height: 48px` → `height: 49px` en `.btn-submit`
-- [ ] Correr `bun run build` para validar
+- [x] Quitar `<div class="cta-icon"><ArrowRightOutlined /></div>` del HTML del botón
+- [x] Quitar CSS de `.btn-submit .cta-icon` y `.btn-submit:hover .cta-icon`
+- [x] Cambiar `height: 48px` → `height: 49px` en `.btn-submit`
+- [x] Correr `bun run build` para validar
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar el plan.
+- **Commit inicial**: `fa878ac` — chore: estado antes de implementar plan 073-feedback-quitar-flecha-altura
+- **Archivo modificado**: `src/components/Feedback.astro` — flecha removida + altura 48→49px
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 17.47s
+- **Resultado**: `[💬] Enviar Feedback` con altura 49px
