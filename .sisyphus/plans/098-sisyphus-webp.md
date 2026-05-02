@@ -6,8 +6,14 @@ Convertir `public/images/sisyphus.png` (1323×800, RGBA) a `public/images/sisyph
 
 ## Tareas de Implementación
 
-- [ ] Convertir la imagen con `python3 -c "from PIL import Image; img = Image.open('public/images/sisyphus.png'); img.save('public/images/sisyphus.webp', 'WEBP', quality=85)"`
-- [ ] Verificar que el archivo WebP se generó correctamente
+- [x] Convertir la imagen con Python/Pillow
+- [x] Verificar que el archivo WebP se generó correctamente
+
+## Resultados de Implementación
+
+- **Commit inicial**: `4d28e76`
+- **Archivo generado**: `public/images/sisyphus.webp`
+- **Tamaños**: 1.8MB (PNG) → **151KB (WebP)** — 92% de reducción
 
 ## Siguiente Paso
 
