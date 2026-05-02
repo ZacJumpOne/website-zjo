@@ -414,11 +414,6 @@ const slides: FloatingCardSlide[] = [
   }
 
   /* Hero Grid */
-  .container {
-    position: relative;
-    z-index: 10;
-  }
-
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -525,7 +520,7 @@ const slides: FloatingCardSlide[] = [
   .hero-title {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 800;
-    color: #0f172a;
+    color: var(--text-dark);
     margin-bottom: 20px;
     line-height: 1.1;
     opacity: 0;
@@ -670,7 +665,7 @@ const slides: FloatingCardSlide[] = [
     align-items: center;
     padding: 14px 28px;
     background: white;
-    color: #0f172a;
+    color: var(--text-dark);
     font-weight: 600;
     font-size: 1rem;
     border-radius: 12px;
@@ -993,7 +988,7 @@ const slides: FloatingCardSlide[] = [
   .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #0f172a;
+    color: var(--text-dark);
     line-height: 1;
     display: inline;
   }

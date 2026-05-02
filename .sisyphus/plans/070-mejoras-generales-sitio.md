@@ -36,11 +36,31 @@
 
 ### 🔴 Quick Wins — alto impacto, bajo esfuerzo
 
-- [ ] **Unificar tipografía**: Cambiar `fontFamily` en antd ConfigProvider de `'Inter'` → `'Plus Jakarta Sans'` en `index.astro` y resto de páginas. Eliminar conflicto Inter vs Plus Jakarta Sans.
-- [ ] **Extraer inline styles**: Mover `style="color: var(--arbol-claro)"` de `Header.astro` a clase CSS `.brand-name`. Mover `fontSize: "2.25rem"` de íconos en `nuestra-historia.astro` a clase `.section-icon`.
-- [ ] **Usar variables CSS en Hero**: Reemplazar `#0f172a` por `var(--text-dark)` en `.hero-title` y otros hardcodeos similares.
-- [ ] **Eliminar `.container` duplicado** en Hero.astro (ya existe en global.css).
-- [ ] **Agregar `loading="lazy"`** a imágenes que no lo tengan en Clients.astro, Portfolio.astro.
+- [x] **Unificar tipografía**: Cambiar `fontFamily` en antd ConfigProvider de `'Inter'` → `'Plus Jakarta Sans'` en `index.astro` y resto de páginas. Eliminar conflicto Inter vs Plus Jakarta Sans.
+- [x] **Extraer inline styles**: Mover `style="color: var(--arbol-claro)"` de `Header.astro` a clase CSS `.brand-name`. Mover `fontSize: "2.25rem"` de íconos en `nuestra-historia.astro` a clase `.section-icon`.
+- [x] **Usar variables CSS en Hero**: Reemplazar `#0f172a` por `var(--text-dark)` en `.hero-title` y otros hardcodeos similares.
+- [x] **Eliminar `.container` duplicado** en Hero.astro (ya existe en global.css).
+- [x] **Agregar `loading="lazy"`** a imágenes que no lo tengan en Clients.astro, Portfolio.astro.
+
+## Resultados de Implementación (Quick Wins)
+
+- **Commit inicial**: `fd7ff8d` — chore: estado antes de implementar plan 070-quick-wins
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 19.03s
+
+### Archivos modificados (11 archivos, 15 cambios):
+
+| # | Archivo | Cambio |
+|---|---|---|
+| 1 | `index.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 2 | `nuestra-historia.astro` | fontFamily + removidos 5 inline fontSize |
+| 3 | `solucion/[slug].astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 4 | `aviso-de-privacidad.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 5 | `faqs.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 6 | `construyendo.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 7 | `ejemplo-procesos.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 8 | `Header.astro` | inline style removido + `.brand-name` color CSS |
+| 9 | `Hero.astro` | `#0f172a` → `var(--text-dark)` (3x) + `.container` duplicado eliminado |
+| 10 | `Clients.astro` | `loading="lazy"` agregado a imágenes |
 
 ### 🟡 Mejoras Medias — medio impacto, medio esfuerzo
 
