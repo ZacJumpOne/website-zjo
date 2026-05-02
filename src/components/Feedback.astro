@@ -276,12 +276,14 @@ import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
       if (result.success === true || response.ok) {
         form.style.display = "none";
         successMsg.style.display = "block";
+        successMsg.scrollIntoView({ behavior: "smooth", block: "nearest" });
       } else {
         throw new Error(result.message || "Error desconocido");
       }
     } catch (error) {
       form.style.display = "none";
       errorMsg.style.display = "block";
+      errorMsg.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   });
 
