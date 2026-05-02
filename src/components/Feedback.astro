@@ -1,9 +1,6 @@
 ---
 import { Button } from "antd";
-import {
-  MessageOutlined,
-  WhatsAppOutlined,
-} from "@ant-design/icons";
+import { MessageOutlined, WhatsAppOutlined } from "@ant-design/icons";
 ---
 
 <section class="feedback" id="contacto">
@@ -174,6 +171,18 @@ import {
     });
   }
 
+  // Placeholder texts
+  const DEFAULT_PLACEHOLDER = "Cuéntanos tu experiencia o sugerencia";
+  const PROYECTOS_PLACEHOLDER =
+    "Cuéntanos que tienes en mente, juntos podemos lograrlo.";
+
+  // Dynamic placeholder based on category
+  function updatePlaceholder(cat) {
+    if (!messageInput) return;
+    messageInput.placeholder =
+      cat === "proyectos" ? PROYECTOS_PLACEHOLDER : DEFAULT_PLACEHOLDER;
+  }
+
   // Listen for custom event from header nav links
   window.addEventListener("set-feedback-category", (e) => {
     const cat = e.detail;
@@ -191,11 +200,15 @@ import {
       if (nameInput) nameInput.focus();
     }, 600);
 
-    // Dynamic placeholder based on category
-    if (cat === "proyectos" && messageInput) {
-      messageInput.placeholder = "Cuéntanos que tienes en mente, juntos podemos lograrlo.";
-    }
+    updatePlaceholder(cat);
   });
+
+  // Update placeholder when user manually changes category
+  if (categorySelect && messageInput) {
+    categorySelect.addEventListener("change", () => {
+      updatePlaceholder(categorySelect.value);
+    });
+  }
 
   // Reset category when section leaves the viewport
   const feedbackSection = document.querySelector(".feedback");
@@ -204,6 +217,7 @@ import {
       entries.forEach((entry) => {
         if (!entry.isIntersecting && categorySelect) {
           categorySelect.value = "sugerencia";
+          if (messageInput) messageInput.placeholder = DEFAULT_PLACEHOLDER;
         }
       });
     },
