@@ -11,8 +11,14 @@ Cambiar el `setInterval` que reinicia la animación del terminal de 3000ms a 500
 
 ## Tareas de Implementación
 
-- [ ] Cambiar `3000` → `5000` en el `setInterval`
-- [ ] Correr `bun run build` para validar
+- [x] Cambiar `3000` → `5000` en el `setInterval`
+- [x] Correr `bun run build` para validar
+
+## Resultados de Implementación
+
+- **Commit inicial**: `1577658`
+- **Archivo modificado**: `src/components/Services.astro`
+- **Build final**: ✅ 14 pages, 0 errores, 18.39s
 
 ## Siguiente Paso
 
