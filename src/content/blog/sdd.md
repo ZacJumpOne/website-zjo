@@ -18,9 +18,9 @@ Jamás creí escribir esto, pero lo haré, un dinosaurio como yo - <span style="
 
 ## Con manzanitas, diría mi socia...
 
-Bien, un ejemplo claro de SDD y su tecnología, es aplicada es este sitio web, que fue generado un 99.98% con este paradigma y solamente el 0.02% modificado manualmente por un servidor, o sea yo. Casualmente, luego me di cuenta que había 0.02% de errores en el código - <span style="font-size: 1.5rem;">😏</span>. <br />
-Ahora bien, hoy más que nunca hay que ser claros y concisos para que el receptor entienda a la perfección las especificaciones y esto es un camino a recorrer como un todo, donde no hay permiso a divagar y tener ambigüedades (cuestan tokens - <span style="font-size: 1.5rem;">😮</span>). <br />
-Cobra gran interés ahora los requerimientos del cliente (siempre lo han sido) y tratar de dar las especificaciones correctas y concisas de acuerdo a estos requerimientos, para que nuestro SDD genere correctamente el código que deseamos.
+Bien, un ejemplo claro de SDD y su tecnología aplicada es este sitio web, que fue generado un 99.98% con este paradigma y solamente el 0.02% modificado manualmente por un servidor, o sea yo. Casualmente, luego me di cuenta que había 0.02% de errores en el código - <span style="font-size: 1.5rem;">😏</span>. <br />
+Ahora bien, hoy más que nunca hay que ser claros y concisos para que el receptor entienda a la perfección las especificaciones y esto es un camino a recorrer como un todo, donde no hay permiso para divagar y tener ambigüedades (cuestan tokens - <span style="font-size: 1.5rem;">😮</span>). <br />
+Cobra gran interés ahora los requerimientos del cliente (siempre lo han sido) y tratar de dar las especificaciones correctas y precisas de acuerdo a estos requerimientos, para que nuestro SDD genere correctamente el código que deseamos.
 
 
 <!-- ## ¿Por Dios, dime cómo funciona el SDD?    
@@ -40,4 +40,4 @@ Mi segunda SKILL llamada <strong>"plan-go"</strong>, que lo primero que debe hac
 
 ## Conclusión
 
-Debemos emprender este nuevo camino del SDD con una mentalidad fresca y abierta, dispuestos a aprender y adaptarnos a las nuevas tecnologias y herramientas que cada dia evolucionan con una rapidez asombrosa. Con este nuevo paradigma, el viaje del desarrollo de software es emocionante y lleno de oportunidades.
+Debemos emprender este nuevo camino del SDD con una mentalidad fresca y abierta, dispuestos a aprender y adaptarnos a las nuevas tecnologías y herramientas que cada día evolucionan con una rapidez asombrosa. Con este nuevo paradigma, el viaje del desarrollo de software es emocionante y lleno de oportunidades.
