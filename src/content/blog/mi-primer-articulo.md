@@ -1,9 +1,11 @@
 ---
-title: "Mi primer artículo de blog"
-date: 2024-01-15
-image: "https://picsum.photos/id/20/800/400"
+title: "El nuevo paradigma, la Inteligencia Artificial (SDD)"
+date: 2026-05-02
+author: "Ing. Isaac Hernández Castro"
+academicDegree: "Máster en Dirección de Ingeniería de Software"
+image: "/images/ai.webp"
 excerpt: "Bienvenido a nuestro blog. En este primer artículo exploramos las bases del desarrollo de software moderno."
-tags: ["introducción", "software", "desarrollo"]
+tags: ["introducción", "software", "desarrollo", "AI", "SDD"]
 ---
 
 # Mi primer artículo de blog

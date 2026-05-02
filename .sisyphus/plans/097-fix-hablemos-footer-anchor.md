@@ -21,8 +21,14 @@ El footer se renderiza en todas las páginas pero el target del anchor solo exis
 
 ## Tareas de Implementación
 
-- [ ] Cambiar `href="#contacto"` → `href="/#contacto"` en Footer.astro
-- [ ] Correr `bun run build` para validar
+- [x] Cambiar `href="#contacto"` → `href="/#contacto"` en Footer.astro
+- [x] Correr `bun run build` para validar
+
+## Resultados de Implementación
+
+- **Commit inicial**: `ab60d38`
+- **Archivo modificado**: `src/components/Footer.astro` (línea 20)
+- **Build final**: ✅ 14 pages, 0 errores, 21.51s
 
 ### Por qué `/#contacto` en vez de `#contacto`
 

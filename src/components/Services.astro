@@ -101,21 +101,28 @@ const services = [
               <span class="terminal-dot red"></span>
               <span class="terminal-dot yellow"></span>
               <span class="terminal-dot green"></span>
-              <span class="terminal-title">zjo-monitor --status</span>
+              <span class="terminal-title">ZJOne-monitor --status</span>
             </div>
             <div class="terminal-body">
               <div class="terminal-line prompt">
                 <span class="prompt-sign">$</span>
-                <span class="prompt-cmd">zjo-monitor --watch</span>
+                <span class="prompt-cmd">ZJOne-monitor --watch</span>
                 <span class="cursor">▊</span>
               </div>
-              {services[0].features.map((feature, i) => (
-                <div class="terminal-line log" style={`--stagger: ${i * 0.4}s`}>
-                  <span class="log-check">✓</span>
-                  <span class="log-text">{feature}</span>
-                  <span class="log-status" data-counter="100">0%</span>
-                </div>
-              ))}
+              {
+                services[0].features.map((feature, i) => (
+                  <div
+                    class="terminal-line log"
+                    style={`--stagger: ${i * 0.4}s`}
+                  >
+                    <span class="log-check">✓</span>
+                    <span class="log-text">{feature}</span>
+                    <span class="log-status" data-counter="100">
+                      0%
+                    </span>
+                  </div>
+                ))
+              }
               <div class="terminal-line status-line" style="--stagger: 1.6s">
                 <span class="status-fill full"></span>
                 <span class="status-label">SISTEMA OPERATIVO</span>
@@ -326,7 +333,9 @@ const services = [
       rgba(16, 185, 129, 0.1)
     );
     border-radius: 18px;
-    transition: transform 0.4s ease, background 0.3s ease;
+    transition:
+      transform 0.4s ease,
+      background 0.3s ease;
   }
 
   .spotlight:hover .spotlight-icon-bg {
@@ -474,7 +483,7 @@ const services = [
   .terminal-title {
     flex: 1;
     text-align: center;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
     font-size: 0.7rem;
     color: #64748b;
     letter-spacing: 0.02em;
@@ -483,7 +492,7 @@ const services = [
   .terminal-body {
     flex: 1;
     padding: 16px 20px;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
     font-size: 0.78rem;
     display: flex;
     flex-direction: column;
@@ -516,7 +525,7 @@ const services = [
   }
 
   .prompt-sign {
-    color: var(--arbol-claro, #3AB34A);
+    color: var(--arbol-claro, #3ab34a);
     font-weight: 700;
   }
 
@@ -525,14 +534,19 @@ const services = [
   }
 
   .cursor {
-    color: var(--arbol-claro, #3AB34A);
+    color: var(--arbol-claro, #3ab34a);
     animation: blink 1s step-end infinite;
     margin-left: 2px;
   }
 
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   .terminal-line.log {
@@ -540,7 +554,7 @@ const services = [
   }
 
   .log-check {
-    color: var(--arbol-claro, #3AB34A);
+    color: var(--arbol-claro, #3ab34a);
     font-weight: 700;
   }
 
@@ -568,7 +582,7 @@ const services = [
   .status-fill {
     height: 3px;
     border-radius: 2px;
-    background: var(--arbol-claro, #3AB34A);
+    background: var(--arbol-claro, #3ab34a);
     animation: growBar 1.2s ease backwards;
     animation-delay: var(--stagger, 0s);
   }
@@ -584,7 +598,9 @@ const services = [
   }
 
   @keyframes growBar {
-    from { width: 0; }
+    from {
+      width: 0;
+    }
   }
 
   .status-label {
