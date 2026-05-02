@@ -71,7 +71,7 @@ import {
               rows="4"
               required
               maxlength="500"
-              placeholder="Cuéntanos que tienes en mente, juntos podemos lograrlo."></textarea>
+              placeholder="Cuéntanos tu experiencia o sugerencia..."></textarea>
             <span class="char-count"><span id="char-count">0</span>/500</span>
           </div>
 
@@ -190,6 +190,11 @@ import {
       const nameInput = document.getElementById("name");
       if (nameInput) nameInput.focus();
     }, 600);
+
+    // Dynamic placeholder based on category
+    if (cat === "proyectos" && messageInput) {
+      messageInput.placeholder = "Cuéntanos que tienes en mente, juntos podemos lograrlo.";
+    }
   });
 
   // Reset category when section leaves the viewport
