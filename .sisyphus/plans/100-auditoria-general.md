@@ -34,10 +34,15 @@ Revisión general del proyecto Zero Jump One: build, LSP, SEO, accesibilidad, re
 
 ## Tareas Propuestas
 
-- [ ] Corregir imagen modal en `ejemplo-procesos.astro`: reemplazar `src=""` con placeholder SVG o asignarlo solo desde JS
-- [ ] (Opcional) Agregar `prettier` o `eslint` para consistencia de código
-- [ ] Verificar build nuevamente
+- [x] Corregir imagen modal en `ejemplo-procesos.astro`: reemplazar `src=""` con placeholder SVG
+- [x] Verificar build nuevamente
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando quieras ejecutar las correcciones.
+- **Commit inicial**: `61979b0`
+- **Archivo modificado**: `src/pages/ejemplo-procesos.astro` (línea 58)
+- **Build final**: ✅ 15 pages, 0 errores, 18.94s
+
+### Cambios aplicados:
+- `src=""` → `src="data:image/svg+xml,%3Csvg..."` (placeholder SVG transparente que evita 404)
+- `alt=""` → `alt="Ampliar imagen del proceso"` (alt descriptivo en vez de vacío)
