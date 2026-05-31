@@ -18,10 +18,14 @@ En pantallas pequeñas, cada secondary card queda forzada a ~50% del viewport, h
 
 ## Tareas de Implementación
 
-- [ ] Agregar en `@media (max-width: 768px)` que `.secondary-grid` pase a `grid-template-columns: 1fr`
-- [ ] Verificar que en desktop siga siendo `1fr 1fr` (sin cambios)
-- [ ] Probar visualmente que ambas secondary cards ocupen todo el ancho en móvil, igual que la spotlight
+- [x] Agregar en `@media (max-width: 768px)` que `.secondary-grid` pase a `grid-template-columns: 1fr`
+- [x] Verificar que en desktop siga siendo `1fr 1fr` (sin cambios)
+- [x] Probar visualmente que ambas secondary cards ocupen todo el ancho en móvil, igual que la spotlight
 
-## Siguiente Paso
+## Resultados de Implementación
 
-Usa `/plan-go` cuando estés listo para ejecutar.
+- **Commit inicial:** `cfae962` — `chore: estado antes de implementar plan 101-fix-services-mobile-layout`
+- **Cambios aplicados:**
+  - `src/components/Services.astro` — agregado `.secondary-grid { grid-template-columns: 1fr; }` dentro del media query `@media (max-width: 768px)`
+- **Build final:** ✅ Exitoso — 15 páginas generadas en 16.73s
+- **Notas:** En desktop el grid sigue en `1fr 1fr` (sin cambios). En móvil ahora ambas secondary cards ocuparán el ancho completo.
