@@ -1,0 +1,1 @@
+import"./hoisted.1Oqba8gu.js";const e=document.getElementById("floating-scroll-to-top"),t=document.getElementById("btn-scroll-to-top");e&&(e.style.display="flex");t&&e&&new IntersectionObserver(n=>{n.forEach(o=>{o.isIntersecting?e.style.display="none":e.style.display="flex"})}).observe(t);
