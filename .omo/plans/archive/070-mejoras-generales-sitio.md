@@ -1,0 +1,100 @@
+# Plan: Mejoras Generales del Sitio
+
+## Estado Actual (resumen de auditoría)
+
+### Arquitectura
+- **Framework**: Astro 4.x + React + Ant Design 5.x
+- **9 páginas**, **9 componentes**, CSS por componente + `global.css`
+- **Build**: 14 páginas, dist 5.7MB, index.html 103KB
+- **Diseño**: Light theme SaaS, verde esmeralda primario, azul secundario
+
+### Fortalezas detectadas
+- Sistema de variables CSS bien definido (colores, sombras, gradientes)
+- Tipografía con personalidad: Plus Jakarta Sans + Noticia Text (serif)
+- Dashboard preview en Monitoreo (recién implementado) añade carácter
+- Marquee de clientes con fade lateral, scroll progress bar
+- SEO sólido: Open Graph, Twitter Cards, JSON-LD, CSP headers
+
+### Áreas de mejora detectadas
+
+| # | Hallazgo | Archivo(s) | Severidad |
+|---|---|---|---|
+| 1 | Inconsistencia tipográfica: `Inter` en antd ConfigProvider vs `Plus Jakarta Sans` en global.css | `index.astro`, `global.css` | Media |
+| 2 | Estilos inline innecesarios (color, fontSize) | `Header.astro`, `nuestra-historia.astro`, `FloatingCards.astro` | Baja |
+| 3 | Colores hardcodeados en vez de variables CSS | `Hero.astro` (`#0f172a`), varios | Media |
+| 4 | Hero.astro muy extenso (1250 líneas) con 6 slides | `Hero.astro` | Media |
+| 5 | Sin dark mode implementado (solo transición definida) | `global.css` | Baja |
+| 6 | Faltan breakpoints intermedios (solo 992px y 768px) | Varios componentes | Baja |
+| 7 | `.container` duplicado en Hero.astro y global.css | `Hero.astro`, `global.css` | Baja |
+| 8 | Imágenes sin `loading="lazy"` consistente | Varios componentes | Media |
+| 9 | Sin animación de entrada en secciones como Clients/Feedback | `Clients.astro`, `Feedback.astro` | Baja |
+| 10 | Año del copyright estático (extraído de versión, no de Date) | `Footer.astro` | Baja |
+
+---
+
+## Mejoras Propuestas (3 niveles)
+
+### 🔴 Quick Wins — alto impacto, bajo esfuerzo
+
+- [x] **Unificar tipografía**: Cambiar `fontFamily` en antd ConfigProvider de `'Inter'` → `'Plus Jakarta Sans'` en `index.astro` y resto de páginas. Eliminar conflicto Inter vs Plus Jakarta Sans.
+- [x] **Extraer inline styles**: Mover `style="color: var(--arbol-claro)"` de `Header.astro` a clase CSS `.brand-name`. Mover `fontSize: "2.25rem"` de íconos en `nuestra-historia.astro` a clase `.section-icon`.
+- [x] **Usar variables CSS en Hero**: Reemplazar `#0f172a` por `var(--text-dark)` en `.hero-title` y otros hardcodeos similares.
+- [x] **Eliminar `.container` duplicado** en Hero.astro (ya existe en global.css).
+- [x] **Agregar `loading="lazy"`** a imágenes que no lo tengan en Clients.astro, Portfolio.astro.
+
+## Resultados de Implementación (Quick Wins)
+
+- **Commit inicial**: `fd7ff8d` — chore: estado antes de implementar plan 070-quick-wins
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 19.03s
+
+### Archivos modificados (11 archivos, 15 cambios):
+
+| # | Archivo | Cambio |
+|---|---|---|
+| 1 | `index.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 2 | `nuestra-historia.astro` | fontFamily + removidos 5 inline fontSize |
+| 3 | `solucion/[slug].astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 4 | `aviso-de-privacidad.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 5 | `faqs.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 6 | `construyendo.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 7 | `ejemplo-procesos.astro` | fontFamily: Inter → Plus Jakarta Sans |
+| 8 | `Header.astro` | inline style removido + `.brand-name` color CSS |
+| 9 | `Hero.astro` | `#0f172a` → `var(--text-dark)` (3x) + `.container` duplicado eliminado |
+| 10 | `Clients.astro` | `loading="lazy"` agregado a imágenes |
+
+### 🟡 Mejoras Medias — medio impacto, medio esfuerzo
+
+- [x] **Agregar animaciones de entrada** a secciones que no las tienen: Feedback.astro (data-animate + CSS fadeInUp + JS observer). El skeleton del Hero se omite (SSR renderiza instantáneamente).
+- [x] **Agregar breakpoint 480px** en componentes que solo tenían 768px y 992px (Services: ajustes de padding, tipografía, dashboard; Hero: padding, tipografía, altura del visual).
+- [x] **Scroll progress bar**: Mover el `::-webkit-scrollbar` de `index.astro` a `global.css` para que aplique a todas las páginas. También usa `var(--secondary)` en vez de color hardcodeado.
+
+## Resultados de Implementación (Mejoras Medias)
+
+- **Commit inicial**: `e203390` — chore: estado antes de implementar plan 070-mejoras-medias
+- **Build final**: ✅ Exitoso — 14 pages, 0 errores, 20.87s
+
+### Archivos modificados (5 archivos):
+
+| # | Archivo | Cambio |
+|---|---|---|
+| 1 | `Feedback.astro` | Animación fadeInUp en `.feedback-header` con data-animate + JS observer |
+| 2 | `Services.astro` | Breakpoint 480px: ajustes de padding, tipografía, dashboard, cards |
+| 3 | `Hero.astro` | Breakpoint 480px: padding reducido, tipografía adaptada, visual más chico |
+| 4 | `index.astro` | Scrollbar CSS movido a global.css |
+| 5 | `global.css` | Scrollbar CSS recibido de index.astro, usa `var(--secondary)` |
+
+### 🔵 Estratégicas — para discusión
+
+- [ ] **Dark mode**: Implementar toggle con `prefers-color-scheme` y clase `.dark` en `<html>`. Las variables CSS ya están parcialmente preparadas.
+- [ ] **Simplificar Hero.astro**: Extraer slides a un archivo de datos separado (`src/data/hero-slides.ts`) para reducir el componente de 1250 a ~500 líneas.
+- [ ] **Añadir `loading="eager"` + `fetchpriority="high"`** en hero image para mejorar LCP.
+- [ ] **Preload de fuentes**: Agregar `<link rel="preload">` para NoticiaText-Bold.ttf en Layout.astro.
+- [ ] **Footer año dinámico**: Usar `new Date().getFullYear()` en vez de parsear la versión.
+
+---
+
+## Siguiente Paso
+
+Revisa los 3 niveles y dime cuáles autorizas. Sugiero empezar por los **Quick Wins** (30 min) para sentir mejora inmediata.
+
+Usa `/plan-go` cuando estés listo para ejecutar.

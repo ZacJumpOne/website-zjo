@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "active_work_id": "102-blog-piensa-y-trabaja-9b000649",
+  "works": {
+    "102-blog-piensa-y-trabaja-9b000649": {
+      "work_id": "102-blog-piensa-y-trabaja-9b000649",
+      "active_plan": "/home/hdez/ZeroJumpOne/proyectos/website-zjo/.omo/plans/102-blog-piensa-y-trabaja.md",
+      "plan_name": "102-blog-piensa-y-trabaja",
+      "status": "completed",
+      "started_at": "2026-08-11T22:48:31.954Z",
+      "updated_at": "2026-08-11T23:08:29.654Z",
+      "session_ids": [
+        "opencode:ses_00d44845dffeBP9SMpTg67RhCP"
+      ],
+      "session_origins": {
+        "opencode:ses_00d44845dffeBP9SMpTg67RhCP": "direct"
+      },
+      "agent": "atlas",
+      "task_sessions": {},
+      "ended_at": "2026-08-11T23:08:29.654Z",
+      "elapsed_ms": 1197700
+    }
+  },
+  "active_plan": "/home/hdez/ZeroJumpOne/proyectos/website-zjo/.omo/plans/102-blog-piensa-y-trabaja.md",
+  "started_at": "2026-08-11T22:48:31.954Z",
+  "status": "completed",
+  "updated_at": "2026-08-11T23:08:29.654Z",
+  "session_ids": [
+    "opencode:ses_00d44845dffeBP9SMpTg67RhCP"
+  ],
+  "session_origins": {
+    "opencode:ses_00d44845dffeBP9SMpTg67RhCP": "direct"
+  },
+  "plan_name": "102-blog-piensa-y-trabaja",
+  "task_sessions": {},
+  "agent": "atlas",
+  "ended_at": "2026-08-11T23:08:29.654Z",
+  "elapsed_ms": 1197700
+}

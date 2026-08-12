@@ -1,0 +1,529 @@
+# Plan 004: Rediseño Card Monitoreo - "Neo-Dashboard" Aesthetic
+
+## Meta
+- **Fecha**: 2026-04-30
+- **Solicitado por**: Usuario ("debe ser un diseño lindo")
+- **Skill aplicado**: /frontend-design
+- **Archivo objetivo**: `src/components/Services.astro`
+- **Líneas a modificar**: 60-112 (HTML), 207-463 (CSS), 692-755 (JS)
+
+---
+
+## 1. Aesthetic Direction: "Neo-Dashboard Elegance"
+
+**Concepto**: Una card que se vea como un panel de monitoreo en tiempo real de alta gama - elegante, oscuro, con elementos que "respiran" y se sienten vivos.
+
+**Paleta visual**:
+- Fondo: Dark slate con gradiente sutil (slate-900 → slate-800)
+- Acentos: Verde neón suave (no el verde actual tan plano)
+- Tipografía: Light sobre dark, monospace para métricas
+- Efectos: Glow sutil, elementos superpuestos, profundidad
+
+**Diferenciación**: Mientras las otras cards son claras, esta será dramáticamente oscura - creando un "spotlight" visual real contra el fondo claro de la página.
+
+---
+
+## 2. Cambios Estructurales (HTML)
+
+### Reemplazar líneas 90-106 (spotlight-visual):
+```astro
+        <div class="spotlight-visual">
+          <div class="dashboard-preview">
+            <!-- Header simulado -->
+            <div class="db-header">
+              <div class="db-dot db-dot--red"></div>
+              <div class="db-dot db-dot--yellow"></div>
+              <div class="db-dot db-dot--green"></div>
+              <span class="db-title">monitor.zerojump.one</span>
+            </div>
+            
+            <!-- Métricas en vivo -->
+            <div class="db-metrics">
+              <div class="db-metric">
+                <span class="db-metric-label">CPU</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 42%"></div>
+                </div>
+                <span class="db-metric-value">42%</span>
+              </div>
+              <div class="db-metric">
+                <span class="db-metric-label">RAM</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 68%"></div>
+                </div>
+                <span class="db-metric-value">68%</span>
+              </div>
+              <div class="db-metric">
+                <span class="db-metric-label">DISK</span>
+                <div class="db-metric-bar">
+                  <div class="db-metric-fill" style="--fill: 55%"></div>
+                </div>
+                <span class="db-metric-value">55%</span>
+              </div>
+            </div>
+            
+            <!-- Activity waveform -->
+            <div class="db-waveform">
+              <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+                <polyline class="wave-line" points="0,30 20,28 40,35 60,25 80,32 100,20 120,28 140,22 160,35 180,18 200,25 220,30 240,22 260,28 280,25 300,30" />
+              </svg>
+            </div>
+            
+            <!-- Status nodes -->
+            <div class="db-nodes">
+              <div class="db-node active">
+                <span class="db-node-pulse"></span>
+                <span class="db-node-label">Server 1</span>
+              </div>
+              <div class="db-node active">
+                <span class="db-node-pulse"></span>
+                <span class="db-node-label">Server 2</span>
+              </div>
+              <div class="db-node">
+                <span class="db-node-pulse"></span>
+                <span class="db-node-label">Backup</span>
+              </div>
+            </div>
+          </div>
+        </div>
+```
+
+---
+
+## 3. Nuevos Estilos CSS (Reemplazar líneas 207-463)
+
+### Spotlight Card (dark theme):
+```css
+  /* Spotlight Card - Neo Dashboard */
+  .spotlight {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 32px;
+    padding: 48px;
+    margin-bottom: 40px;
+    overflow: visible;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 
+      0 20px 60px -15px rgba(0, 0, 0, 0.3),
+      0 0 100px -30px rgba(16, 185, 129, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    animation: fadeInUp 0.8s ease backwards;
+    animation-delay: 0.1s;
+  }
+
+  .spotlight-bleed {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+```
+
+### Texto (light sobre dark):
+```css
+  .spotlight-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #f8fafc;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .spotlight-description {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .spotlight .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .spotlight .feature-check {
+    width: 20px;
+    height: 20px;
+    color: #10b981;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.5));
+  }
+```
+
+### Botón CTA (glow effect):
+```css
+  .spotlight-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 4px 14px rgba(16, 185, 129, 0.4),
+      0 0 20px rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .spotlight-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+      0 8px 28px rgba(16, 185, 129, 0.5),
+      0 0 40px rgba(16, 185, 129, 0.3);
+  }
+```
+
+### Dashboard Preview (nuevo visual):
+```css
+  /* Dashboard Preview */
+  .spotlight-visual {
+    position: relative;
+    height: 320px;
+  }
+
+  .dashboard-preview {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .db-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .db-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .db-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+  .db-dot--yellow { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.5); }
+  .db-dot--green { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+
+  .db-title {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-family: 'Monaco', 'Menlo', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .db-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .db-metric {
+    display: grid;
+    grid-template-columns: 45px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .db-metric-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+
+  .db-metric-bar {
+    height: 6px;
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .db-metric-fill {
+    height: 100%;
+    width: var(--fill, 50%);
+    background: linear-gradient(90deg, #10b981, #34d399);
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    animation: fillGrow 1.5s ease backwards;
+  }
+
+  @keyframes fillGrow {
+    from { width: 0; }
+  }
+
+  .db-metric-value {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-align: right;
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+
+  .db-waveform {
+    height: 60px;
+    margin: 8px 0;
+  }
+
+  .db-waveform svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wave-line {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.4));
+    animation: wavePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes wavePulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  .db-nodes {
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .db-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: #64748b;
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+
+  .db-node-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #475569;
+  }
+
+  .db-node.active .db-node-pulse {
+    background: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    animation: nodePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+    50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.8); }
+  }
+
+  .db-node.active .db-node-label {
+    color: #94a3b8;
+  }
+```
+
+### Metric Badge (actualizar):
+```css
+  /* Spotlight Metric */
+  .spotlight-metric {
+    position: absolute;
+    bottom: -30px;
+    left: 48px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    padding: 20px 28px;
+    border-radius: 20px;
+    box-shadow: 
+      0 12px 32px rgba(16, 185, 129, 0.4),
+      0 0 40px rgba(16, 185, 129, 0.2);
+    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+```
+
+---
+
+## 4. Cambios en JavaScript (líneas 692-755)
+
+### Agregar animación de waveform dinámico después de la línea 754:
+```javascript
+  // Waveform animation
+  const waveLine = document.querySelector(".wave-line");
+  if (waveLine) {
+    const generateWavePoints = () => {
+      let points = "";
+      for (let i = 0; i <= 300; i += 20) {
+        const y = 30 + Math.sin(i * 0.05 + Date.now() * 0.001) * 15;
+        points += `${i},${y} `;
+      }
+      waveLine.setAttribute("points", points.trim());
+    };
+    
+    const waveObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const interval = setInterval(generateWavePoints, 100);
+            // Store interval ID for cleanup
+            (waveLine as HTMLElement).dataset.intervalId = interval.toString();
+          } else {
+            const intervalId = (waveLine as HTMLElement).dataset.intervalId;
+            if (intervalId) clearInterval(parseInt(intervalId));
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    
+    waveObserver.observe(waveLine);
+  }
+```
+
+---
+
+## 5. Responsive Design
+
+### Agregar a la media query (max-width: 992px):
+```css
+  @media (max-width: 992px) {
+    .spotlight-visual {
+      height: 280px;
+    }
+    
+    .dashboard-preview {
+      padding: 16px;
+    }
+  }
+```
+
+### Agregar a la media query (max-width: 768px):
+```css
+  @media (max-width: 768px) {
+    .spotlight {
+      padding: 28px;
+    }
+    
+    .spotlight-visual {
+      height: 240px;
+    }
+    
+    .db-title {
+      display: none;
+    }
+    
+    .db-nodes {
+      flex-wrap: wrap;
+    }
+  }
+```
+
+---
+
+## 6. Validación
+
+```bash
+bun run build
+```
+
+**Criterios de éxito**:
+- ✅ Build exitoso (14 páginas generadas)
+- ✅ Card Monitoreo tiene apariencia dramática oscura
+- ✅ Dashboard preview muestra barras de progreso animadas
+- ✅ Waveform tiene animación sutil
+- ✅ Nodos de estado tienen pulso de glow
+- ✅ Métrica 99% mantiene su animación de contador
+- ✅ Diseño responsive se ve bien en móvil
+- ✅ Contraste adecuado (accessibility)
+
+---
+
+## 7. Archivos a Modificar
+
+| Archivo | Líneas | Cambio |
+|---------|--------|--------|
+| `src/components/Services.astro` | 60-112 | Nuevo HTML para spotlight-visual |
+| `src/components/Services.astro` | 207-463 | Reemplazar estilos spotlight y visual |
+| `src/components/Services.astro` | 692-755 | Agregar animación waveform |
+
+---
+
+## 8. Notas de Implementación
+
+1. **Orden de cambios**: Primero CSS, luego HTML, finalmente JS
+2. **Animaciones**: Usar `prefers-reduced-motion` para accesibilidad
+3. **Performance**: Las animaciones CSS son GPU-aceleradas
+4. **Fallback**: Si JS falla, las barras muestran su estado inicial
+5. **Consistencia**: Mantener los colores `--arbol-*` existentes
+
+---
+
+## Resultados de Implementación
+
+**Fecha de ejecución**: 2026-04-30
+
+### Commit Inicial
+- **Hash**: `5d26279`
+- **Mensaje**: "chore: estado antes de implementar plan 004-redesign-monitoreo-card"
+
+### Cambios Aplicados
+| Archivo | Cambio |
+|---------|--------|
+| `src/components/Services.astro` | Nuevo HTML para spotlight-visual (dashboard preview) |
+| `src/components/Services.astro` | Reemplazados estilos CSS spotlight y visual (207-463) |
+| `src/components/Services.astro` | Agregada animación JavaScript para waveform dinámico |
+| `src/components/Services.astro` | Actualizadas media queries responsive para dashboard |
+
+### Build Final
+- **Resultado**: ✅ EXITOSO
+- **Páginas generadas**: 14
+- **Tiempo**: 19.35s
+- **Errores**: Ninguno
+
+### Características Implementadas
+- ✅ Card Monitoreo con apariencia dramática oscura (gradiente #0f172a → #1e293b)
+- ✅ Dashboard preview con métricas en vivo (CPU, RAM, DISK)
+- ✅ Waveform animado con animación dinámica JavaScript
+- ✅ Nodos de estado con pulso de glow (Server 1, Server 2, Backup)
+- ✅ Métrica 99% mantiene su animación de contador
+- ✅ Diseño responsive actualizado para dashboard
+- ✅ Botón CTA con glow effect
+- ✅ Tipografía monospace para métricas
+
+### Estado
+**PLAN COMPLETADO**
