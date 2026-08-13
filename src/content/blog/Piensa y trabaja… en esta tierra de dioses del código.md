@@ -46,11 +46,7 @@ Y no, no me dan regalías. 😒
 
 ¡Malditos! 😂
 
-Pero hacen un trabajo tan excelente, junto con **oh-my-opencode**, que creo que debe saberse de su existencia.
-<br><br>
-¿Saben por qué?
-
-Porque **el conocimiento no se esconde**, el conocimiento se comparte.
+Pero hacen un trabajo tan excelente, junto con **oh-my-opencode**, que creo que debe saberse de su existencia, ya que  **el conocimiento no se esconde**, se comparte.
 <br><br>
 Y quizá estamos entrando en una época en la que decir que trabajamos solos comienza a perder sentido. Ahora podemos construir auténticos equipos de trabajo acompañados por multiples agentes de Inteligencia Artificial, cada uno especializado en aquellas tareas que saben hacer mejor.
 <br><br>

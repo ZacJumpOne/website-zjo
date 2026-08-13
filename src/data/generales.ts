@@ -2,9 +2,9 @@
 
 export const generales = {
   aviso: {
-    fechaActualizacion: "20 de abril de 2026",
+    fechaActualizacion: "13 de Agosto de 2026",
   },
-  version: "2026.05.02.06",
+  version: "2026.08.13.02",
   files: {
     formato: "###-nombre-componente.md",
     inicio: 0,
