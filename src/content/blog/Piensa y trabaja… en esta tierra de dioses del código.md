@@ -10,7 +10,7 @@ tags: ["inteligencia-artificial","agentes","desarrollo","opencode","productivida
 
 # En esta tierra...
 
-Algo hermoso en toda esta analogía mitológica es que, curiosamente, recrea algo de lo que cada jalisciense debería sentirse orgulloso y es de nuestro lema que dice:
+Algo hermoso en toda esta analogía mitológica es que, curiosamente, recrea algo de lo que cada jalisciense debería sentirse orgulloso y es de nuestro lema:
 <br><br>
 **“Piensa y Trabaja”.**
 <br><br>
@@ -46,7 +46,7 @@ Y no, no me dan regalías. 😒
 
 ¡Malditos! 😂
 
-Pero hacen un trabajo tan excelente, junto con **oh-my-opencode**, que creo que debe saberse de su existencia, ya que  **el conocimiento no se esconde**, se comparte.
+Pero hacen un trabajo excelente, junto con **oh-my-opencode**, que creo que debe saberse de su existencia, ya que  **el conocimiento no se esconde**, se comparte.
 <br><br>
 Y quizá estamos entrando en una época en la que decir que trabajamos solos comienza a perder sentido. Ahora podemos construir auténticos equipos de trabajo acompañados por multiples agentes de Inteligencia Artificial, cada uno especializado en aquellas tareas que saben hacer mejor.
 <br><br>
